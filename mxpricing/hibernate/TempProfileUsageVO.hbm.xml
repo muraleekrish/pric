@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.TempProfileUsageVO"
+        table="PRC_TEMP_PROFILE_USAGE">
+
+		<composite-id> 
+   		 <key-property name="esiId" type="string" column="ESIID"/>
+   		 <key-property name="loadProfile" type="string" column="Load_Profile"/>
+   		 <key-property name="term" type="int" column="Term"/>
+   		 <key-property name="month" type="int" column="Mnth"/>
+   		 <key-property name="hour" type="int" column="Hour"/>
+ 		 <key-many-to-one name="dayType" class="com.savant.pricing.valueobjects.DayTypesVO" column="Day_Type_ID"/>    
+   		</composite-id>				
+		
+		<property
+            name="value"
+            type="float"
+            update="true"
+            insert="true"
+            column="Value"
+        />
+        
+		<property
+            name="noOfWD"
+            type="int"
+            update="true"
+            insert="true"
+            column="NoOfWD"
+        />
+        
+		<property
+            name="noOfWE"
+            type="int"
+            update="true"
+            insert="true"
+            column="NoOfWE"
+        />
+		
+    </class>
+
+</hibernate-mapping>

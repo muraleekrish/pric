@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Unnamed" pageWidth="570" pageHeight="842" columnWidth="570" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="mxep"/>
+	<field name="billingAddress" class="java.lang.String"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="contractStartDate" class="java.util.Date"/>
+	<field name="customerName" class="java.lang.String"/>
+	<field name="dollarperkWh" class="java.lang.String"/>
+	<field name="emailAddress" class="java.lang.String"/>
+	<field name="fax" class="java.lang.String"/>
+	<field name="monthlyPrice" class="java.lang.String"/>
+	<field name="monthlySerChrge" class="java.lang.String"/>
+	<field name="noticeContactName" class="java.lang.String"/>
+	<field name="phoneNumber" class="java.lang.String"/>
+	<field name="physicalAddress" class="java.lang.String"/>
+	<field name="productName" class="java.lang.String"/>
+	<field name="securityNo" class="java.lang.String"/>
+	<field name="term" class="java.lang.String"/>
+	<detail>
+		<band height="765">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="64" width="80" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Customer Name: ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="80" y="64" width="473" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="87" width="80" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Physical Address: ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="80" y="87" width="473" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{physicalAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="110" width="80" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Billing Address: ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="80" y="110" width="473" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{billingAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="134" width="97" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Notice Contact Name:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="103" y="133" width="132" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{noticeContactName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="238" y="133" width="53" height="20"/>
+				<textElement>
+					<font size="9" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Phone No:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="286" y="133" width="111" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{phoneNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="396" y="133" width="35" height="20"/>
+				<textElement>
+					<font size="9" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fax No:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="432" y="133" width="121" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="157" width="72" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Email Address:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="72" y="157" width="169" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{emailAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="240" y="157" width="186" height="20"/>
+				<textElement>
+					<font size="9" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Federal Id or Oweners Social Security No.: ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="424" y="157" width="128" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{securityNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="181" width="42" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Quantity:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="43" y="181" width="510" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[All of Customer's electric requirements for the below ESIIDs (see Appendix A) for the term of this agreement.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="203" width="32" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Term: ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="31" y="205" width="18" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{term}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="51" y="203" width="502" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[months from the first month which electric service begins.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="228" width="108" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Monthly Service Charge:]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="108" y="228" width="83" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["$ "+$F{monthlySerChrge} + " per meter"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="0" y="252" width="553" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                           "+$F{monthlyPrice}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="0" y="277" width="553" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                                                                                   "+"All TDSP charges will be directly passed through on MXenergy monthly invoice to Customer."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="277" width="301" height="20"/>
+				<textElement>
+					<font size="9" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Transmission and Distribution Service Provider ("TDSP") charges:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="302" width="36" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Taxes: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="37" y="302" width="516" height="20"/>
+				<textElement/>
+				<text><![CDATA[All applicable taxes will be passed through to customer on MXenergy invoice(s).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="328" width="553" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Signed and Agreed this__________________________ day of _____________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="366" width="168" height="43"/>
+				<textElement>
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[_________________________
+By:
+Its:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="324" y="366" width="168" height="43"/>
+				<textElement/>
+				<text><![CDATA[_________________________
+By:
+Its:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="324" y="348" width="120" height="20"/>
+				<textElement/>
+				<text><![CDATA[MxEnergy Electric Inc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="252" width="69" height="20"/>
+				<textElement>
+					<font size="9" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Monthly Price :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="168" y="0" width="228" height="31"/>
+				<box border="None"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Price Exhibit]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement positionType="Float" x="114" y="31" width="336" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="Helvetica-Oblique"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{productName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

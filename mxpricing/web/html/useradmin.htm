@@ -1,0 +1,385 @@
+<html>
+<head>
+<title>User Admin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="common.css" type="text/css" rel="stylesheet" >
+</head>
+<script type="text/javascript">
+
+function callChangeBg(active,a,b,c,d,e)
+{
+
+	 	document.getElementById(active).className = 'active';
+		document.getElementById(a).className = 'none';
+		document.getElementById(b).className = 'none';
+		document.getElementById(c).className = 'none';
+		document.getElementById(d).className = 'none';
+		document.getElementById(e).className = 'none';
+}
+function callMenu(active,a,b,c,d,e)
+{
+
+	 	document.getElementById(active).style.display='block';
+		document.getElementById(a).style.display = 'none';
+		document.getElementById(b).style.display = 'none';
+		document.getElementById(c).style.display = 'none';
+		document.getElementById(d).style.display= 'none';
+		document.getElementById(e).style.display = 'none';
+}
+</script>
+<body> 
+<table width="100%" height="100%"  border="0" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td class="contentarea"><table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="250" class="page_title">User Admin </td> 
+        </tr> 
+      </table> 
+      <br> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr>
+          <td class="form_label">&nbsp;</td>
+          <td class="form_label">User Type</td>
+          <td class="form_label">:</td>
+          <td class="form_field"><select name="select"  class="text_box">
+            <option>-- select --</option>
+            <option>usertype1</option>
+            <option>usertype2</option>
+            <option>usertype3</option>
+            <option>usertype4</option>
+          </select></td>
+          <td class="form_label">&nbsp;</td>
+          <td class="form_label">&nbsp;</td>
+          <td class="form_field">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td width="40" class="form_label">&nbsp;</td> 
+          <td width="130" class="form_label">User Id </td> 
+          <td width="2" class="form_label">:</td> 
+          <td width="200" class="form_field"><input name="textfield" type="text" class="text_box"></td>
+          <td width="130" class="form_label">&nbsp;</td>
+          <td width="2" class="form_label">&nbsp;</td>
+          <td class="form_field">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td width="40" class="form_label">&nbsp;</td> 
+          <td width="130" class="form_label">Password</td> 
+          <td width="2" class="form_label">:</td> 
+          <td width="200" class="form_field"><input type="password" name="textfield5" class="text_box"></td>
+          <td width="130" class="form_label">Re-Type Password</td>
+          <td width="2" class="form_label">:</td>
+          <td class="form_field"><input type="password" name="textfield6" class="text_box"></td> 
+        </tr> 
+        <tr> 
+          <td width="40" class="form_label">&nbsp;</td> 
+          <td width="130" class="form_label">First Name </td> 
+          <td width="2" class="form_label">:</td> 
+          <td width="200" class="form_field"><input type="text" name="textfield3"  class="text_box"></td>
+          <td width="130" class="form_label">Last Name</td>
+          <td width="2" class="form_label">:</td>
+          <td class="form_field"><input type="text" name="textfield4"  class="text_box"></td> 
+        </tr>
+        <tr> 
+          <td width="40" class="form_label">&nbsp;</td> 
+          <td width="130" class="form_label">eMail </td> 
+          <td width="2" class="form_label">:</td> 
+          <td width="200" class="form_field"><input type="text" name="textfield7"  class="text_box"></td>
+          <td width="130" class="form_field">&nbsp;</td>
+          <td width="2" class="form_field">&nbsp;</td>
+          <td class="form_field">&nbsp;</td> 
+        </tr> 
+      </table>
+      <br>
+      <table width="670"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="list_title">Access Rights </td>
+        </tr>
+        <tr>
+          <td class="access_rights"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td valign="top" class="admin_listdata_title">Group</td>
+              <td>&nbsp;</td>
+              <td width="302" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="243" class="admin_listdata_title">Menu</td>
+                  <td width="20" class="admin_listdata_title">R</td>
+                  <td width="39" class="admin_listdata_title">W</td>
+                </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td width="300" valign="top"><div style="height:130; overflow:auto"><table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                
+                <tr id="trBil" class="">
+                  <td width="20" class="admin_listdata"><input name="checkbox2" id="checkbox2" type="checkbox"  value="checkbox"></td>
+                  <td class="admin_listdata"><a href="javascript:callChangeBg('trBil','trFin','trSal','trOpe','trFor','trSec')" onClick="callMenu('menuBil','menuFin','menuSal','menuOpe','menuFor','menuSec')">Billing</a></td>
+                </tr>
+                <tr id="trFin" class="">
+                  <td width="20" class="admin_listdata"><input name="checkbox3" type="checkbox" value="checkbox"></td>
+                  <td class="admin_listdata"><a href="javascript:callChangeBg('trFin','trBil','trSal','trOpe','trFor','trSec')"  onClick="callMenu('menuFin','menuBil','menuSal','menuOpe','menuFor','menuSec')">Finance</a></td>
+                </tr>
+                <tr id="trSal" class="">
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox4" value="checkbox"></td>
+                  <td class="admin_listdata"><a href="javascript:callChangeBg('trSal','trFin','trBil','trOpe','trFor','trSec')" onClick="callMenu('menuSal','menuFin','menuBil','menuOpe','menuFor','menuSec')">Sales</a></td>
+                </tr>
+                <tr id="trOpe" class="">
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox5" value="checkbox"></td>
+                  <td class="admin_listdata"><a href="javascript:callChangeBg('trOpe','trFin','trSal','trBil','trFor','trSec')" onClick="callMenu('menuOpe','menuFin','menuSal','menuBil','menuFor','menuSec')">Operation</a></td>
+                </tr>
+                <tr id="trFor" class="">
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox6" value="checkbox"></td>
+                  <td class="admin_listdata"><a href="javascript:callChangeBg('trFor','trFin','trSal','trOpe','trBil','trSec')" onClick="callMenu('menuFor','menuFin','menuSal','menuOpe','menuBil','menuSec')">Forecasts</a></td>
+                </tr>
+                <tr id="trSec" class="">
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox7" value="checkbox"></td>
+                  <td class="admin_listdata"><a href="javascript:callChangeBg('trSec','trFin','trSal','trOpe','trFor','trBil')" onClick="callMenu('menuSec','menuFin','menuSal','menuOpe','menuFor','menuBil')">Security</a></td>
+                </tr>
+              </table></div></td>
+              <td width="22">&nbsp;</td>
+              <td colspan="3" valign="top"><div style="height:130; overflow:auto"><table width="283" id="menuBil"  border="0" cellspacing="0" cellpadding="0" style="display:block ">
+                <tr>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox9" value="checkbox"></td>
+                  <td width="223" class="admin_listdata">Billing 1</td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox15" value="checkbox"></td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox" value="checkbox"></td>
+                </tr>
+                <tr>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox10" value="checkbox"></td>
+                  <td width="223" class="admin_listdata">Billing 2 </td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox16" value="checkbox"></td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox8" value="checkbox"></td>
+                </tr>
+                <tr>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox11" value="checkbox"></td>
+                  <td width="223" class="admin_listdata">Billing 3 </td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox17" value="checkbox"></td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox13" value="checkbox"></td>
+                </tr>
+                <tr>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox12" value="checkbox"></td>
+                  <td width="223" class="admin_listdata">Billing 4 </td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox18" value="checkbox"></td>
+                  <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox14" value="checkbox"></td>
+                </tr>
+              </table>                
+              <table width="283" id="menuFin"  border="0" cellspacing="0" cellpadding="0" style="display:none ">
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox92" value="checkbox"></td>
+                    <td width="204" class="admin_listdata">Finance 1</td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox152" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox19" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox102" value="checkbox"></td>
+                    <td class="admin_listdata">Finance 2 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox162" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox82" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox112" value="checkbox"></td>
+                    <td class="admin_listdata">Finance 3 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox172" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox132" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox122" value="checkbox"></td>
+                    <td class="admin_listdata">Finance 4 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox182" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox142" value="checkbox"></td>
+                  </tr>
+                </table>
+                <table width="283" id="menuSal"  border="0" cellspacing="0" cellpadding="0" style="display:none ">
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox96" value="checkbox"></td>
+                    <td width="204" class="admin_listdata">Sales 1</td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox156" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox23" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox106" value="checkbox"></td>
+                    <td class="admin_listdata">Sales 2 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox166" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox86" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox116" value="checkbox"></td>
+                    <td class="admin_listdata">Sales 3 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox176" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox136" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox126" value="checkbox"></td>
+                    <td class="admin_listdata">Sales 4 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox186" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox146" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                </table>
+                <table width="283" id="menuOPe"  border="0" cellspacing="0" cellpadding="0" style="display:none ">
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox95" value="checkbox"></td>
+                    <td width="204" class="admin_listdata">Operation 1</td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox155" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox22" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox105" value="checkbox"></td>
+                    <td class="admin_listdata">Operation 2 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox165" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox85" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox115" value="checkbox"></td>
+                    <td class="admin_listdata">Operation3 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox175" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox135" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox125" value="checkbox"></td>
+                    <td class="admin_listdata">Operation 4 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox185" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox145" value="checkbox"></td>
+                  </tr>
+                </table>
+                <table width="283" id="menuFor"  border="0" cellspacing="0" cellpadding="0" style="display:none">
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox94" value="checkbox"></td>
+                    <td width="204" class="admin_listdata">Forecast 1</td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox154" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox21" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox104" value="checkbox"></td>
+                    <td class="admin_listdata">Forecast 2 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox164" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox84" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox114" value="checkbox"></td>
+                    <td class="admin_listdata">Forecast 3 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox174" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox134" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox124" value="checkbox"></td>
+                    <td class="admin_listdata">Forecast 4 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox184" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox144" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                    <td class="admin_listdata">&nbsp;</td>
+                  </tr>
+                </table>
+                <table width="283" id="menuSec"  border="0" cellspacing="0" cellpadding="0" style="display:none ">
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox93" value="checkbox"></td>
+                    <td width="204" class="admin_listdata">Security 1</td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox153" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox20" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox103" value="checkbox"></td>
+                    <td class="admin_listdata">Security 2 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox163" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox83" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox113" value="checkbox"></td>
+                    <td class="admin_listdata">Security 3 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox173" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox133" value="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox123" value="checkbox"></td>
+                    <td class="admin_listdata">Security 4 </td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox183" value="checkbox"></td>
+                    <td width="20" class="admin_listdata"><input type="checkbox" name="checkbox143" value="checkbox"></td>
+                  </tr>
+                </table></div></td>
+             
+            </tr>
+          </table></td>
+        </tr>
+      </table> 
+      <br>
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="btnbg">
+            <input type="button" name="addUser" value="Submit"class="button_internal">
+            <input name="reset" type="reset" class="button_internal" value="Reset">
+            <input type="button" name="cancelUser" value="Cancel" class="button_internal">
+          </td>
+        </tr>
+      </table></td> 
+  </tr> 
+</table> 
+</body>
+</html>

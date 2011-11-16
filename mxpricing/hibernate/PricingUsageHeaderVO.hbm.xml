@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PricingUsageHeaderVO"
+        table="PRC_Usage_Header">
+
+        <id
+            name="pricingUsageRefId"
+            column="PRC_Usage_Ref_ID"
+            type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+		<many-to-one name="priceRunCustomer" column="Price_Run_Cust_Ref_ID"/>
+		
+		<property
+            name="esiId"
+            type="string"
+            update="true"
+            insert="true"
+            column="ESIID"
+        />
+		
+		<property
+            name="term"
+            type="int"
+            update="true"
+            insert="true"
+            column="Term"
+        />
+	</class>
+</hibernate-mapping>

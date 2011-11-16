@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PowerFactorRatchetVO"
+        table="PRC_TDSP_Power_Fctr_Ratchet">
+
+		<composite-id> 
+  		 <key-many-to-one name="tdspRateCode" class="com.savant.pricing.valueobjects.TDSPRateCodesVO" column="Rate_Code_ID"/>    
+        </composite-id> 
+		
+		<property
+            name="demandRatchetPercent"
+            type="float"
+            update="true"
+            insert="true"
+            column="Dmnd_Ratchet_Prcnt"
+        />
+		
+		<property
+            name="powerFactor"
+            type="float"
+            update="true"
+            insert="true"
+            column="Power_Fctr"
+        />
+    </class>
+
+</hibernate-mapping>

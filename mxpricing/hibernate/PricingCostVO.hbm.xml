@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PricingCostVO"
+        table="PRC_Cost">
+
+        <id type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		
+		<many-to-one name="usageRef" fetch="join" column="PRC_Usage_Ref_ID"/>    	
+
+	    <many-to-one name="energyChargeName" fetch="join" column="Enrgy_Chrge_ID"/>
+	    
+		<many-to-one name="priceBlock" fetch="join" column="Price_Blck_ID"/>    
+
+		<many-to-one name="tdspChargeName" fetch="join" column="TDSP_Chrge_ID"/>    
+
+		<many-to-one name="chargeType" fetch="join" column="Chrge_Type_ID"/>    
+		
+	    <many-to-one name="profileType" fetch="join" column="Profile_ID"/>
+		
+		
+		<property
+            name="termMonth"
+            type="date"
+            update="true"
+            insert="true"
+            column="Mnth_Yr"
+        />
+		
+		<property
+            name="term"
+            type="int"
+            update="true"
+            insert="true"
+            column="Term"
+        />
+		
+		<property
+            name="charge"
+            type="float"
+            update="true"
+            insert="true"
+            column="Chrge"
+        />
+        
+        <property
+            name="chargeWOL"
+            type="float"
+            update="true"
+            insert="true"
+            column="chrge_wol"
+        />
+		
+    </class>
+
+</hibernate-mapping>

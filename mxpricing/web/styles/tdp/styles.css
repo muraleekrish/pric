@@ -1,0 +1,56 @@
+.datatitle {
+	font-family: "Trebuchet MS";
+	font-size: 11px;
+	font-weight: bold;
+	border-bottom:solid 1px #EEE;
+	border-left:solid 1px #CCC;
+
+	padding:0px 2px 1px 5px;
+}
+
+.datafld {
+	font-family: "Trebuchet MS";
+	font-size: 11px;
+	font-weight: normal;
+	border-bottom:solid 1px #EEE;
+	border-right:solid 1px #CCC;
+border-left:dashed 1px #CCC;
+	padding:0px 2px 1px 5px;
+}
+
+.datatitle1 {
+	font-family: "Trebuchet MS";
+	font-size: 11px;
+	font-weight: bold;
+border-top:solid 1px #EEE;
+	border-bottom:solid 2px #EEE;
+	border-left:solid 1px #CCC;
+background: #ccc;
+	padding:0px 2px 1px 5px;
+}
+
+.datafld1 {
+	font-family: "Trebuchet MS";
+	font-size: 11px;
+	font-weight: normal;
+border-top:solid 1px #EEE;
+	border-bottom:solid px #EEE;
+border-bottom:solid 2px #EEE;
+	border-right:solid 1px #CCC;
+	background: #ccc;
+
+	padding:0px 2px 1px 5px;
+}
+
+
+.list_data {
+	font-size:11px;
+	border-bottom:solid 1px #EEE;
+	border-left:dashed 1px #CCC;
+	padding:3px 2px 3px 5px;
+}
+
+.table
+{
+border-top:dashed 1px #EEE;
+}

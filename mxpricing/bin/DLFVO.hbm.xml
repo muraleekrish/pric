@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.DLFVO"
+        table="PRC_DLF">
+
+		<composite-id> 
+ 		 <key-many-to-one name="dlfCode" class="com.savant.pricing.calculation.valueobjects.DLFCodeVO" column="DLF_Code_ID"/>    
+   		</composite-id>	
+		
+		<property
+            name="dlf"
+            type="float"
+            update="true"
+            insert="true"
+            column="DLF_Value"
+        />
+    </class>
+
+</hibernate-mapping>

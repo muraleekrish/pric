@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="CPEFixed" pageWidth="650" pageHeight="890" columnWidth="620" leftMargin="15" rightMargin="15" topMargin="90" bottomMargin="15">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="PriceComparisionSubreport"/>
+	<property name="com.jasperassistant.designer.VGuides.Detail" value="0,2,2,400"/>
+	<parameter name="cntrStartdate" class="java.util.Date"/>
+	<parameter name="expDate" class="java.util.Date"/>
+	<parameter name="subRepPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:/pricingdata/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="productName" class="java.lang.String"/>
+	<parameter name="annualkWh" class="java.lang.Double"/>
+	<parameter name="contractStrtDate" class="java.util.Date"/>
+	<parameter name="terms" class="java.lang.String"/>
+	<field name="annualConsumption" class="java.lang.Float"/>
+	<field name="annualDetails" class="java.util.List"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="contractStMnth" class="java.lang.String"/>
+	<field name="custName" class="java.lang.String"/>
+	<field name="esiidCount" class="java.lang.Integer"/>
+	<field name="forwdCurvePrice" class="java.lang.String"/>
+	<field name="gasprice" class="java.lang.String"/>
+	<field name="gaspriceDate" class="java.lang.String"/>
+	<field name="loadFactor" class="java.lang.Float"/>
+	<field name="termDetails" class="java.util.List"/>
+	<detail>
+		<band height="673">
+			<frame>
+				<reportElement positionType="Float" mode="Opaque" x="4" y="0" width="612" height="661" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#C0C0C0"/>
+				<box border="1Point" borderColor="#000000" padding="0"/>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="15" y="17" width="582" height="632"/>
+					<box border="1Point" padding="0"/>
+					<subreport>
+						<reportElement positionType="Float" x="13" y="349" width="144" height="156"/>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.List)$F{termDetails})]]></dataSourceExpression>
+						<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"PriceComparisionReport.jasper"]]></subreportExpression>
+					</subreport>
+					<subreport>
+						<reportElement positionType="Float" x="12" y="152" width="180" height="192"/>
+						<subreportParameter name="annualkWh">
+							<subreportParameterExpression><![CDATA[$P{annualkWh}]]></subreportParameterExpression>
+						</subreportParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.List)$F{annualDetails})]]></dataSourceExpression>
+						<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"AnnualSummaryReport.jasper"]]></subreportExpression>
+					</subreport>
+					<frame>
+						<reportElement positionType="Float" x="12" y="511" width="561" height="85"/>
+						<box border="1Point"/>
+						<staticText>
+							<reportElement positionType="Float" mode="Opaque" x="0" y="1" width="561" height="20" backcolor="#C0C0C0"/>
+							<box border="1Point"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="12" pdfFontName="Helvetica-Bold"/>
+							</textElement>
+							<text><![CDATA[Terms and conditions]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true" hyperlinkType="None">
+							<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="3" y="56" width="554" height="20"/>
+							<box border="None" padding="0"/>
+							<textElement textAlignment="Justified"/>
+							<textFieldExpression class="java.lang.String"><![CDATA["The price for electricity supplied by MXenergy to buyer’s accounts (METERS) as listed in the pricing proposal is for the FULL REQUIREMENTS of the buyer’s electricity REQUIREMENTS for the accounts."
++"\n\n"+"The contract proposal is based on the NYMEX 12-months forward strip price " + $F{gasprice}+" $/MMBtu of "+ $F{gaspriceDate}+" and is subject to change up or down until a sales agreement is signed.  Once executed, the price will be fixed for the term on the contract."]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" hyperlinkType="None">
+							<reportElement positionType="Float" x="2" y="22" width="554" height="20"/>
+							<box border="None" padding="0"/>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+							<textFieldExpression class="java.lang.String"><![CDATA[$P{terms}]]></textFieldExpression>
+						</textField>
+					</frame>
+					<frame>
+						<reportElement x="1" y="1" width="580" height="52"/>
+						<box border="2Point" padding="0"/>
+						<image hyperlinkType="None">
+							<reportElement x="6" y="0" width="162" height="50"/>
+							<graphicElement/>
+							<imageExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"mxEnergy.GIF"]]></imageExpression>
+						</image>
+						<textField hyperlinkType="None">
+							<reportElement x="230" y="10" width="334" height="33"/>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font size="20" pdfFontName="Helvetica-Bold"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA["Price Quote For "+$P{productName}]]></textFieldExpression>
+						</textField>
+					</frame>
+					<textField hyperlinkType="None">
+						<reportElement positionType="Float" x="130" y="61" width="440" height="24"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+						<textElement verticalAlignment="Middle">
+							<font size="14"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{custName}]]></textFieldExpression>
+					</textField>
+					<textField pattern="0" hyperlinkType="None">
+						<reportElement positionType="Float" x="112" y="88" width="225" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.Integer"><![CDATA[$F{esiidCount}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="13" y="61" width="118" height="24"/>
+						<box topBorder="1Point" leftBorder="1Point" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle">
+							<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[ Customer Name: ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="13" y="88" width="100" height="18"/>
+						<box topBorder="1Point" leftBorder="1Point" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[ Number of ESIID(s): ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="336" y="88" width="118" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Estimated Load Factor :]]></text>
+					</staticText>
+					<textField pattern="#,##0.00%" hyperlinkType="None">
+						<reportElement positionType="Float" x="453" y="88" width="117" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.Float"><![CDATA[$F{loadFactor}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="13" y="109" width="58" height="18"/>
+						<box topBorder="1Point" leftBorder="1Point" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[ Offer Date:]]></text>
+					</staticText>
+					<textField pattern="MMM d, yyyy" hyperlinkType="None">
+						<reportElement positionType="Float" x="70" y="109" width="267" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$P{cntrStartdate}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="336" y="109" width="66" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Expire Date :]]></text>
+					</staticText>
+					<textField pattern="MMM d, yyyy h:mm a" hyperlinkType="None">
+						<reportElement positionType="Float" x="401" y="109" width="169" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$P{expDate}]]></textFieldExpression>
+					</textField>
+					<image scaleImage="FillFrame" hyperlinkType="None">
+						<reportElement x="157" y="152" width="416" height="192"/>
+						<graphicElement/>
+						<imageExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"annualChart.jpeg"]]></imageExpression>
+					</image>
+					<image scaleImage="FillFrame" hyperlinkType="None">
+						<reportElement x="345" y="349" width="228" height="160"/>
+						<graphicElement/>
+						<imageExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"TermComparison.jpeg"]]></imageExpression>
+					</image>
+					<staticText>
+						<reportElement positionType="Float" x="13" y="130" width="97" height="18"/>
+						<box topBorder="1Point" leftBorder="1Point" bottomBorder="1Point" rightBorder="None"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font isBold="false" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Contract Starts In:]]></text>
+					</staticText>
+					<textField pattern="MMM yyyy" hyperlinkType="None">
+						<reportElement positionType="Float" x="110" y="130" width="460" height="18"/>
+						<box topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$P{contractStrtDate}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="213" height="13" backcolor="#877E87"/>
+					<box topBorder="1Point" leftBorder="1Point" bottomBorder="1Point" rightBorder="None"/>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="212" y="0" width="400" height="13" forecolor="#FFFFFF" backcolor="#FF0000"/>
+					<box borderColor="#000000" padding="0" topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+				</frame>
+				<elementGroup>
+					<elementGroup>
+						<elementGroup>
+							<staticText>
+								<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="27" y="622" width="384" height="18" backcolor="#CFCFCF"/>
+								<box border="1Point"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[Copyright MXenergy Inc. Contact MXenergy Call Toll Free 800.785.4373 E-mail: ]]></text>
+							</staticText>
+							<textField hyperlinkType="Reference">
+								<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="410" y="622" width="178" height="18" forecolor="#0000FF" backcolor="#CFCFCF"/>
+								<box borderColor="#000000" padding="0" topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="9" isUnderline="true" pdfFontName="Helvetica-Oblique"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[" feedback@mxenergy.com"]]></textFieldExpression>
+							</textField>
+						</elementGroup>
+					</elementGroup>
+				</elementGroup>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

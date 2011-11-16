@@ -1,0 +1,295 @@
+<html>
+<head>
+<title>MXenergy Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/javascript" src="script/submenu.js"></script>
+<script language="JavaScript" src="script/mm_menu.js"></script>
+<script>
+	function prevYear(obj)
+	{
+		var crntYear = parseInt(obj.parentNode.children(1).innerText,10);
+		obj.parentNode.children(1).innerHTML = "&nbsp;"+(crntYear - 1)+"&nbsp;";
+	}
+	function nextYear(obj)
+	{
+		var crntYear = parseInt(obj.parentNode.children(1).innerText,10);
+		obj.parentNode.children(1).innerHTML = "&nbsp;"+(crntYear + 1)+"&nbsp;";
+	}
+	
+function callRep()
+{
+	document.getElementById('tblList').style.display='block';
+	document.getElementById('tblChart').style.display='none';
+	document.getElementById('Chart').className='subtab_off';
+	document.getElementById('Report').className='subtab_on';
+}
+function callCht()
+{
+	document.getElementById('tblChart').style.display='block';
+	document.getElementById('tblList').style.display='none';
+	document.getElementById('Chart').className='subtab_on';
+	document.getElementById('Report').className='subtab_off';
+}
+</script>
+<link href="styles/MXenergy.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<script language="JavaScript1.2">mmLoadMenus();</script> 
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td  valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="149"><img src="images/logo_small.gif" width="149" height="50"></td> 
+          <td align="right" background="images/banner_bg.gif"><img src="images/banner_text.gif" width="151" height="50"></td> 
+          <td width="80"><img src="images/log_con.gif" width="80" height="50"></td> 
+          <td width="200" class="loginfo">Welcome,Savant <img src="images/icon_settings.gif" width="16" height="16" align="absmiddle"> <a href="index.htm"><img src="images/icon_logoff.gif" width="16" height="16" border="0" align="absmiddle"></a></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td background="images/banner_base.gif"><img src="images/banner_base.gif" width="50" height="10"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="75" class="menu"><a href="#" name="link6" id="link1" onMouseOver="MM_showMenu(window.mm_menu_0102170942_0,-1,17,null,'link6')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;Settings&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="99" class="menu"><a href="#" name="link7" id="link3" onMouseOver="MM_showMenu(window.mm_menu_0102175203_0,-2,17,null,'link7')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;Pricing&nbsp;Configuration&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="32" class="menu"><a href="#" name="link2" id="link4" onMouseOver="MM_showMenu(window.mm_menu_0102185309_0,-2,17,null,'link2')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pricing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="73" class="menu"><a href="#" name="link8" id="link5" onMouseOver="MM_showMenu(window.mm_menu_0102185605_0,-2,17,null,'link8')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Security&nbsp;Admin&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="730" class="menubg">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="250" class="page_title"> Prospective Customers</td> 
+          <td class="page_title">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="112" class="subtab_off" id="set1"><a href="ProspectiveCustomersManagerEdit.htm" >Customer&nbsp;Details </a></td> 
+          <td width="78" class="subtab_on" >PIC&nbsp;Info</td> 
+		   <td width="78" class="subtab_off" ><a href="PreferenceManager.htm">Preferences</a></td> 
+          <td width="640">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td class="subtabbase"><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0"> 
+        <tr> 
+          <td width="171" class="fieldtitle">Customer Name </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td class="fieldata" colspan="4">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td width="171" class="fieldtitle">Customer CMS ID</td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td class="fieldata" width="187">&nbsp;</td> 
+          <td width="101" class="fieldtitle">No. of ESIIDs </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td width="513"  class="fieldata">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <br> 
+      <fieldset> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td class="tblhead"><a href="#"><img  src="images/previous.gif" alt="Previous" width="4" height="7" border="0"></a>&nbsp;ESIID 56832561243&nbsp;<a href="#"><img src="images/next.gif" alt="Next" width="4" height="7" border="0"></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+            <select name="select" style="width:100px;background-color:#EFEFEF;"> 
+              <option>56832561243</option> 
+              <option>56832561244</option> 
+              <option>56832561245</option> 
+            </select> 
+&nbsp;&nbsp;&nbsp; ESIID 1 of 5 </td> 
+        </tr> 
+      </table> 
+      <br> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="189" class="fieldtitle">Customer </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td class="fieldata" width="245">&nbsp;</td> 
+          <td width="191" class="fieldtitle">Service Address</td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td width="347" class="fieldata">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td width="189" class="fieldtitle">Rate Class </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td class="fieldata" width="245">17</td> 
+		   <td width="191" class="fieldtitle">Read Cycle </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td width="347" class="fieldata">12</td>
+        </tr> 
+        <tr> 
+          <td width="189" class="fieldtitle">Service Zip </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td class="fieldata" width="245">76180</td> 
+          <td width="191" class="fieldtitle">Load Profile </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td width="347" class="fieldata">BUSMEDLF_NCENTNIDR_NWS_NOYOU</td> 
+        </tr> 
+        
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="83" class="subtab_on" id="Report"><a href="#" onClick="callRep()" >Report</a></td> 
+          <td width="52" class="subtab_off" id="Chart" ><a href="#" onClick="callCht()" >Chart</a></td> 
+          <td >&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td class="subtabbase"><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> 
+     
+      <table width="100%" height="140"  border="0" cellpadding="0" cellspacing="0" id="tblList"> 
+        <tr class="tblheader"> 
+          <td width="11%">&nbsp;</td> 
+          <td width="50">Jan</td> 
+          <td width="50">Feb</td> 
+          <td width="50">Mar</td> 
+          <td width="50">Apr</td> 
+          <td width="50">May</td> 
+          <td width="50">Jun</td> 
+          <td width="50">Jul</td> 
+          <td width="50">Aug</td> 
+          <td width="50">Sep</td> 
+          <td width="50">Oct</td> 
+          <td width="50">Nov</td> 
+          <td width="50">Dec</td> 
+        </tr> 
+        <tr> 
+          <td class="list_data"><strong>Read Date </strong></td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td class="list_data"><strong>No of Days </strong></td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td class="list_data"><strong>kWh</strong></td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td class="list_data"><strong>kVA</strong></td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td class="list_data"><strong>kW</strong></td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+          <td width="50" class="list_data">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <div style="height:200; width:100%; overflow:auto; display:none" id="tblChart"> <br>
+        <table width="100%"  height="" border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td width="50">&nbsp;</td> 
+            <td><img src="images/reviewChart1.bmp"  /></td> 
+            <td width="50">&nbsp;</td> 
+            <td><img src="images/reviewChart2.bmp"  /></td> 
+          </tr> 
+          <tr> 
+            <td>&nbsp;</td> 
+            <td><img src="images/reviewChart3.bmp"  /></td> 
+            <td>&nbsp;</td> 
+            <td><img src="images/reviewChart4.bmp"  /></td> 
+          </tr> 
+          <tr> 
+            <td>&nbsp;</td> 
+            <td><img src="images/reviewChart5.bmp"  /></td> 
+            <td>&nbsp;</td> 
+            <td><img src="images/reviewChart6.bmp"  /></td> 
+          </tr> 
+        </table> 
+      </div> 
+      </fieldset> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="1%" class="fieldata">&nbsp;</td> 
+          <td width="99%" class="fieldata"><input name="Import File" type="submit" class="button" id="Import File" value="Ok" onClick="window.open('PreferenceManager.htm','_self')"> </td> 
+        </tr> 
+      </table> 
+  <tr> 
+    <td height="20"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="copyright"> 
+        <tr> 
+          <td>Design Rights Savant Technologies </td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 
+</body>
+</html>

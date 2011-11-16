@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.valueobjects.ContractsTrackingVO"
+        table="PRC_Contracts_Tracking">
+
+        <id
+            name="contractTrackingIdentifier"
+            column="Contract_Tracking_ID"
+            type="string">
+
+            
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		<many-to-one name="contractRef"  column="Contract_ID" class="com.savant.pricing.valueobjects.ContractsVO" lazy="false"/>    	
+	    <many-to-one name="customerStatus"  column="Cust_Status_ID" fetch="join"/>
+	    <many-to-one name="reportIdentifier" column="Report_id" fetch="join" />
+	    
+	    <property
+            name="proposalDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="proposalDate"
+        />
+	    <property
+            name="expiryDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="expirtyDate"
+        />
+	    <property
+            name="contractStartDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="contractStartDate"
+        />
+	    <property
+            name="contractEndDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="contractEndDate"
+        />
+	    <property
+            name="cmsContractTypeId"
+            type="int"
+            update="true"
+            insert="true"
+            column="cmsContractTypeId"
+        />
+	    <property
+            name="cmsContractStatusId"
+            type="int"
+            update="true"
+            insert="true"
+            column="cmsContractStatusId"
+        />
+	    <property
+            name="cmsMXenergyRateClassId"
+            type="int"
+            update="true"
+            insert="true"
+            column="cmsMXenergyRateClassId"
+        />
+        
+        <property
+            name="reportCode"
+            type="string"
+            update="true"
+            insert="true"
+            column="Report_Code"
+        />
+	    
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="EssiId" pageWidth="600" pageHeight="560" orientation="Landscape" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="ContractSubReportDatasource"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="esiId" class="java.lang.String"/>
+	<field name="serviceAddress" class="java.lang.String"/>
+	<field name="tdsp" class="java.lang.String"/>
+	<title>
+		<band height="37">
+			<staticText>
+				<reportElement positionType="Float" x="1" y="0" width="204" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Appendix A - Contract ESIIDs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="15" width="216" height="22"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ESIID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="217" y="15" width="192" height="22"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Service Address: 	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="407" y="15" width="144" height="22"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="SansSerif" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TDSP:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="20">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="0" y="2" width="216" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{esiId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="217" y="1" width="192" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{serviceAddress}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="409" y="0" width="144" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tdsp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

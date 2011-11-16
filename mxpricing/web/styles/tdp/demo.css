@@ -1,0 +1,76 @@
+@import "calendar.css";
+
+body, table, div {
+	font-family:Arial, Helvetica, sans-serif;
+	overflow:auto;
+	SCROLLBAR-3DLIGHT-COLOR: #e7e7e7; 
+	SCROLLBAR-ARROW-COLOR: #000000; 
+	SCROLLBAR-TRACK-COLOR: #dddddd; 
+	SCROLLBAR-DARKSHADOW-COLOR: #000000; 
+	SCROLLBAR-BASE-COLOR: #cccccc;
+	SCROLLBAR-FACE-COLOR: #BBBBBB;
+	SCROLLBAR-HIGHLIGHT-COLOR: #000000;
+	SCROLLBAR-SHADOW-COLOR: #cccccc;
+}
+
+.page_title{
+	border-bottom:solid 2px #666666; color:#000000;	font-size:15px;	font-weight:bold; padding:3px 0px 3px 10px;	margin-bottom:5px; }
+
+.nav_page_right {
+	font-size:11px; text-align:right; border-bottom:solid 2px #666666; padding:3px 5px 3px 0px; }
+	.nav_page_right a:link { color:#0000FF; text-decoration:none; }	.nav_page_right a:visited { color:#0000FF; text-decoration:none; }	.nav_page_right a:hover { color:#FF0000; text-decoration:none; }
+
+.filter td{
+	background-color:#EFEFEF; border-bottom:solid 1px #CCCCCC; border-top:solid 1px #F6F6F6; font-size:11px; padding:2px 2px 2px 3px; margin-bottom:2.5px; }
+
+/*Start List Table Items*/
+.list_title_table {
+	margin-top:2.5px; border-right:solid 1px #999999; }
+
+.list_title_str{
+	font-size:11px; font-weight:bold; padding:3px 0px 3px 5px; border-bottom:solid 1px #999999; border-top:solid 1px #999999; }
+
+.list_title{
+	font-size:11px; font-weight:bold; padding:3px 0px 3px 5px; border-bottom:solid 1px #999999; border-top:solid 1px #999999; border-left:solid 1px #EFEFEF; }
+
+.list_title_str{
+	font-size:11px; font-weight:bold; padding:3px 0px 3px 5px; border-bottom:solid 1px #999999; border-top:solid 1px #999999; }
+
+.list_title_highlight{
+	background-color:#EFEFEF; font-size:11px; font-weight:bold; padding:3px 0px 3px 5px; border-bottom:solid 1px #999999; border-top:solid 1px #999999; border-left:solid 1px #EFEFEF; }
+
+.list_title_checker {
+	padding:0px; text-align:center; border-bottom:solid 1px #999999; border-top:solid 1px #999999; border-left:solid 1px #999999; }
+
+.list_data_table {
+	margin-bottom:2px; border-right:solid 1px #FFFFFF; border-left:solid 1px #FFFFFF; border-bottom:solid 1px #999999; }
+
+.list_data_str {
+	font-size:11px; border-bottom:solid 1px #FFFFFF; padding:3px 5px 3px 5px; }
+	.list_data_str a:link { color:#0000FF; text-decoration:none; }	.list_data_str a:visited { color:#0000FF; text-decoration:none; }	.list_data_str a:hover { color:#FF0000; text-decoration:none; }
+	
+.list_data_checker { 
+	padding:0px; text-align:center; border-bottom:solid 1px #FFFFFF; }
+	
+.list_data {
+	font-size:11px; border-left:solid 1px #EFEFEF; border-bottom:solid 1px #FFFFFF; padding:3px 5px 3px 5px; }
+	.list_data a:link { color:#0000FF; text-decoration:none; }	.list_data a:visited { color:#0000FF; text-decoration:none; }	.list_data a:hover { color:#FF0000; text-decoration:none; }
+	
+.list_data_highlight {
+	background-color:#EFEFEF; font-size:11px; border-left:solid 1px #EFEFEF; border-bottom:solid 1px #FFFFFF; padding:3px 5px 3px 5px; }
+	.list_data_highlight a:link { color:#0000FF; text-decoration:none; }	.list_data_highlight a:visited { color:#0000FF; text-decoration:none; }	.list_data_highlight a:hover { color:#FF0000; text-decoration:underline; }
+	
+.list_data_hover {
+	background-color:#C0E1FA; cursor:default; }
+
+/*End List Table Items*/
+
+.paginators {
+	font-size:11px; text-align:right; padding:2px 3px 2px 0px; }
+	.paginators a:link { color:#0000FF; text-decoration:none; }	.paginators a:visited { color:#0000FF; text-decoration:none; }	.paginators a:hover { color:#FF0000; text-decoration:none; }
+
+/*Form Fields*/
+select, input, textarea {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+}

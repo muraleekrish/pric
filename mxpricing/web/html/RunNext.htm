@@ -1,0 +1,341 @@
+<html>
+<head>
+<title>MXenergy Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/javascript" src="script/submenu.js"></script>
+<script language="JavaScript" src="script/mm_menu.js"></script>
+<link href="styles/MXenergy.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #0066FF}
+-->
+</style>
+</head>
+<body> 
+<script type="text/javascript">
+function callExp()
+{
+document.getElementById('CusExp1').style.display='block';
+document.getElementById('CusExp2').style.display='block';
+document.getElementById('img1').src = 'images/open.gif';
+document.getElementById('img2').src = 'images/open.gif';
+
+}
+function callCol()
+{
+document.getElementById('CusExp1').style.display='none';
+document.getElementById('CusExp2').style.display='none';
+document.getElementById('img1').src = 'images/close.gif';
+document.getElementById('img2').src = 'images/close.gif';
+}
+
+function showHide(tbl,childtbl,img) {
+	var table = document.getElementById(tbl);
+	var chtable = document.getElementById(childtbl);
+	var img = document.getElementById(img);
+	
+	if(table.style.display == 'none') {
+		table.style.display = 'block';
+		img.src = 'images/open.gif';
+		
+	}
+	else if(table.style.display == 'block') {
+		table.style.display = 'none';
+		img.src = 'images/close.gif';
+		
+	}
+}
+</script> 
+<script language="JavaScript1.2">mmLoadMenus();</script> 
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td  valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="149"><img src="images/logo_small.gif" width="149" height="50"></td> 
+          <td align="right" background="images/banner_bg.gif"><img src="images/banner_text.gif" width="151" height="50"></td> 
+          <td width="80"><img src="images/log_con.gif" width="80" height="50"></td> 
+          <td width="200" class="loginfo">Welcome,Savant <img src="images/icon_settings.gif" width="16" height="16" align="absmiddle"> <a href="index.htm"><img src="images/icon_logoff.gif" width="16" height="16" border="0" align="absmiddle"></a></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td background="images/banner_base.gif"><img src="images/banner_base.gif" width="50" height="10"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="75" class="menu"><a href="#" name="link6" id="link1" onMouseOver="MM_showMenu(window.mm_menu_0102170942_0,-1,17,null,'link6')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;Settings&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="99" class="menu"><a href="#" name="link7" id="link3" onMouseOver="MM_showMenu(window.mm_menu_0102175203_0,-2,17,null,'link7')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;Pricing&nbsp;Configuration&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="32" class="menu"><a href="#" name="link2" id="link4" onMouseOver="MM_showMenu(window.mm_menu_0102185309_0,-2,17,null,'link2')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pricing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="73" class="menu"><a href="#" name="link8" id="link5" onMouseOver="MM_showMenu(window.mm_menu_0102185605_0,-2,17,null,'link8')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Security&nbsp;Admin&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="730" class="menubg">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="250" class="page_title"> Run </td> 
+          <td class="page_title"><table  border="0" align="right" cellpadding="0" cellspacing="0" class="topnav"> </table></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0"> 
+        <tr> 
+          <td class="fieldtitle">Rundate</td> 
+          <td class="fieldtitle">:</td> 
+          <td class="fieldata">&nbsp;&nbsp;&nbsp; 01/01/2007 12:10pm </td> 
+          <td class="fieldtitle">Pricing Analyst</td> 
+          <td class="fieldtitle">:</td> 
+          <td class="fieldata">&nbsp;&nbsp;&nbsp;Yantro </td> 
+        </tr> 
+        <tr> 
+          <td width="147" class="fieldtitle">Status</td> 
+          <td width="9" class="fieldtitle">:</td> 
+          <td width="287" class="fieldata">&nbsp;&nbsp;&nbsp; Yet to be started </td> 
+          <td width="100" class="fieldtitle">Mail Notification </td> 
+          <td width="10" class="fieldtitle">:</td> 
+          <td width="456" class="fieldata">&nbsp;&nbsp;&nbsp; 
+            <input type="checkbox" name="checkbox4" value="checkbox"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr align="right"> 
+          <td colspan="7" class="search"><a href="#" onClick="callExp()">Expand All</a> | <a href="#" onClick="callCol()">Collapse All </a></td> 
+        </tr> 
+        <tr> 
+          <td width="20" class="cmbheader">&nbsp;</td> 
+          <td width="154" class="tblheader">CMS Customer Id </td> 
+          <td width="145" class="tblheader">Customer Name </td> 
+          <td width="148" class="tblheader">Terms</td> 
+          <td width="156" class="tblheader">Point of Contact </td> 
+          <td width="202" class="tblheader">No.of.ESIID(s)</td> 
+          <td width="167" class="tblheader">Sales Rep </td> 
+        </tr> 
+      </table> 
+      <div style="height:290px; overflow:auto"> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td width="20" height="20" align="center" valign="middle" class="tbldata"> <a href="#"onClick="javascript:showHide('CusExp1','CusExp1','img1')"> <img src="images/close.gif" width="11" height="11" border="0"  id="img1"> </a> </td> 
+            <td width="154" class="tbldata">1025</td> 
+            <td width="145" class="tbldata">Migneault Properties</td> 
+            <td width="148" class="tbldata">&nbsp;</td> 
+            <td width="156" class="tbldata">&nbsp;</td> 
+            <td width="202" class="tbldata">&nbsp;</td> 
+            <td width="167" class="tbldata">R Eisenbach</td> 
+          </tr> 
+          <tr id="CusExp1" style="display:none "> 
+            <td  class="tbldata" colspan="7"><table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+                <tr> 
+                  <td  valign="top"> <table width="951" border="0" align="center" cellpadding="0" cellspacing="0"> 
+                      <tr id="tblPremium"> 
+                        <td width="961"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                            <tr> 
+                              <td width="961"><table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                      <tr> 
+                        <td width="244"> <table width="226"  border="0" cellspacing="0" cellpadding="0"> 
+                            <tr> 
+                              <td width="226" class="fieldtitle"><input name="checkbox" type="checkbox" value="checkbox"> 
+                                Products</td> 
+                            </tr> 
+                          </table> 
+                          <div style="width:244px; height:138px; overflow:auto"> 
+                            <table width="226"  border="0" cellspacing="0" cellpadding="0"> 
+                              <tr> 
+                                <td class="tbldata"><input name="checkbox" type="checkbox" value="checkbox"> 
+                                 Rest Assured Rate I </td> 
+                              </tr> 
+                              <tr> 
+                                <td  class="tbldata"><input type="checkbox" name="checkbox2" value="checkbox"> 
+                                Rest Assured Rate II</td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox3" value="checkbox"> 
+                                  Rest Assured Rate III </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox4" value="checkbox"> 
+                                 Block Rates I </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox5" value="checkbox"> 
+                                My Destiny Rate I </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox6" value="checkbox"> 
+                                My Destiny Rate II </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox7" value="checkbox"> 
+                                 Block &amp; My Destiny I </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox8" value="checkbox"> 
+                                  Block &amp; My Destiny II </td> 
+                              </tr> 
+                            </table> 
+                          </div></td> 
+						  <td width="10"></td>
+                        <td width="697" valign="top" > <br>
+                          <table width="71%" height="108"  border="0" cellpadding="0" cellspacing="0">
+                            <tr> 
+							
+                                <td width="137" height="78" class="fieldtitle">ESIIDs</td>
+                                <td width="1"  class="fieldtitle">:</td>
+                                <td width="159" class="fieldata">
+                                  <select name="select2" size="7" multiple style="width:150px ">
+                                    <option>5236524896521456</option>
+                                    <option>5236524896521457</option>
+                                    <option>5236524896521458</option>
+                                    <option>5236524896521459</option>
+                                    <option>5236524896521460</option>
+                                    <option>.</option>
+                                    <option>.</option>
+                                    <option>.</option>
+                                  </select>
+                                </td>
+                                <td width="24" class="fieldata"><a href="#"><img src="images/add.gif" width="20" height="20" border="0"></a><br>
+                                    <a href="#"><img src="images/remove.gif" border="0"></a></td>
+                                <td width="172" class="fieldata">
+                                  <select name="select3" size="7" multiple style="width:140px ">
+                                  </select>
+                                </td>
+                            </tr>
+							<tr><td>&nbsp;</td></tr>
+                            <tr >
+							
+                              <td width="137" class="fieldtitle">Terms</td>
+                              <td width="1" class="fieldtitle">:</td>
+                              <td  colspan="3"><input type="text" name="textfield" class="textbox" size="30"> 
+                              Eg.: 12, 24, 36</td>
+                            </tr>
+                          </table></td>
+                      </tr> 
+                    </table></td> 
+                              
+                            </tr> 
+                          </table> 
+                          <br> 
+                        </td>
+                      </tr> 
+                    </table>                </tr> 
+                <tr> </tr> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td height="20" align="center" valign="middle" class="tbldata"> <a href="#"onClick="javascript:showHide('CusExp2','CusExp2','img2')"> <img src="images/close.gif" width="11" height="11" border="0" id="img2"> </a> </td> 
+            <td class="tbldata">2060</td> 
+            <td class="tbldata">Engelhart &amp; Greenwood</td> 
+            <td class="tbldata">&nbsp;</td> 
+            <td class="tbldata">&nbsp;</td> 
+            <td class="tbldata">&nbsp;</td> 
+            <td class="tbldata">Donna N</td> 
+          </tr> 
+          <tr id="CusExp2" style="display:none "> 
+            <td height="20" class="tbldata" colspan="7"><table width="951" border="0" align="center" cellpadding="0" cellspacing="0"> 
+                <tr id="tblPremium"> 
+                  <td width="961"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                      <tr> 
+                        <td width="244"> <table width="226"  border="0" cellspacing="0" cellpadding="0"> 
+                            <tr> 
+                              <td width="226" class="fieldtitle"><input name="checkbox" type="checkbox" value="checkbox"> 
+                                Products</td> 
+                            </tr> 
+                          </table> 
+                          <div style="width:244px; height:138px; overflow:auto"> 
+                            <table width="226"  border="0" cellspacing="0" cellpadding="0"> 
+                              <tr> 
+                                <td class="tbldata"><input name="checkbox" type="checkbox" value="checkbox"> 
+                                 Rest Assured Rate I </td> 
+                              </tr> 
+                              <tr> 
+                                <td  class="tbldata"><input type="checkbox" name="checkbox2" value="checkbox"> 
+                                Rest Assured Rate II</td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox3" value="checkbox"> 
+                                  Rest Assured Rate III </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox4" value="checkbox"> 
+                                 Block Rates I </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox5" value="checkbox"> 
+                                My Destiny Rate I </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox6" value="checkbox"> 
+                                My Destiny Rate II </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox7" value="checkbox"> 
+                                 Block &amp; My Destiny I </td> 
+                              </tr> 
+                              <tr> 
+                                <td class="tbldata"><input type="checkbox" name="checkbox8" value="checkbox"> 
+                                  Block &amp; My Destiny II </td> 
+                              </tr> 
+                            </table> 
+                          </div></td> 
+						  <td width="10"></td>
+                        <td width="697" valign="top" > <br>
+                          <table width="71%" height="108"  border="0" cellpadding="0" cellspacing="0">
+                            <tr> 
+							
+                                <td width="137" height="78" class="fieldtitle">ESIIDs</td>
+                                <td width="1"  class="fieldtitle">:</td>
+                                <td width="159" class="fieldata">
+                                  <select name="select2" size="7" multiple style="width:150px ">
+                                    <option>5236524896521456</option>
+                                    <option>5236524896521457</option>
+                                    <option>5236524896521458</option>
+                                    <option>5236524896521459</option>
+                                    <option>5236524896521460</option>
+                                    <option>.</option>
+                                    <option>.</option>
+                                    <option>.</option>
+                                  </select>
+                                </td>
+                                <td width="24" class="fieldata"><a href="#"><img src="images/add.gif" width="20" height="20" border="0"></a><br>
+                                    <a href="#"><img src="images/remove.gif" border="0"></a></td>
+                                <td width="172" class="fieldata">
+                                  <select name="select3" size="7" multiple style="width:140px ">
+                                  </select>
+                                </td>
+                            </tr>
+							<tr><td>&nbsp;</td>
+							</tr>
+                            <tr >
+                              <td width="137" class="fieldtitle">Terms</td>
+                              <td width="1" class="fieldtitle">:</td>
+                              <td  colspan="3"><input type="text" name="textfield" class="textbox" size="30">
+                              Eg.: 12, 24, 36</td>
+                            </tr>
+                          </table></td>
+                      </tr> 
+                    </table> 
+                    </td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+         
+        </table> 
+      </div> 
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0" > 
+        <tr> 
+          <td colspan="3">&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td colspan="3" align="center" > <input type="button" class="button" name="add" value=" Run " onClick="window.open('runresult.htm','_self')"> 
+            <input type="button" name="cancel" value="Cancel" class="button" onClick="window.open('Run.htm','_self')"></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+  <tr> 
+    <td height="20"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="copyright"> 
+        <tr> 
+          <td>Design Rights Savant Technologies </td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 
+</body>
+</html>

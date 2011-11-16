@@ -1,0 +1,323 @@
+<html>
+<head>
+<title>MXenergy Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/javascript" src="script/submenu.js"></script>
+<script language="JavaScript" src="script/mm_menu.js"></script>
+<script language="JavaScript" src="script/CalendarControl.js"></script>
+<link href="styles/MXenergy.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #0066FF}
+-->
+</style>
+</head>
+<body> 
+<script type="text/javascript">
+function callExp()
+{
+document.getElementById('CusExp1').style.display='block';
+document.getElementById('CusExp2').style.display='block';
+document.getElementById('img1').src = 'images/open.gif';
+document.getElementById('img2').src = 'images/open.gif';
+
+}
+function callCol()
+{
+document.getElementById('CusExp1').style.display='none';
+document.getElementById('CusExp2').style.display='none';
+document.getElementById('img1').src = 'images/close.gif';
+document.getElementById('img2').src = 'images/close.gif';
+}
+
+function showHide(tbl,childtbl,img) {
+	var table = document.getElementById(tbl);
+	var chtable = document.getElementById(childtbl);
+	var img = document.getElementById(img);
+	
+	if(table.style.display == 'none') {
+		table.style.display = 'block';
+		img.src = 'images/open.gif';
+		
+	}
+	else if(table.style.display == 'block') {
+		table.style.display = 'none';
+		img.src = 'images/close.gif';
+		
+	}
+}
+</script> 
+<script language="JavaScript1.2">mmLoadMenus();</script> 
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td  valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="149"><img src="images/logo_small.gif" width="149" height="50"></td> 
+          <td align="right" background="images/banner_bg.gif"><img src="images/banner_text.gif" width="151" height="50"></td> 
+          <td width="80"><img src="images/log_con.gif" width="80" height="50"></td> 
+          <td width="200" class="loginfo">Welcome,Savant <img src="images/icon_settings.gif" width="16" height="16" align="absmiddle"> <a href="index.htm"><img src="images/icon_logoff.gif" width="16" height="16" border="0" align="absmiddle"></a></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td background="images/banner_base.gif"><img src="images/banner_base.gif" width="50" height="10"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="75" class="menu"><a href="#" name="link6" id="link1" onMouseOver="MM_showMenu(window.mm_menu_0102170942_0,-1,17,null,'link6')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;Settings&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="99" class="menu"><a href="#" name="link7" id="link3" onMouseOver="MM_showMenu(window.mm_menu_0102175203_0,-2,17,null,'link7')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;Pricing&nbsp;Configuration&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="32" class="menu"><a href="#" name="link2" id="link4" onMouseOver="MM_showMenu(window.mm_menu_0102185309_0,-2,17,null,'link2')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pricing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="73" class="menu"><a href="#" name="link8" id="link5" onMouseOver="MM_showMenu(window.mm_menu_0102185605_0,-2,17,null,'link8')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Security&nbsp;Admin&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="730" class="menubg">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="250" class="page_title"> Contract </td> 
+          <td class="page_title"><table  border="0" align="right" cellpadding="0" cellspacing="0" class="topnav"> </table></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellpadding="0" cellspacing="0"> 
+        <tr> 
+          <td width="147" height="29" class="search">CustomerName</td> 
+          <td width="9" class="search">:</td> 
+          <td width="280" class="search"><input name="textfield2" type="text" class="textbox" size="15"> 
+            <select name="select3"> 
+              <option>Starts With</option> 
+              <option>Ends With</option> 
+              <option>Exactly</option> 
+              <option>Anywhere</option> 
+            </select></td> 
+          <td width="101" class="search">Sales Person </td> 
+          <td width="1" class="search">:</td> 
+          <td width="447" class="search"><input name="textfield2" type="text" class="textbox" size="15"> 
+            <select name="select3"> 
+              <option>Starts With</option> 
+              <option>Ends With</option> 
+              <option>Exactly</option> 
+              <option>Anywhere</option> 
+            </select> </td> 
+        </tr> 
+        <tr> 
+          <td height="29" class="search">Run Date </td> 
+          <td class="search">:</td> 
+          <td colspan="4" class="search"><select name="select"> 
+              <option>On</option> 
+              <option>After</option> 
+              <option>Before</option> 
+              <option>Between</option> 
+            </select> 
+            <input name="txtDateFrom" type="text" class="textbox" id="txtDateFrom" size="10"> 
+            <a href="#" onClick="showCalendarControl(document.getElementById('txtDateFrom'))"><img src="images/calendar.gif" name="imgDateFrom" width="16" height="16" border="0" align="absmiddle" id="imgDateFrom"></a> -
+            <input name="txtDateTo" type="text" class="textbox" id="txtDateTo" size="10"> 
+            <a href="#" onClick="showCalendarControl(document.getElementById('txtDateTo'))"><img src="images/calendar.gif" width="16" height="16" border="0" align="absmiddle"></a> 
+            <input name="Submit2" type="submit" class="button_sub_internal" value="Go!"> 
+            <input name="Submit22" type="button" class="button_sub_internal" value="Clear"></td> 
+        </tr> 
+      </table> 
+      <table width="102%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr align="right"> 
+          <td width="1010" class="search"><a href="#" onClick="callExp()">Expand All</a> | <a href="#" onClick="callCol()">Collapse All </a></td> 
+        </tr> 
+      </table> 
+      <div style="height:330px; width:1010px; overflow:auto;"> 
+        <table width="989" border="0" cellspacing="0" cellpadding="0"> 
+          <tr class="tblheader"> 
+            <td width="20" height="20" align="center" valign="middle" class="tbldata"> <a href="#"onClick="javascript:showHide('CusExp1','CusExp1','img1')"> </a> </td> 
+            <td width="387" class="tbldata">Customer&nbsp;Name</td> 
+            <td width="263" class="tbldata">Sales&nbsp;Person</td> 
+           
+            <td width="279" class="tbldata">Run Date </td> 
+          </tr> 
+          <tr> 
+            <td width="20" height="19" align="center" valign="middle" class="tbldata"> <a href="#"onClick="javascript:showHide('CusExp1','CusExp1','img1')"> <img src="images/close.gif" width="11" height="11" border="0"  id="img1"> </a> </td> 
+            <td width="387" class="tbldata">Migneault </td> 
+            <td width="263" class="tbldata">Donna N</td> 
+           
+            <td width="279" class="tbldata">&nbsp;</td> 
+          </tr> 
+          <tr id="CusExp1" style="display:none "> 
+            <td  class="tbldata" colspan="5"><table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+                <tr> 
+                  <td  valign="top"> <table width="99" height="111" border="0" cellpadding="0" cellspacing="0"> 
+                      <tr> 
+                        <td height="106"> <fieldset style="color:#993333  "> 
+                          <legend>Proposal Details</legend> 
+                          <table width="980" height="113"  border="0" cellpadding="0" cellspacing="0"> 
+                            <tr class="tblheader"> 
+                              <td width="75" height="20" class="tbldata">Product</td> 
+                              <td width="70" class="tbldata">Term&nbsp;Months </td> 
+                              <td width="94" class="tbldata">Contract&nbsp;kWh </td> 
+                              <td width="89" class="tbldata">Price&nbsp;$/MWh </td> 
+                              <td width="98" class="tbldata">Sales&nbsp;Commision </td> 
+                              <td width="55" class="tbldata">Agg.&nbsp;Fee </td> 
+                              <td width="145" class="tbldata">Competitor&nbsp;Price&nbsp;$/MWh</td>
+                              <td width="70" class="tbldata">Savings</td> 
+                              <td width="117" class="tbldata"> %&nbsp;Savings </td> 
+                              <td width="149" class="tbldata">CPE/Contract</td> 
+                            </tr> 
+                            <tr> 
+                              <td height="20" class="tbldata">FP</td> 
+                              <td class="tbldata">24</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">
+                                <input name="textfield54" type="text" class="textbox" size="23">
+                              </td>
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata"><a href="#">CPE/Contract</a></td> 
+                            </tr> 
+                            <tr> 
+                              <td height="20" class="tbldata">FP</td> 
+                              <td class="tbldata">36</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">
+                                <input name="textfield53" type="text" class="textbox" size="23">
+                              </td>
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata"><a href="#">CPE/Contract</a></td> 
+                            </tr> 
+                            <tr> 
+                              <td height="20" class="tbldata">FAR</td> 
+                              <td class="tbldata">24</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">
+                                <input name="textfield52" type="text" class="textbox" size="23">
+                              </td>
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata"><a href="#">CPE/Contract</a></td> 
+                            </tr> 
+                            <tr> 
+                              <td height="20" class="tbldata">FAR</td> 
+                              <td class="tbldata">36</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">
+                                <input name="textfield5" type="text" class="textbox" size="23">
+                              </td>
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata">&nbsp;</td> 
+                              <td class="tbldata"><a href="#">CPE/Contract</a></td> 
+                            </tr> 
+                          </table> 
+                          </fieldset></td> 
+                      </tr> 
+                    </table> 
+                     
+                </tr> 
+                <tr> </tr> 
+              </table></td> 
+          </tr> 
+          <tr> 
+            <td width="20" height="19" align="center" valign="middle" class="tbldata"> <a href="#"onClick="javascript:showHide('CusExp2','CusExp2','img2')"> <img src="images/close.gif" width="11" height="11" border="0" id="img2"> </a> </td> 
+            <td class="tbldata">Engelhart &amp; Greenwood</td> 
+            <td class="tbldata">R Eisenbach</td> 
+            <td class="tbldata">&nbsp;</td> 
+            
+          </tr> 
+          <tr id="CusExp2" style="display:none "> 
+            <td height="20" class="tbldata" colspan="5"><table width="100%" height="111" border="0" cellpadding="0" cellspacing="0"> 
+                <tr> 
+                  <td height="106" > <fieldset style="color:#993333  "> 
+                    <legend>Proposal Details</legend> 
+                    <table width="980" height="113"  border="0" cellpadding="0" cellspacing="0">
+                      <tr class="tblheader">
+                        <td width="77" height="20" class="tbldata">Product&nbsp;</td>
+                        <td width="71" class="tbldata">Term&nbsp;Months </td>
+                        <td width="91" class="tbldata">Contract&nbsp;kWh </td>
+                        <td width="89" class="tbldata">Price&nbsp;$/MWh </td>
+                        <td width="98" class="tbldata">Sales&nbsp;Commision </td>
+                        <td width="55" class="tbldata">Agg&nbsp;Fee</td>
+                        <td width="145" class="tbldata">Competitor&nbsp;Price </td>
+                        <td width="70" class="tbldata">Savings</td>
+                        <td width="117" class="tbldata"> %&nbsp;Savings </td>
+                        <td width="149" class="tbldata">CPE/Contract</td>
+                      </tr>
+                      <tr>
+                        <td height="20" class="tbldata">FP</td>
+                        <td class="tbldata">24</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">
+                          <input name="textfield542" type="text" class="textbox" size="23">
+                        </td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata"><a href="#">CPE/Contract</a></td>
+                      </tr>
+                      <tr>
+                        <td height="20" class="tbldata">FP</td>
+                        <td class="tbldata">36</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">
+                          <input name="textfield532" type="text" class="textbox" size="23">
+                        </td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata"><a href="#">CPE/Contract</a></td>
+                      </tr>
+                      <tr>
+                        <td height="20" class="tbldata">FAR</td>
+                        <td class="tbldata">24</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">
+                          <input name="textfield522" type="text" class="textbox" size="23">
+                        </td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata"><a href="#">CPE/Contract</a></td>
+                      </tr>
+                      <tr>
+                        <td height="20" class="tbldata">FAR</td>
+                        <td class="tbldata">36</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">
+                          <input name="textfield55" type="text" class="textbox" size="23">
+                        </td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata">&nbsp;</td>
+                        <td class="tbldata"><a href="#">CPE/Contract</a></td>
+                      </tr>
+                    </table>
+                  </fieldset></td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+        </table> 
+      </div></td> 
+  </tr> 
+  <tr> 
+    <td height="20"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="copyright"> 
+        <tr> 
+          <td>Design Rights Savant Technologies </td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 
+</body>
+</html>

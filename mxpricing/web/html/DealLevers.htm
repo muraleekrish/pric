@@ -1,0 +1,419 @@
+<html>
+<head>
+<title>MXenergy Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/javascript" src="script/submenu.js"></script>
+<script language="JavaScript" src="script/mm_menu.js"></script>
+<script language="JavaScript" src="script/CalendarControl.js"></script>
+<script>
+function callAdd()
+{
+	document.getElementById('add').style.display='block'
+	document.getElementById('deallevers').style.display='block'
+ this.makePreEdit();
+}
+function callModify()
+{
+	document.getElementById('deallevers').style.display='block'
+	 this.makePreEdit();
+}
+function callsubmit()
+{
+this.makePreEdit();
+}
+function makePreEdit(){
+	
+	var term = document.getElementById('txtterm');
+	var Cust = document.getElementById('txtCust');
+	var Agnt = document.getElementById('txtAgnt');
+	var Vol = document.getElementById('txtVol');
+	var Agg = document.getElementById('txtAgg');
+	var BW = document.getElementById('txtBW'); 
+	var other = document.getElementById('txtOther'); 
+	var margin = document.getElementById('txtMargin'); 
+	var btn = document.getElementById('btn')
+	var add = document.getElementById('submit')
+	var modify = document.getElementById('modify')
+	var delet = document.getElementById('delete')
+	
+	
+	if(term.className == 'tboxplain'){
+		
+		term.className = 'textbox';
+		term.contentEditable = true;
+		Vol.className = 'textbox';
+		Vol.contentEditable = true;
+		Cust.className = 'textbox';
+		Cust.contentEditable = true;
+		Agnt.className = 'textbox';
+		Agnt.contentEditable = true;
+		Agg.className = 'textbox';
+		Agg.contentEditable = true;
+		BW.className = 'textbox';
+		BW.contentEditable = true;
+		other.className = 'textbox';
+		other.contentEditable = true;
+		margin.className = 'textbox';
+		margin.contentEditable = true;
+		btn.style.display='block';
+		add.style.display = 'none'
+		modify.style.display = 'none'
+		delet.style.display = 'none'
+
+	}
+	else
+	{
+	term.className = 'tboxplain';
+		term.contentEditable = false;
+		Vol.className = 'tboxplain';
+		Vol.contentEditable = false;
+		Cust.className = 'tboxplain';
+		Cust.contentEditable = false;
+		Agnt.className = 'tboxplain';
+		Agnt.contentEditable = false;
+		Agg.className = 'tboxplain';
+		Agg.contentEditable = false;
+		BW.className = 'tboxplain';
+		BW.contentEditable = false;
+		other.className = 'tboxplain';
+		other.contentEditable = false;
+		margin.className = 'tboxplain';
+		margin.contentEditable = false;
+		btn.style.display='none';
+//	tblButton.style.display='none';
+	}
+}
+</script>
+<link href="styles/MXenergy.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<script language="JavaScript1.2">mmLoadMenus();</script> 
+<form action="DealLevers.htm"> 
+  <table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+    <tr> 
+      <td  valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td width="149"><img src="images/logo_small.gif" width="149" height="50"></td> 
+            <td align="right" background="images/banner_bg.gif"><img src="images/banner_text.gif" width="151" height="50"></td> 
+            <td width="80"><img src="images/log_con.gif" width="80" height="50"></td> 
+            <td width="200" class="loginfo">Welcome,Savant <img src="images/icon_settings.gif" width="16" height="16" align="absmiddle"> <a href="index.htm"><img src="images/icon_logoff.gif" width="16" height="16" border="0" align="absmiddle"></a></td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td background="images/banner_base.gif"><img src="images/banner_base.gif" width="50" height="10"></td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td width="75" class="menu"><a href="#" name="link6" id="link1" onMouseOver="MM_showMenu(window.mm_menu_0102170942_0,-1,17,null,'link6')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;Settings&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+            <td width="99" class="menu"><a href="#" name="link7" id="link3" onMouseOver="MM_showMenu(window.mm_menu_0102175203_0,-2,17,null,'link7')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;Pricing&nbsp;Configuration&nbsp;&nbsp;&nbsp;</a></td> 
+            <td width="32" class="menu"><a href="#" name="link2" id="link4" onMouseOver="MM_showMenu(window.mm_menu_0102185309_0,-2,17,null,'link2')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pricing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+            <td width="73" class="menu"><a href="#" name="link8" id="link5" onMouseOver="MM_showMenu(window.mm_menu_0102185605_0,-2,17,null,'link8')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Security&nbsp;Admin&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+            <td width="730" class="menubg">&nbsp;</td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td width="250" class="page_title"> Prospective Customers</td> 
+            <td class="page_title">&nbsp;</td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td><img src="../images/spacer.gif" width="1" height="5"></td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td width="112" class="subtab_off" id="set1"><a href="ProspectiveCustomersAnalystEdit.htm" >Customer&nbsp;Details</a></td> 
+            <td width="78" class="subtab_off" ><a href="ImportPic.htm">PIC&nbsp;Info</a></td> 
+            <td width="82" class="subtab_off" ><a href="Preference.htm" >Preferences </a></td> 
+            <td width="80" class="subtab_on">Deal&nbsp;Levers</td> 
+            <td width="640">&nbsp;</td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td class="subtabbase"><img src="../images/spacer.gif" width="1" height="5"></td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td><img src="../images/spacer.gif" width="1" height="5"></td> 
+          </tr> 
+        </table> 
+        <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="search"> 
+          <tr> 
+            <td width="171" class="fieldtitle">Customer Name </td> 
+            <td width="1" class="fieldtitle">:</td> 
+            <td class="fieldtitle" colspan="4">&nbsp;</td> 
+          </tr> 
+          <tr> 
+            <td width="171" class="fieldtitle">Customer ID</td> 
+            <td width="1" class="fieldtitle">:</td> 
+            <td class="fieldtitle" width="187">&nbsp;</td> 
+            <td width="101" class="fieldtitle">No. of ESIIDs </td> 
+            <td width="10" class="fieldtitle">:</td> 
+            <td width="513"  class="fieldtitle">&nbsp;</td> 
+          </tr> 
+        </table>
+		<table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td class="fieldata"><img src="../images/spacer.gif" width="1" height="5"></td> 
+          </tr> 
+        </table> 
+		<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="88" class="search">Product</td>
+            <td width="1" class="search">:</td>
+            <td width="242" class="search"><select name="select2">
+        <option>Rest Assured Rate I</option>
+        <option>Rest Assured Rate II</option>
+        <option>Rest Assured Rate III</option>
+        <option>My Destiny Rate I</option>
+		<option>My Destiny Rate II</option>
+		<option> Block & My Destiny I</option>
+		<option> Block & My Destiny II </option>
+      </select>                </td>
+            <td width="79" class="search">Term</td>
+            <td width="1" class="search">:</td>
+            <td width="564" class="search"><input name="textfield2" type="text" class="textbox" size="15">
+            <input name="Submit2" type="submit" class="button_sub_internal" value="Go!"></td>
+          </tr>
+        </table>
+        <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><img src="../images/spacer.gif" width="1" height="5"></td>
+          </tr>
+        </table>
+
+        <table width="991" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="9"></td>
+    <td width="405"><table width="373" border="0" cellspacing="0" cellpadding="0">
+   
+  <tr>
+    <td width="21"  class="tblheader">&nbsp;</td>
+    <td width="120" class="tblheader">Product</td>
+    <td width="75" class="tblheader">Term</td>
+    <td width="157" class="tblheader">Add/Modified On </td>
+  </tr>
+ </table><div style="width:390px; height:240px ;overflow:auto" >
+<table width="373" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="26" class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">    </td>
+    <td width="119" class="tbldata">Rest Assured Rate I</td>
+    <td width="77" class="tbldata">12</td>
+    <td width="151" class="tbldata"><a href="#" onClick="document.getElementById('deallevers').style.display='block';">01/13/2007</a></td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton">
+    </td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tbldata"><input name="radiobutton" type="radio" value="radiobutton"></td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+</table>	</div>&nbsp;</td>
+    <td width="10">&nbsp;</td>
+    <td width="574" valign="top"><br><table width="547" border="0" cellspacing="0" cellpadding="0" id="add" style="display:none" >
+      <tr >
+        <td width="177" class="fieldtitle">Product</td>
+        <td width="10" class="fieldtitle">:</td>
+        <td width="360" class="fieldata">
+          <select name="select">
+            <option>Rest Assured Rate I</option>
+            <option>Rest Assured Rate II</option>
+            <option>Rest Assured Rate III</option>
+            <option>My Destiny Rate I</option>
+            <option>My Destiny Rate II</option>
+            <option> Block & My Destiny I</option>
+            <option> Block & My Destiny II </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="fieldtitle">Term</td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtterm" type="text" class="tboxplain" size="15">
+      Eg.:12</td>
+       
+      </tr>
+    </table>
+	<br>
+    <table width="100%"  border="0" cellpadding="0" cellspacing="0" id="deallevers" style="display:none">
+	<tr>
+        <td width="177" class="fieldtitle">Customer Charge $/mth </td>
+        <td width="10" class="fieldtitle">:</td>
+        <td width="384" class="fieldata"><input name="txtCust" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+      <tr>
+        <td width="177" class="fieldtitle">Additional Volatility Premium </td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtVol" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+      <tr>
+        <td width="177" class="fieldtitle">Sales Agent Fee </td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtAgnt" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+      <tr>
+        <td width="177" class="fieldtitle">Aggregator Fee </td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtAgg" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+      <tr>
+        <td width="177" class="fieldtitle">BandWidth Charge </td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtBW" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+      <tr>
+        <td width="177" class="fieldtitle">Other Fee </td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtOther" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+      <tr>
+        <td width="177" class="fieldtitle">Margin</td>
+        <td width="10" class="fieldtitle">:</td>
+        <td class="fieldata"><input name="txtMargin" type="text" class="tboxplain" size="15" readonly="true"></td>
+      </tr>
+    </table><br>
+	<table width="570" border="0" cellspacing="0" cellpadding="0">
+  <tr id="btn" style="display:none">
+    <td width="60" class="fieldata">
+      <input name="Button2" type="submit" class="button" id="Button" value="Submit" onClick=""> </td>
+	   <td width="510" class="fieldata"><input name="Button22" type="button" class="button" id="Button2" value="Reset">
+    </td>
+    
+  </tr>
+</table>
+
+	</td>
+  </tr>
+</table>
+
+        <table width="100%"  border="0" cellpadding="0" cellspacing="0"> 
+          <tr id="tblPremium"> 
+            <td> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                  <td class="fieldata"><input name="Button" type="button" class="button" id="Submit" value="Add" onClick="callAdd();">
+                  <input name="Button" type="button" class="button" id="modify" value="Modify" onClick="callModify();">
+                  <input name="Button" type="button" class="button" id="delete" value="Delete"></td> 
+                </tr> 
+              </table></td> 
+          </tr> 
+        </table> 
+    </tr> 
+    <tr> 
+      <td height="20"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="copyright"> 
+          <tr> 
+            <td>Design Rights Savant Technologies </td> 
+          </tr> 
+        </table></td> 
+    </tr> 
+  </table> 
+</form> 
+</body>
+</html>

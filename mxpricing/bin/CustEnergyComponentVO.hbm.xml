@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.savant.pricing.calculation.valueobjects.CustEnergyComponentsVO"
+        table="Prc_Cust_Energy_Components">
+        
+        
+        <composite-id> 
+   	 		 <key-many-to-one name="prcCustId" class="com.savant.pricing.valueobjects.ProspectiveCustomerVO" column="Prospective_cust_id"/>    
+  	 		 <key-many-to-one name="engComp" class="com.savant.pricing.calculation.valueobjects.EnergyComponentsVO" column="eid"/>    
+   		</composite-id>
+       
+        
+		<property
+            name="isValid"
+            type="int"
+            update="true"
+            insert="true"
+            column="isvalid"
+        />
+        
+    </class>
+</hibernate-mapping>

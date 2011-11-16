@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PICUsageVO"
+        table="PRC_PIC_Usage">
+
+		<composite-id> 
+ 		 <key-many-to-one name="picRef" class="com.savant.pricing.calculation.valueobjects.PICVO" column="PIC_Ref_ID"/>    
+   		 <key-property name="month" type="int" column="Mnth"/>
+   		</composite-id>	
+		
+		<property
+            name="meterReadDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Read_Date"
+        />
+		<property
+            name="noOfDays"
+            type="int"
+            update="true"
+            insert="true"
+            column="Number_Of_Days"
+        />
+		
+		
+		<property
+            name="historicalUsage"
+            type="float"
+            update="true"
+            insert="true"
+            column="Historical_Usage"
+        />
+		
+		<property
+            name="historicalDemand"
+            type="float"
+            update="true"
+            insert="true"
+            column="Historical_Dmnd"
+        />
+		<property
+            name="historicalApparentPower"
+            type="float"
+            update="true"
+            insert="true"
+            column="Historical_Apparent_Power"
+        />
+
+		<many-to-one name="historicalUsageUnit" fetch="join" column="Usage_Unit_ID"/>    	
+		<many-to-one name="historicalDemandUnit" fetch="join" column="Dmnd_Unit_ID"/>    	
+		<many-to-one name="historicalApparentPowerUnit" fetch="join" column="Power_Unit_ID"/>   
+		
+    </class>
+
+</hibernate-mapping>

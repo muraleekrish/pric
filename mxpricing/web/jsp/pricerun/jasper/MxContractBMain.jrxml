@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Unnamed" pageWidth="600" pageHeight="842" columnWidth="560" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="Contract"/>
+	<parameter name="subRepPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:/pricingdata/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<field name="billingPaymnet" class="java.lang.String"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="creditandDeposit" class="java.lang.String"/>
+	<field name="earlyTermination" class="java.lang.String"/>
+	<field name="entireAgreement" class="java.lang.String"/>
+	<field name="forceMajeure" class="java.lang.String"/>
+	<field name="goveringLaw" class="java.lang.String"/>
+	<field name="limitationOfliability" class="java.lang.String"/>
+	<field name="lstCustomerDetails" class="java.util.List"/>
+	<field name="lstEsiid" class="java.util.List"/>
+	<field name="materialChange" class="java.lang.String"/>
+	<field name="pointOfDelivery" class="java.lang.String"/>
+	<field name="price" class="java.lang.String"/>
+	<field name="productName" class="java.lang.String"/>
+	<field name="refusalOfservice" class="java.lang.String"/>
+	<field name="regulatoryCharge" class="java.lang.String"/>
+	<field name="representationandWarranties" class="java.lang.String"/>
+	<field name="requestToTDSP" class="java.lang.String"/>
+	<field name="responsibilitiesofTDSP" class="java.lang.String"/>
+	<field name="service" class="java.lang.String"/>
+	<field name="tdspAddress" class="java.lang.String"/>
+	<field name="tdspContacs" class="java.lang.String"/>
+	<field name="termandRenewal" class="java.lang.String"/>
+	<title>
+		<band height="74">
+			<frame>
+				<reportElement x="11" y="12" width="540" height="61"/>
+				<box border="1Point"/>
+				<image scaleImage="FillFrame" hyperlinkType="None">
+					<reportElement x="200" y="1" width="140" height="36"/>
+					<graphicElement/>
+					<imageExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"mxEnergy.GIF"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="22" y="36" width="158" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[MxEnergy Electric Inc.        /]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" x="169" y="36" width="169" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{productName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="325" y="36" width="169" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[ /         PUCT Certificate No.10113]]></text>
+				</staticText>
+			</frame>
+			<rectangle>
+				<reportElement x="11" y="4" width="202" height="8" backcolor="#CECECE"/>
+				<graphicElement pen="Thin"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="213" y="4" width="338" height="8" backcolor="#FF0000"/>
+				<graphicElement pen="Thin"/>
+			</rectangle>
+		</band>
+	</title>
+	<detail>
+		<band height="419">
+			<elementGroup>
+				<elementGroup>
+					<elementGroup>
+						<textField isStretchWithOverflow="true" hyperlinkType="None">
+							<reportElement positionType="Float" x="11" y="3" width="541" height="15"/>
+							<textElement textAlignment="Justified" verticalAlignment="Middle">
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA["                      "+$F{service}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="12" y="3" width="60" height="15"/>
+							<textElement verticalAlignment="Top">
+								<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+							</textElement>
+							<text><![CDATA[1. Service -  ]]></text>
+						</staticText>
+					</elementGroup>
+				</elementGroup>
+			</elementGroup>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="19" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                            "+$F{termandRenewal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="19" width="121" height="16"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[2. Term and Renewals - ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="35" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                "+$F{price}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="51" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                                            "+$F{pointOfDelivery}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="69" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                           "+$F{billingPaymnet}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="85" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                               "+$F{creditandDeposit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="12" y="101" width="541" height="15"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                       "+$F{refusalOfservice}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="12" y="117" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                                                               "+$F{materialChange}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="133" width="541" height="15"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                          "+$F{earlyTermination}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="149" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                              "+$F{regulatoryCharge}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="165" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                  "+$F{forceMajeure}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="12" y="181" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                                     "+$F{limitationOfliability}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="197" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                                                       "+$F{representationandWarranties}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="213" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                           "+$F{requestToTDSP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="35" width="46" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[3. Price - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="51" width="157" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[4. Point Of Delivery / Metering - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="69" width="133" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[5. Billing and Payment - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="85" width="112" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[6. Credit and Deposits - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="101" width="108" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[7. Refusal Of Service - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="117" width="196" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[8. Material Changes in Customer Usage - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="133" width="109" height="15"/>
+				<textElement>
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[9. Early Termination - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="149" width="133" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[10. Regulatory Change - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="165" width="92" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[11. Force Majeure -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="181" width="134" height="15"/>
+				<textElement>
+					<font size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[12. Limitations Of Liability - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="197" width="178" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[13. Representations and Warranties - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="213" width="106" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[14. Request to TDSP - ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="229" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                     "+$F{goveringLaw}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="245" width="541" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                         "+$F{entireAgreement}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="11" y="261" width="541" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["                                                                                                      "+$F{responsibilitiesofTDSP}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="324" y="304" width="216" height="24"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tdspContacs}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" hyperlinkType="None">
+				<reportElement positionType="Float" x="12" y="304" width="288" height="24"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tdspAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="229" width="97" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[15. Governing Law - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="245" width="108" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[16. Entire Agreement - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="12" y="261" width="265" height="15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[17. Responsibilities Of the TDSP and Service Outages - ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="2" y="378" width="262" height="6"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.List)$F{lstCustomerDetails})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"PriceExhibitContractB.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="2" y="392" width="258" height="20"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.List)$F{lstEsiid})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"EsiidSubReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

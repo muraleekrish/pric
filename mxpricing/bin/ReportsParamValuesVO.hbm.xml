@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.ReportsParamValuesVO"
+        table="PRC_Report_Param_Values">
+
+        <id
+            name="reportParamValueIdentifier"
+            column="Report_Param_Value_ID"
+            type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+	
+		<many-to-one name="reportParam" column="Report_Param_ID" lazy="false"/>
+		
+		<property
+            name="reportParamValue"
+            type="text"
+            update="true"
+            insert="true"
+            column="Report_Param_Value"
+        />
+		
+		<property
+            name="modifiedBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Modified_By"
+        />
+		
+		<property
+            name="modifiedDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Modified_Date"
+        />
+	</class>
+
+</hibernate-mapping>

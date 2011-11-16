@@ -1,0 +1,144 @@
+<head>
+<title>MXenergy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="styles/MXenergy.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="script/login.js"></script>
+<style>
+
+.login_palette {
+	background-image:url(images/Login-Palette.gif);
+	background-repeat:no-repeat;
+	width:400px;
+	height:200px;
+	padding:20px 20px 10px 20px;
+	vertical-align:middle;
+}
+
+.data {
+	color:#FFFFFF;
+	font:"trebuchet MS";
+	font-size:10px;
+}
+
+.form_label {
+	font-family:"trebuchet MS";
+	font-size:11px;
+	font-weight:bold;
+	text-align:right;
+	padding:3px 5px 3px 2px;
+}
+
+input {
+	font-family:"trebuchet MS";
+	font-size:11px;
+}
+
+.capslock {
+	background-color:#FFFCCC;
+	font-size:11px;
+	cursor:default;
+}
+
+</style>
+<script>
+function click() {
+	if ((event.button==2) || (event.button==3)) {
+		alert("No way");
+	}
+}
+//document.onmousedown=click;
+function chkClick() {
+	alert();
+}
+function antiLock(e) {
+	var whichKey=0;
+	var gotShift=false;
+	var myMsg='Caps Lock is On.\n\nHaving Caps Lock on may cause you to enter your password incorrectly.\n\nYou should press Caps Lock to turn it off before entering your password.';
+	if(document.all) {
+		whichKey=e.keyCode;
+		gotShift=e.shiftKey;
+	}
+	else if(document.layers) {
+		whichKey=e.which;
+		gotShift=(whichKey == 16) ? true : false;
+	}
+	else if (document.getElementById) {
+		whichKey=e.which;
+		gotShift=(whichKey == 16) ? true : false;
+	}
+	// Upper case letters are seen without depressing the Shift key, therefore Caps Lock is on
+	if((whichKey >= 65 && whichKey <= 90) && !gotShift) {
+		document.getElementById('dvCapsMsg').style.display = 'block';
+		// Lower case letters are seen while depressing the Shift key, therefore Caps Lock is on
+	} 
+	else if ((whichKey >= 97 && whichKey <= 122) && gotShift) {
+		document.getElementById('dvCapsMsg').style.display = 'block';
+	}
+	setTimeout('document.getElementById("dvCapsMsg").style.display = "none"',5000);
+}
+
+function chkkey() {
+	alert(event.keyCode);
+}
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+<body > 
+<div id="dvCapsMsg" style="position:absolute; left:481px; top:338px; width:269px; height:106px; z-index:1; display:none" onClick="this.style.display='none'"> 
+  <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+    <tr> 
+      <td width="23"><img src="images/caps_topleft.gif" width="23" height="23"></td> 
+      <td background="images/caps_topborder.gif"><img src="images/caps_pointer.gif" width="45" height="23"></td> 
+      <td width="23"><img src="images/caps_topright.gif" width="23" height="23"></td> 
+    </tr> 
+    <tr> 
+      <td background="images/caps_leftborder.gif"><img src="images/caps_leftborder.gif" width="23" height="57"></td> 
+      <td class="capslock"><b><img src="images/info_icon.gif" align="absmiddle"> Caps Lock is On</b><br> 
+        <br> 
+        Having Caps Lock on may cause you to enter your password Incorrectly.<br> 
+        <br> 
+        You should press Caps Lock to turn it off before entering your password. </td> 
+      <td background="images/caps_rightborder.gif"><img src="images/caps_rightborder.gif" width="23" height="57"></td> 
+    </tr> 
+    <tr> 
+      <td><img src="images/caps_botleft.gif" width="23" height="20"></td> 
+      <td background="images/caps_botborder.gif">&nbsp;</td> 
+      <td><img src="images/caps_botright.gif" width="23" height="20"></td> 
+    </tr> 
+  </table> 
+</div> 
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td align="center"> <form action="ProspectiveCustomersRep.htm" method="get"> <table border="0" cellpadding="0" cellspacing="0" class="login_panel"> 
+        <tr> 
+          <td width="150" align="center"><img src="images/login_icon.gif" width="136" height="135"></td> 
+          <td class="login_form_panel"> <table width="100%"  border="0" cellpadding="0" cellspacing="0"> 
+              <tr> 
+                <td width="75" class="form_login_title">User ID</td> 
+                <td width="1" class="form_login_title">:</td> 
+                <td class="form_login_field"><input name="txtUserId" class="login_tbox" type="text" size="30"></td> 
+              </tr> 
+              <tr> 
+                <td class="form_login_title">Password</td> 
+                <td class="form_login_title">:</td> 
+                <td class="form_login_field"><input name="txtUserPwd" type="password" class="login_tbox"  size="30" onKeyPress="antiLock(event)"></td> 
+              </tr> 
+              <tr> 
+                <td colspan="2" class="logfields">&nbsp;</td> 
+                <td class="form_login_field"><input type="submit" class="login_button"  name="Submit" value="Submit"  onClick="return chklogin()"> </td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table></form></td> 
+  </tr> 
+</table> 
+</body>

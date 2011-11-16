@@ -1,0 +1,479 @@
+<html>
+<head>
+<title>MXenergy Portal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/javascript" src="script/submenu.js"></script>
+<script language="JavaScript" src="script/mm_menu.js"></script>
+<script language="JavaScript" src="script/common.js"></script>
+<script>
+function scrollDiv(){
+	var a = document.getElementById('dvMultOffHead');
+	var b = document.getElementById('dvMultOffVal');
+	a.scrollRight = b.scrollRight;
+	a.scrollLeft = b.scrollLeft;
+}
+function navtab(clicked, a, b){
+	var dash = document.getElementById('tblDashBoard');
+	var graph = document.getElementById('tblGraph');
+	var multoff = document.getElementById('tblMultOff');
+	
+	clicked.className = 'subtab_on';
+	a.className = 'subtab_off';
+	b.className = 'subtab_off';
+	if(clicked.id == 'set1'){
+		dash.style.display = 'block';
+		graph.style.display = 'none';
+		multoff.style.display = 'none';
+	}
+	else if(clicked.id == 'set2'){
+		dash.style.display = 'none';
+		graph.style.display = 'block';
+		multoff.style.display = 'none';
+	}
+	else if(clicked.id == 'set3'){
+		dash.style.display = 'none';
+		graph.style.display = 'none';
+		multoff.style.display = 'block';
+	}
+}
+function display()
+{
+if( document.getElementById('applytax').checked == true)
+  {
+   document.getElementById('tax2').style.display = 'block';
+  document.getElementById('tax3').style.display = 'block';
+   document.getElementById('tax4').style.display = 'none';
+  }
+  else
+  {
+  
+  document.getElementById('tax2').style.display = 'none';
+  document.getElementById('tax3').style.display = 'none';
+   document.getElementById('tax4').style.display = 'block';
+  }
+}
+function incmonth(type){
+	var txt = document.getElementById('txtContMnth');
+
+	if(type == "increment"){
+		if(parseInt(txt.value,10) == 60){
+			return;
+		}
+		else{
+			txt.value = parseInt(txt.value,10) + 1 ;
+		}
+	}
+	else{
+		if(parseInt(txt.value,10) == 1)
+			return;
+		else
+			txt.value = parseInt(txt.value,10) - 1 ;	
+	}
+}
+
+function chFixPrice(val){
+	if(val == 0 || val == 1){
+		document.getElementById('fxdPrice').className = 'tbldata';
+		document.getElementById('summer').style.display = 'none';
+		document.getElementById('winter').style.display = 'none';
+	}
+	else if(val == 2){
+		document.getElementById('fxdPrice').className = 'tbltitlebold';
+		document.getElementById('summer').style.display = 'block';
+		document.getElementById('winter').style.display = 'block';
+	}
+}
+function addEtc(obj)
+{
+	alert (obj.parentNode.innerHTML);
+}
+</script>
+<link href="styles/MXenergy.css" rel="stylesheet" type="text/css">
+</head>
+<body> 
+<script language="JavaScript1.2">mmLoadMenus();</script> 
+<form action="runresult.htm">
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td  valign="top"> <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="149"><img src="images/logo_small.gif" width="149" height="50"></td> 
+          <td align="right" background="images/banner_bg.gif"><img src="images/banner_text.gif" width="151" height="50"></td> 
+          <td width="80"><img src="images/log_con.gif" width="80" height="50"></td> 
+          <td width="200" class="loginfo">Welcome,Savant <img src="images/icon_settings.gif" width="16" height="16" align="absmiddle"> <a href="index.htm"><img src="images/icon_logoff.gif" width="16" height="16" border="0" align="absmiddle"></a></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td background="images/banner_base.gif"><img src="images/banner_base.gif" width="50" height="10"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="75" class="menu"><a href="#" name="link6" id="link1" onMouseOver="MM_showMenu(window.mm_menu_0102170942_0,-1,17,null,'link6')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Global&nbsp;Settings&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="99" class="menu"><a href="#" name="link7" id="link3" onMouseOver="MM_showMenu(window.mm_menu_0102175203_0,-2,17,null,'link7')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;Pricing&nbsp;Configuration&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="32" class="menu"><a href="#" name="link2" id="link4" onMouseOver="MM_showMenu(window.mm_menu_0102185309_0,-2,17,null,'link2')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pricing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="73" class="menu"><a href="#" name="link8" id="link5" onMouseOver="MM_showMenu(window.mm_menu_0102185605_0,-2,17,null,'link8')" onMouseOut="MM_startTimeout();">&nbsp;&nbsp;&nbsp;&nbsp;Security&nbsp;Admin&nbsp;&nbsp;&nbsp;&nbsp;</a></td> 
+          <td width="730" class="menubg">&nbsp;</td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td width="250" class="page_title"> Dashboard </td> 
+        </tr> 
+      </table>
+	   <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> 
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="83" class="subtab_on" id="set1">Dashboard</td>
+          <td width="42" class="subtab_off" ><a href="EPP.htm" >EPP</a></td>
+          <td width="78" class="subtab_off" ><a href="HeatRate.htm">Heat&nbsp;Rate</a></td>
+         
+          <td align="right" ><table  border="0" cellspacing="0" cellpadding="0" class="topnav">
+            <tr>
+              <td width="100" align="center"><a href="#">&nbsp;PDF&nbsp;</a> </td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td class="subtabbase"><img src="../images/spacer.gif" width="1" height="5"></td> 
+        </tr> 
+      </table> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr id="tblDashBrd">
+            <td>
+			 <fieldset id="fsPriceInfo"><legend>Pricing Info</legend>				
+				<table width="100%" cellpadding="0" cellspacing="0"  border="0">
+				  <tr>
+				    <td width="126" class="fieldtitle">Customer Name </td>
+				    <td width="10" class="fieldtitle">:</td>
+				    <td width="204" class="form_field" ><a title="RHINESTONE OFFICE BUILDINGS, L" href="#"> RHINESTONE... </a></td>
+				    <td width="126" class="fieldtitle">Annual kWh </td>
+				    <td width="10" class="fieldtitle">:</td>
+				    <td width="156" class="fieldata">&nbsp;</td>
+				    <td width="129" class="fieldtitle">Start Month</td>
+				    <td width="1" class="fieldtitle">:</td>
+				    <td width="220" class="fieldata">&nbsp;</td>
+				  </tr>
+				  <tr>
+				    <td class="fieldtitle">Contract kWh </td>
+				    <td class="fieldtitle">:</td>
+				    <td class="fieldata">&nbsp;</td>
+				    <td class="fieldtitle">Annual kW </td>
+				    <td class="fieldtitle">:</td>
+				    <td class="fieldata">&nbsp;</td>
+			        <td class="fieldtitle">Offer Date </td>
+			        <td width="10" class="fieldtitle">:</td>
+			        <td class="fieldata">&nbsp;</td>
+				  </tr>
+				  <tr>
+				    <td class="fieldtitle">Total ESI ID </td>
+				    <td class="fieldtitle">:</td>
+				    <td class="fieldata">2</td>
+				    <td class="fieldtitle">Load Factor %</td>
+				    <td class="fieldtitle">:</td>
+				    <td class="fieldata">&nbsp;</td>
+			        <td class="fieldtitle">Expiry Date </td>
+			        <td width="10" class="fieldtitle">:</td>
+			        <td class="fieldata">&nbsp;</td>
+				  </tr>
+				</table>
+			 </fieldset>
+			  <table width="100%" cellpadding="0" cellspacing="0">
+			    <tr>
+				  <td><a href="javascript:showHideSpl('fsPriceInfo','imgShowHide2')"><img src="images/hide.gif" name="imgShowHide" width="50" height="10" border="0" id="imgShowHide2"></a></td>
+				</tr>
+			  </table>
+			  <table width="100%"  border="0" cellpadding="0" cellspacing="0" id="tblSearch">
+                <tr>
+                  <td width="105" class="search">Contract Months </td>
+                  <td width="1" class="search">:</td>
+                  <td width="113" class="search"><a href="javascript:incmonth('decrement')"><img src="images/reduce.gif" width="11" height="11" align="absmiddle" border="0"></a>
+                    <input name="txtContMnth" type="text" class="textbox" id="txtContMnth2" value="2" size="10">
+                    <a href="javascript:incmonth('increment')"><img src="images/increase.gif" width="11" height="11" border="0" align="absmiddle"></a></td>
+                  <td width="84" class="search">TDSP</td>
+                  <td width="1" class="search">:</td>
+                  <td width="114" class="search">
+                    <select name="select">
+                      <option>Choose TDSP</option>
+                    </select></td>
+                  <td width="106" class="search">Congestion Zone </td>
+                  <td width="1" class="search">:</td>
+                  <td width="158" class="search"><select name="select2">
+                    <option>Choose Zone</option>
+                  </select></td>
+                  <td width="71" class="search">ESIID'S</td>
+                  <td width="1" class="search">:</td>
+                  <td width="202" class="search"><select name="select4">
+                    <option>Choose ESIID</option>
+                    
+                  </select></td>
+                </tr>
+              </table>
+			  <!--<table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><a href="javascript:showHideSpl('tblSearch','imgShowHide1')"><img src="images/hide.gif" name="imgShowHide" width="50" height="10" border="0" id="imgShowHide1"></a></td>
+                </tr>
+              </table>-->
+			  <table width="100%"  border="0" cellspacing="0" cellpadding="0" id="tblDashBoard">
+                <tr><td width="398">				  
+				  <table width="100%"  border="0" cellpadding="2" cellspacing="0" style="border-bottom:1px solid #000; border-top:1px solid #000; border-right:1px solid #000; border-left:1px solid #000;" >
+                    <tr>
+                      <td colspan="2" class="tblhead">Components</td>
+                      <td width="81" class="tblhead"><div align="center">$</div></td>
+                      <td width="93" class="tblhead"><div align="center">$/kWh</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" class="tbltitlebold">Energy Cost Components </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Energy</td>
+                      <td class="tbldata"><div align="right">14,755</div></td>
+                      <td class="tbldata"><div align="right">0.0613</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Shaping Premium </td>
+                      <td class="tbldata"><div align="right">-65</div></td>
+                      <td class="tbldata"><div align="right">-0.0003</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Volatility Premium</td>
+                      <td class="tbldata"><div align="right">0</div></td>
+                      <td class="tbldata"><div align="right">0</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Ancillary Services </td>
+                      <td class="tbldata"><div align="right">716</div></td>
+                      <td class="tbldata"><div align="right">0.0030</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Intrazonal Congestion </td>
+                      <td class="tbldata"><div align="right">254</div></td>
+                      <td class="tbldata"><div align="right">0.0011</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Fees &amp; Regulatory </td>
+                      <td class="tbldata"><div align="right">181</div></td>
+                      <td class="tbldata"><div align="right">0.0008</div></td>
+                    </tr>
+                    <tr class="tbltitlebold">
+                      <td colspan="2" class="tbldata">Sub-Total</td>
+                      <td class="tbldata"><div align="right">15,842</div></td>
+                      <td class="tbldata"><div align="right">0.0659</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" class="tbltitlebold">OH &amp; Deal Components </td>
+                      </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Customer Charge </td>
+                      <td class="tbldata"><div align="right">200</div></td>
+                      <td class="tbldata"><div align="right">0.0008</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Additional Volatility Premium </td>
+                      <td class="tbldata"><div align="right">15</div></td>
+                      <td class="tbldata"><div align="right">0.0001</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Sales Agent Fee </td>
+                      <td class="tbldata"><div align="right">601</div></td>
+                      <td class="tbldata"><div align="right">0.0025</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Aggregator Fee </td>
+                      <td class="tbldata"><div align="right">48</div></td>
+                      <td class="tbldata"><div align="right">0.0002</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Bandwidth Charge </td>
+                      <td class="tbldata"><div align="right">120</div></td>
+                      <td class="tbldata"><div align="right">0.0005</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Other Fee </td>
+                      <td class="tbldata"><div align="right">72</div></td>
+                      <td class="tbldata"><div align="right">0.0003</div></td>
+                    </tr>
+                    <tr class="tbltitlebold">
+                      <td colspan="2" class="tbldata">Sub-Total</td>
+                      <td class="tbldata"><div align="right">1,057</div></td>
+                      <td class="tbldata"><div align="right">0.0044</div></td>
+                    </tr>
+                    <tr class="tbltitlebold">
+                      <td colspan="2" class="tbldata">Total Cost and Overhead</td>
+                      <td class="tbldata"><div align="right">16,898</div></td>
+                      <td class="tbldata"><div align="right">0.0702</div></td>
+                    </tr>
+                    <tr class="tbltitlebold">
+                      <td colspan="2" class="tbldata">Margin</td>
+                      <td class="tbldata"><div align="right">1,082</div></td>
+                      <td class="tbldata"><div align="right">0.0045</div></td>
+                    </tr>
+                    <tr id="fxdPrice" >
+                      <td colspan="2" class="tbldata">Fixed Price to Customer</td>
+                      <td class="tbldata" style="color:#0046D5;" ><b><div align="right">17,981</div></b></td>
+                      <td class="tbldata" style="color:#0046D5;"><b><div align="right">0.0747</div></b></td>
+                    </tr>
+                    <tr class="subtbltitle" id="summer" style="display:none">
+                      <td colspan="2" class="tbldata">Summer</td>
+                      <td class="tbldata"><div align="right">19,981</div></td>
+                      <td class="tbldata"><div align="right">0.0831</div></td>
+                    </tr>
+                    <tr class="subtbltitle" id="winter" style="display:none">
+                      <td colspan="2" class="tbldata">Winter</td>
+                      <td class="tbldata"><div align="right">15,981</div></td>
+                      <td class="tbldata"><div align="right">0.0664</div></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">Retail Adder for MCPE </td>
+                      <td class="tbldata" style="color:#0046D5;"><b><div align="right">3,275</div></b></td>
+                      <td class="tbldata" style="color:#0046D5;"><b><div align="right">0.0136</div></b></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="tbldata">TDSP Charges </td>
+                      <td class="tbldata"><div align="right">3,508</div></td>
+                      <td class="tbldata"><div align="right">0.0146</div></td>
+                    </tr>
+                    <tr class="tbltitlebold">
+                      <td colspan="2" class="tbldata">Bundled Cost </td>
+                      <td class="tbldata"><div align="right">21,489</div></td>
+                      <td class="tbldata"><div align="right">0.0893</div></td>
+                    </tr>
+					<tr class="tbltitlebold">
+					
+					 <td width="21" height="18" align="left" valign="top" class="tbldata"><input type="checkbox" name="checkbox" value="checkbox" onClick="display()" id="applytax" >					   </td>
+					 <td width="164" align="left" valign="middle" class="tbldata"> Bundled Cost W/Taxes</td>
+					 <td  class="tbldata" id="tax2" style="display:none"><div align="right">21,918</div></td>
+                    <td  class="tbldata" id="tax3" style="display:none"><div align="right">0.0911</div></td>
+					 <td width="8" colspan="2"  class="tbldata" id="tax4" style="display:block">&nbsp;</td>                   
+					</tr></table>
+                  </div></td>
+                  <td width="595" valign="top"><table width="100%" height="420" border="0" cellpadding="0" cellspacing="0">
+  <tr >
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+  <tr >
+    <td class="tbldata">&nbsp;</td>
+    <td class="tbldata">&nbsp;</td>
+  </tr>
+</table>
+
+				    <!--<iframe src="dashboardapplet.html" name="dashboardInner" frameborder="0" width="300" height="500" style="border:solid 0px" > </iframe>--></td>
+                </tr>
+              </table>
+			  <table width="100%"  border="0" cellspacing="0" cellpadding="0" id="tblGraph" style="display:none;">
+			    <tr>
+				  <td class="pad"><img src="images/graph.gif" width="500" height="300"></td>
+			    </tr>
+			  </table>
+			  <table width="100%"  border="0" cellspacing="0" cellpadding="0" id="tblMultOff" style="display:none;">
+			    <tr>
+				  <td><fieldset><legend>Test Assured Rate 1</legend>
+					<br>
+					<div style="overflow:hidden; width:750px;" id="dvMultOffHead">
+					<table width="1500"  border="0" cellspacing="0" cellpadding="3">
+					  <tr>
+						<td width="100" class="tblheader">Term (months)</td>
+					    <td width="110" class="tblheader">Margin ($/kWh) </td>
+					    <td width="100" class="tblheader">Addl. Volatility </td>
+					    <td width="100" class="tblheader">Contract kWh </td>
+					    <td width="150" class="tblheader">Fixed Price ($/kWh) </td>
+					    <td width="100" class="tblheader">MCPE Adder </td>
+					    <td width="100" class="tblheader">PTB ($/kWh) </td>
+					    <td width="100" class="tblheader">TDSP ($/kWh) </td>
+					    <td width="230" class="tblheader">Customer Savings After Taxes ($) </td>
+					    <td class="tblheader">Customer Savings After Taxes ($/kWh) </td>
+					  </tr>
+					</table>
+					</div>
+					<div style="overflow:auto; width:750px; height:111;" id="dvMultOffVal" onScroll="scrollDiv()">
+					<table width="1500"  border="0" cellspacing="0" cellpadding="3">
+					  <tr>
+						<td width="108" class="tbldata">12</td>
+					    <td width="118" class="tbldata">&nbsp;</td>
+					    <td width="108" class="tbldata">&nbsp;</td>
+					    <td width="108" class="tbldata">&nbsp;</td>
+					    <td width="158" class="tbldata">&nbsp;</td>
+					    <td width="108" class="tbldata">&nbsp;</td>
+					    <td width="108" class="tbldata">&nbsp;</td>
+					    <td width="108" class="tbldata">&nbsp;</td>
+					    <td width="238" class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					  </tr>
+					  <tr>
+					    <td class="tbldata">24</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    </tr>
+					  <tr>
+					    <td class="tbldata">36</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    </tr>
+					  <tr>
+					    <td class="tbldata">48</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    </tr>
+					  <tr>
+					    <td class="tbldata">60</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    <td class="tbldata">&nbsp;</td>
+					    </tr>
+					</table>
+					</div>
+				  </fieldset></td>
+			    </tr>
+			  </table>
+			</td>
+          </tr>
+        </table>
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="btnbg"><input name="Submit" type="button" class="button" value="Back" onClick="window.open('runresult.htm','_self')">
+              <input name="Submit5" type="button" class="button" value="Create&nbsp;Contract">            
+              <input name="Submit2" type="reset" class="button" value="Reset">
+            <input name="Submit3" type="button" class="button" value="Next" onClick="window.open('EPP.htm','_self')"></td>
+          </tr>
+        </table>
+	 
+    </td>
+  </tr> 
+ </table>
+</form> 
+</body>
+</html>

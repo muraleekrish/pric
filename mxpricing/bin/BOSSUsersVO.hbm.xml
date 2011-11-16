@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.securityadmin.valueobject.BOSSUsersVO"
+        table="BOSS..TEE_USER">
+
+        <id
+            name="userId"
+            column="USER_ID"
+            type="string">
+            
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+	
+		
+		<property
+            name="userFirstName"
+            type="string"
+            update="true"
+            insert="true"
+            column="USER_FIRSTNAME"
+        />
+		
+		<property
+            name="userLastName"
+            type="string"
+            update="true"
+            insert="true"
+            column="USER_LASTNAME"
+        />
+		
+		<property
+            name="email"
+            type="string"
+            update="true"
+            insert="true"
+            column="USER_EMAIL"
+        />
+        
+		<property
+            name="valid"
+            type="int"
+            update="true"
+            insert="true"
+            column="USER_ISVALID"
+        />
+        
+	</class>
+</hibernate-mapping>

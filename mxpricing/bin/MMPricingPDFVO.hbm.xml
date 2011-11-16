@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.matrixpricing.valueobjects.MMPricingPDFVO"
+        table="PRC_MMPricing_PDF">
+
+        <id
+            name="refNo"
+            column="Ref_Number"
+            type="string">
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		<many-to-one name="priceRunRefNo"  column="Price_Run_Ref_No"/>
+    	<many-to-one name="salesRep"  column="Sales_Rep"/>
+		<many-to-one name="salesManager"  column="Sales_Manager"/>
+		<property
+            name="createdBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Created_By"
+        />
+        <property
+            name="custName"
+            type="string"
+            update="true"
+            insert="true"
+            column="Cust_Name"
+        />
+		<property
+            name="createdDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Created_Date"
+        />
+		<property
+            name="valid"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Is_Valid"
+        />
+    </class>
+
+</hibernate-mapping>

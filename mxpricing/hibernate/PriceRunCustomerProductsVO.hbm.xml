@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PriceRunCustomerProductsVO"
+        table="PRC_PriceRunCustomer_Products">
+		<composite-id> 
+ 		 <key-many-to-one name="priceRunCustomer" class="com.savant.pricing.calculation.valueobjects.PriceRunCustomerVO" column="PriceRunCustomer_Ref_ID"/>    
+ 		 <key-many-to-one name="product" class="com.savant.pricing.valueobjects.ProductsVO" column="Prdct_ID" lazy="false"/>    
+   		</composite-id>	
+    </class>
+</hibernate-mapping>

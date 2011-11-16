@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.matrixpricing.valueobjects.MMPriceRunHeaderVO"
+        table="PRC_MM_RunStatus">
+
+        <id
+            name="priceRunRefNo"
+            column="Price_Run_Ref_No"
+            type="string">
+            
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		<property
+            name="priceRunTime"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="PriceRuntime"
+        />
+        
+        <property
+            name="status"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="status"
+        />
+		
+		<property
+            name="offerDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Offer_Date"
+        />
+        
+        <property
+            name="expiredate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Expire_Date"
+        />
+		<property
+            name="runBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Run_By"
+        />
+		
+		<property
+            name="comments"
+            type="string"
+            update="true"
+            insert="true"
+            column="Comments"
+        />
+        
+        <property
+            name="forwardCurveDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="forwardCurveDate"
+        />
+        
+        <property
+            name="gasPriceDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="gasPriceDate"
+        />
+        
+        <property
+            name="gasValue"
+            type="float"
+            update="true"
+            insert="true"
+            column="gasValue"
+        />
+        
+    </class>
+
+</hibernate-mapping>

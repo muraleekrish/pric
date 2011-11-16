@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PICVO"
+        table="PRC_PIC">
+
+        <id
+            name="picReferenceId"
+            column="PIC_Ref_ID"
+            type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		
+		<many-to-one name="customer" fetch="join" column="Prospective_Cust_ID"/>    	
+
+        <property
+            name="customerName"
+            type="string"
+            update="true"
+            insert="true"
+            column="Cust_Name"
+        />
+		<property
+            name="esiId"
+            type="string"
+            update="true"
+            insert="true"
+            column="ESIID"
+        />
+		<property
+            name="address1"
+            type="string"
+            update="true"
+            insert="true"
+            column="Adress_1"
+        />
+		
+		<property
+            name="address2"
+            type="string"
+            update="true"
+            insert="true"
+            column="Adress_2"
+        />
+		
+		<property
+            name="address3"
+            type="string"
+            update="true"
+            insert="true"
+            column="Adress_3"
+        />
+		
+		<property
+            name="picImportedOn"
+            type="date"
+            update="true"
+            insert="true"
+            column="PIC_Imported_On"
+        />
+		
+		<property
+            name="loadProfile"
+            type="string"
+            update="true"
+            insert="true"
+            column="Load_Profile"
+        />
+		<property
+            name="createdBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Created_By"
+        />
+		
+		<property
+            name="createdDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Created_Date"
+        />
+		
+		<property
+            name="modifiedBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Modified_By"
+        />
+		
+		
+		<property
+            name="modifiedDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Modified_Date"
+        />
+		
+		<property
+            name="valid"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Is_Valid"
+        />
+		
+		<property
+            name="meterReadCycle"
+            type="string"
+            update="true"
+            insert="true"
+            column="Mtr_Cycle"
+        />
+		
+		<many-to-one name="zipCode" fetch="join" column="Zip_Code"/>    	
+		<many-to-one name="rateCode" fetch="join" column="Rate_Code_ID"/>   
+		
+		<property
+            name="maxkVA"
+            type="float"
+            update="true"
+            insert="true"
+            column="Max_kVA"
+        />
+		<property
+            name="maxkW"
+            type="float"
+            update="true"
+            insert="true"
+            column="Max_kW"
+        />
+		<property
+            name="avg4CPkVA"
+            type="float"
+            update="true"
+            insert="true"
+            column="Avg_4CP_kVA"
+        />
+		<property
+            name="avg4CPkW"
+            type="float"
+            update="true"
+            insert="true"
+            column="Avg_4CP_kW"
+        />
+    </class>
+
+</hibernate-mapping>

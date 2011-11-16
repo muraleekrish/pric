@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.ShapingPremiumRatiosVO"
+        table="Shaping_Premium_Ratios">
+
+		<composite-id> 
+   		 <key-property name="loadProfile" type="string" column="Load_Profile"/>
+ 		 <key-many-to-one name="congestionZone" class="com.savant.pricing.valueobjects.CongestionZonesVO" column="Congestion_Zone_ID"/>    
+ 		 <key-many-to-one name="priceBlock" class="com.savant.pricing.calculation.valueobjects.PriceBlockHeaderVO" column="Price_Blck_ID"/>    
+   		 <key-property name="month" type="int" column="Mnth"/>
+   		</composite-id>		
+		<property
+            name="ratio"
+            type="float"
+            update="true"
+            insert="true"
+            column="Ratio"
+        />
+
+    </class>
+
+</hibernate-mapping>

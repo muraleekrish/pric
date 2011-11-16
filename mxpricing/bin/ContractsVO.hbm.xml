@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.valueobjects.ContractsVO"
+        table="PRC_Contracts">
+
+        <id
+            name="contractIdentifier"
+            column="Contract_ID"
+            type="int">
+
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		
+		<many-to-one name="priceRunCustomerRef" fetch="join" column="PriceRunCustomer_Ref_ID"/>    	
+
+	    <many-to-one name="product" fetch="join" column="Prdct_ID"/>
+		
+		
+		<property
+            name="term"
+            type="int"
+            update="true"
+            insert="true"
+            column="Term"
+        />
+		
+		<property
+            name="contractkWh"
+            type="float"
+            update="true"
+            insert="true"
+            column="ContractkWh"
+        />
+        
+		<property
+            name="fixedPrice$PerMWh"
+            type="float"
+            update="true"
+            insert="true"
+            column="FixedPrice$PerMWh"
+        />
+		<property
+            name="baseRate$PerMWh"
+            type="float"
+            update="true"
+            insert="true"
+            column="baseRate$PerMWh"
+        />
+        
+		<property
+            name="salesCommision"
+            type="float"
+            update="true"
+            insert="true"
+            column="Sales_Commision"
+        />
+        
+		<property
+            name="aggregatorFee"
+            type="float"
+            update="true"
+            insert="true"
+            column="Aggregator_Fee"
+        />
+		<property
+            name="competitorPrice$PerkWh"
+            type="float"
+            update="true"
+            insert="true"
+            column="Competitor_Price$PerMWh"
+        />
+		<property
+            name="tdspCharges"
+            type="float"
+            update="true"
+            insert="true"
+            column="TDSP_Charges"
+        />
+		<property
+            name="taxes"
+            type="float"
+            update="true"
+            insert="true"
+            column="Tax"
+        />
+        
+		<property
+            name="esiIds"
+            type="string"
+            update="true"
+            insert="true"
+            column="ESIIDs"
+        />
+    	<property
+            name="gasPrice$PerMMBtu"
+            type="float"
+            update="true"
+            insert="true"
+            column="GasPrice$PerMMBtu"
+        />
+    	<property
+            name="fuelFactor"
+            type="float"
+            update="true"
+            insert="true"
+            column="Fuel_Fctr"
+        />
+    	<property
+            name="avgGasPrice"
+            type="float"
+            update="true"
+            insert="true"
+            column="Avg_Gas_Price"
+        />
+    	<property
+            name="mcpeAdder"
+            type="float"
+            update="true"
+            insert="true"
+            column="MCPE_Adder"
+        />
+    	<property
+            name="computedFAF"
+            type="float"
+            update="true"
+            insert="true"
+            column="Computed_FAF"
+        />
+        
+	    <many-to-one name="salesRep" fetch="join" column="User_ID"/>
+	    
+		<property
+            name="heatRate"
+            type="float"
+            update="true"
+            insert="true"
+            column="heatRate"
+        />
+		<property
+            name="heatRateAdder"
+            type="float"
+            update="true"
+            insert="true"
+            column="heatRateAdder"
+        />
+		
+		<property
+            name="totalAnnualBill"
+            type="float"
+            update="true"
+            insert="true"
+            column="totalAnnualBill"
+        />
+		<property
+            name="contractPrice$PerkWh"
+            type="float"
+            update="true"
+            insert="true"
+            column="contractPrice$PerkWh"
+        />
+		
+		<property
+            name="stateTax"
+            type="float"
+            update="true"
+            insert="true"
+            column="stateTax"
+        />
+		<property
+            name="countyTax"
+            type="float"
+            update="true"
+            insert="true"
+            column="countyTax"
+        />
+		<property
+            name="cityTax"
+            type="float"
+            update="true"
+            insert="true"
+            column="cityTax"
+        />
+		
+		<property
+            name="loadFactor"
+            type="float"
+            update="true"
+            insert="true"
+            column="loadFactor"
+        />
+		<property
+            name="customerCharge"
+            type="float"
+            update="true"
+            insert="true"
+            column="customerCharge"
+        />
+	    <property
+            name="annualkWh"
+            type="float"
+            update="true"
+            insert="true"
+            column="annualkWh"
+        />
+	    <property
+            name="annualkW"
+            type="float"
+            update="true"
+            insert="true"
+            column="annualkW"
+        />
+        <property
+            name="startDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="startDate"
+        />
+        <property
+            name="expDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="expireDate"
+        />
+    </class>
+
+</hibernate-mapping>

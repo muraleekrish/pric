@@ -1,0 +1,47 @@
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr//dwr20.dtd">
+
+<dwr>
+  <allow>
+    <create creator="new" javascript="RunResultDAO">
+      <param name="class" value="com.savant.pricing.matrixpricing.dao.MatrixRunResultDAO"/>
+    </create>
+  </allow>
+
+
+  <allow>
+    <create creator="new" javascript="RunStatusDAO">
+      <param name="class" value="com.savant.pricing.matrixpricing.dao.MMPriceRunStatusDAO"/>
+    </create>
+  </allow>
+
+  <allow>
+    <create creator="new" javascript="CongestionZoneDAO">
+      <param name="class" value="com.savant.pricing.dao.CongestionZonesDAO"/>
+    </create>
+  </allow>
+
+  <allow>
+    <create creator="new" javascript="UserDAO">
+      <param name="class" value="com.savant.pricing.securityadmin.dao.UserDAO"/>
+    </create>
+  </allow>
+  
+  <allow>
+    <create creator="new" javascript="ProspectiveCustomerDAO">
+      <param name="class" value="com.savant.pricing.dao.ProspectiveCustomerDAO"/>
+    </create>
+  </allow>
+  
+
+  <allow>
+    <create creator="new" javascript="TDSPDAO">
+      <param name="class" value="com.savant.pricing.dao.TDSPDAO"/>
+    </create>
+  </allow>
+  
+  <allow>
+    <create creator="new" javascript="ComputeMMPrice">
+      <param name="class" value="com.savant.pricing.matrixpricing.dao.ComputeMMPrice"/>
+    </create>
+  </allow>
+</dwr>

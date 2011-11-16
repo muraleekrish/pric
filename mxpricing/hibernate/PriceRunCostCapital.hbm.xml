@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PriceRunCostCapitalVO"
+        table="prc_pricerun_coc">
+        
+        
+        <composite-id> 
+   	 		 <key-many-to-one name="cocId" class="com.savant.pricing.calculation.valueobjects.CostOfCapitalVO" column="coc_id"/>    
+  	 		 <key-many-to-one name="prcId" class="com.savant.pricing.calculation.valueobjects.PriceRunHeaderVO" column="price_run_ref"/>    
+   		</composite-id>
+        
+		<property
+            name="cocValue"
+            type="float"
+            update="true"
+            insert="true"
+            column="coc_value"
+        />
+        
+    </class>
+</hibernate-mapping>

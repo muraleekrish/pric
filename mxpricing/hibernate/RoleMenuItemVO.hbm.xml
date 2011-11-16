@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.securityadmin.valueobject.RoleMenuItemVO"
+        table="PRC_Grp_MenuItem">
+		<composite-id> 
+ 		 <key-many-to-one name="role" class="com.savant.pricing.securityadmin.valueobject.RolesVO" column="Grp_ID"/>    
+  		 <key-many-to-one name="menuItem" class="com.savant.pricing.securityadmin.valueobject.MenuItemsVO" column="Menu_Item_ID" lazy="false"/>    
+   		</composite-id>	
+    </class>
+
+</hibernate-mapping>

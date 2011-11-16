@@ -1,0 +1,2529 @@
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+--exec sp_importAREPfrmXLS
+CREATE    procedure dbo.sp_importAREPfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (AREPName nvarchar(100))
+
+insert into tmpData(AREPName)
+exec('Select AREPName
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'',
+                         [AREP$])')
+
+delete from tmpdata where AREPName is null
+
+insert into PRC_AREP(AREP_Name)
+            select AREPName from tmpData
+ 
+drop table tmpData  
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+-- exec sp_importCalendarfrmXLS
+
+CREATE    procedure dbo.sp_importCalendarfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (Datefield Datetime,DayType nvarchar(30))
+
+insert into tmpData(
+            Datefield,
+            DayType
+           )
+exec('Select Datefield,DayType 
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                         [Calendar$])')
+
+delete from tmpData where Datefield is null or DayType is null
+
+insert into PRC_Calendar(Date,Day_Type_ID)
+select Datefield,b.Day_Type_ID 
+ from tmpData a,PRC_Day_Types b 
+ where a.DayType = b.Day_Type
+  
+drop table tmpData  
+
+
+end
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+--exec dbo.sp_importDaytypefrmXLS
+
+CREATE  procedure dbo.sp_importDaytypefrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (DayType nvarchar(100),Description nvarchar(200))
+
+insert into tmpData(DayType,Description)
+exec('Select DayType,Description 
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                               [DayType$])')
+
+delete from tmpData where DayType is null
+
+insert into PRC_Day_Types(Day_Type,Descrptn)
+      select DayType,Description 
+      from tmpData
+ 
+drop table tmpData  
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+--exec dbo.sp_importCDRStatusfrmXLS
+
+CREATE  procedure dbo.sp_importCDRStatusfrmXLS as
+
+begin
+
+if exists 
+  (select * from dbo.sysobjects 
+            where id = object_id(N'[dbo].[tmpData]') and 
+                       OBJECTPROPERTY(id, N'IsUserTable') = 1)
+    begin 
+      drop table tmpData
+    end
+
+create table tmpData (CDRState nvarchar(100))
+
+insert into tmpData(CDRState)
+exec('Select CDRState 
+       from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                        ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                          [CDRStatus$])')
+
+ delete from tmpdata where CDRState is null
+
+ insert into PRC_CDR_Status(CDR_State)
+        select CDRState
+        from tmpData
+ 
+drop table tmpData  
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+--exec sp_importCongestionZonefrmXLS
+
+CREATE  procedure dbo.sp_importCongestionZonefrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects 
+                    where id = object_id(N'[dbo].[tmpData]') and 
+                               OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+    drop table tmpData
+  end
+
+create table tmpData (CongestionZoneName  nvarchar(100))
+
+insert into tmpData(CongestionZoneName)exec('Select CongestionZone
+
+from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',''EXCEL 8.0;Database=d:PricinginitialInput\GlobalSettings.xls;HDR=yes'', [CongestionZone$])')
+
+delete from tmpData where CongestionZoneName is null
+
+insert into PRC_Congestion_Zones(Congestion_Zone)
+     select CongestionZoneName 
+     from tmpData
+ 
+drop table tmpData  
+
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+--exec dbo.sp_importCustomerStatusfrmXLS
+
+CREATE    procedure dbo.sp_importCustomerStatusfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (CustStatus nvarchar(100))
+
+insert into tmpData(CustStatus)
+exec('Select CustomerStatus from OPENROWSET 
+                      (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                         [CustomerStatus$])')
+
+delete from tmpData where CustStatus is null
+
+insert into PRC_Cust_Status(Cust_Status)
+select CustStatus from tmpData
+ 
+drop table tmpData  
+
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+--exec dbo.sp_importDealLeversfrmXLS
+
+create procedure dbo.sp_importDealLeversfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+create table tmpData (DealLever nvarchar(100),UOM nvarchar(200),Value float)
+
+insert into tmpData(DealLever,UOM,Value)
+exec('Select DealLever,UOM,DealLeverValue 
+from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                 ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'',
+                   [Deallevers$])')
+
+delete from tmpData where DealLever is null
+
+insert into PRC_Deal_Levers(Deal_Lever,UOM_ID,Deal_Lever_Value)
+select a.DealLever,b.UOM_ID,a.Value 
+      from tmpData a,PRC_UOM b 
+      where a.UOM = b.Unit
+ 
+drop table tmpData  
+
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+--exec dbo.sp_importUOMfrmXLS
+
+CREATE  PROCEDURE dbo.sp_importUOMfrmXLS as
+BEGIN
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and 
+                     OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+    CREATE TABLE tmpData (Unit nvarchar(100))
+
+    INSERT INTO tmpData(Unit)
+    EXEC('Select Unit 
+          from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                           ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                             [UOM$])')
+
+    INSERT INTO PRC_UOM(Unit)
+    SELECT Unit FROM tmpData
+ 
+    DROP TABLE tmpData  
+
+END
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+--exec sp_importDLFCodefrmXLS
+
+CREATE procedure dbo.sp_importDLFCodefrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (TDSP nvarchar(50),DLFName nvarchar(100),Description nvarchar(200))
+
+insert into tmpData(TDSP,DLFName,Description)
+   exec('Select TDSP,DLFName,Description 
+         from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                          ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                            [DLFCode$])')
+
+delete from tmpData where TDSP is null
+
+insert into PRC_DLF_Code(TDSP_ID,DLF_Name,Descrptn)
+select b.TDSP_ID,DLFName,Description from tmpData a,PRC_TDSP b 
+       where a.TDSP = b.TDSP_Name
+ 
+drop table tmpData  
+
+end
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importTDSPfrmXLS
+CREATE procedure dbo.sp_importTDSPfrmXLS as
+BEGIN
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+      CREATE TABLE tmpData (TDSP nvarchar(100),ESIIDPREFIX bigint)
+
+      INSERT INTO tmpData(
+            TDSP,
+            ESIIDPREFIX)
+      EXEC('Select TDSPName,
+                   ESIIDPrefix 
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                               [TDSP$])')
+
+      DELETE FROM tmpData WHERE TDSP IS NULL
+
+      INSERT INTO PRC_TDSP(TDSP_Name,ESIID_Prefix)
+      SELECT TDSP,ESIIDPREFIX from tmpData
+
+      DROP TABLE tmpData  
+END
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importDLFValuefrmXLS
+
+CREATE   procedure dbo.sp_importDLFValuefrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (TDSP nvarchar(100),DLFName nvarchar(100),Value float)
+
+insert into tmpData(
+           TDSP,DLFName,Value
+           )
+exec('Select TDSP,DLFName,DLFValues 
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                         [DLF$])')
+
+delete from tmpData where TDSP is null or DLFName is null
+
+insert into PRC_DLF(DLF_Code_ID,DLF_Value)
+select b.DLF_Code_ID , a.Value from tmpData a, PRC_DLF_Code b,PRC_TDSP c 
+              where a.TDSP = c.TDSP_Name and
+               a.DLFName = b.DLF_Name and 
+               c.TDSP_Id = b.TDSP_ID
+                    
+  drop table tmpData 
+
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importLoadProfilefrmXLS
+
+CREATE    procedure dbo.sp_importLoadProfilefrmXLS AS
+BEGIN
+
+   IF EXISTS (SELECT * FROM dbo.sysobjects 
+       WHERE ID = object_id(N'[dbo].[tmpData]') and 
+                  OBJECTPROPERTY(ID, N'IsUserTable') = 1)
+    BEGIN 
+        DROP TABLE tmpData
+    END
+
+    CREATE TABLE tmpData (ProfileType NVARCHAR(100),Description NVARCHAR(200))
+
+    INSERT INTO tmpData(
+             ProfileType,Description
+           )
+    EXEC('Select ProfileType,Description from OPENROWSET 
+         (''Microsoft.Jet.OleDB.4.0'',
+          ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'',
+            [LoadProfileType$])')
+
+    DELETE FROM tmpData WHERE ProfileType IS NULL
+
+   INSERT INTO PRC_Load_ProfileTypes(Profile_Type,Descrptn)
+   SELECT ProfileType,Description FROM tmpData
+  
+   DROP TABLE tmpData  
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importMeterCategoryfrmXLS
+
+CREATE   PROCEDURE dbo.sp_importMeterCategoryfrmXLS AS
+BEGIN
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+    CREATE TABLE tmpData (MeterCategoryName nvarchar(100),Description nvarchar(200))
+
+    INSERT INTO tmpData(MeterCategoryName,Description)
+    EXEC('SELECT MeterCategoryName,Description 
+          FROM OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                           ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                             [MeterCategories$])')
+
+    DELETE FROM tmpData WHERE MeterCategoryName is null
+
+    INSERT INTO PRC_Mtr_Categories(Mtr_Category_Name,descrptn)
+    SELECT MeterCategoryName,Description FROM tmpData
+  
+    DROP TABLE tmpData  
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+-- exec sp_importPrcBlckfrmXLS
+
+CREATE PROCEDURE dbo.sp_importPrcBlckfrmXLS as
+BEGIN
+
+   IF exists 
+       (SELECT * FROM dbo.sysobjects 
+         WHERE ID = object_ID(N'[dbo].[tmpData]') and 
+               OBJECTPROPERTY(ID, N'IsUserTable') = 1)
+     BEGIN 
+      DROP TABLE tmpData
+     END
+
+   CREATE TABLE tmpData (priceblck nvarchar(30),
+                         Dayofweek int,
+                         Hr int,
+                         DayType nvarchar(20),
+                         blckName nvarchar(50),
+                         description nvarchar(200))
+
+   INSERT INTO tmpData(priceblck,Dayofweek,Hr,DayType,blckName,description)
+         EXEC('SELECT priceblock,dayofweek,hr,daytype,BlockName,Description
+               FROM OPENROWSET 
+                 (''Microsoft.Jet.OleDB.4.0'',
+                  ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                    [Priceblck$])')
+
+   DELETE FROM tmpData WHERE priceblck IS NULL OR Dayofweek IS NULL
+   
+   INSERT INTO PRC_Price_Blck_Header(Blck_Name,Descrptn)
+   SELECT blckName,description FROM tmpData WHERE blckName IS NOT NULL
+
+   INSERT INTO PRC_Price_Blck(Price_Blck_ID,DayofWeek,Hour,Day_Type_ID)
+   SELECT b.Price_blck_ID,a.Dayofweek,a.Hr,c.Day_Type_ID
+        FROM tmpData a, PRC_Price_blck_header b,Prc_Day_Types c
+        WHERE A.priceblck = b.Blck_Name and
+              a.DayType = c.Day_type 
+
+   DROP TABLE tmpData  
+END
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importPremiumfrmXLS
+
+CREATE  PROCEDURE dbo.sp_importPremiumfrmXLS as
+BEGIN
+
+     IF exists 
+       (SELECT * FROM dbo.sysobjects 
+         WHERE ID = object_ID(N'[dbo].[tmpData]') and 
+               OBJECTPROPERTY(ID, N'IsUserTable') = 1)
+        BEGIN 
+          DROP TABLE tmpData
+        END
+
+     CREATE TABLE tmpData(PremiumType nvarchar(100),
+                           Value float)
+
+     INSERT INTO tmpData(PremiumType,
+                          Value)
+     EXEC('SELECT PremiumType,Value 
+           FROM OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                            ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                              [Premium$])')
+
+     DELETE FROM tmpData WHERE PremiumType IS NULL
+
+     INSERT INTO PRC_Premium(Premium_Type,
+                             Value)
+     SELECT PremiumType,Value FROM tmpData
+  
+     DROP TABLE tmpData  
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importPricingReadCyclefrmXLS 
+
+CREATE PROCEDURE dbo.sp_importPricingReadCyclefrmXLS
+AS
+BEGIN
+
+     IF EXISTS 
+       (SELECT * FROM dbo.sysobjects 
+         WHERE ID = object_ID(N'[dbo].[tmpData]') and 
+               OBJECTPROPERTY(ID, N'IsUserTable') = 1)
+        BEGIN 
+          DROP TABLE tmpData
+        END
+
+     CREATE TABLE tmpData ( TDSP nvarchar(30),Cycle nvarchar(20),
+                      	f1 Datetime,f2 Datetime,f3 Datetime,f4 Datetime,
+		      	f5 Datetime,f6 Datetime,f7 Datetime,f8 Datetime,
+			f9 Datetime,f10 Datetime,f11 Datetime,f12 Datetime,
+			f13 Datetime,f14 Datetime,f15 Datetime,f16 Datetime,
+			f17 Datetime,f18 Datetime,f19 Datetime,f20 Datetime,
+			f21 Datetime,f22 Datetime,f23 Datetime,f24 Datetime,
+		      	f25 Datetime,f26 Datetime,f27 Datetime,f28 Datetime,
+			f29 Datetime,f30 Datetime,f31 Datetime,f32 Datetime,
+			f33 Datetime,f34 Datetime,f35 Datetime,f36 Datetime,
+			f37 Datetime,f38 Datetime,f39 Datetime,f40 Datetime,
+			f41 Datetime,f42 Datetime,f43 Datetime,f44 Datetime,
+		      	f45 Datetime,f46 Datetime,f47 Datetime,f48 Datetime,
+			f49 Datetime,f50 Datetime,f51 Datetime,f52 Datetime,
+			f53 Datetime,f54 Datetime,f55 Datetime
+			)
+	
+
+     INSERT INTO  tmpData( TDSP,
+                        Cycle,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,
+		        f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,
+                        f21,f22,f23,f24,f25,f26,f27,f28,f29,f30,
+                        f31,f32,f33,f34,f35,f36,f37,f38,f39,f40,
+                        f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,
+                        f51,f52,f53,f54,f55)
+      EXEC('Select TDSP,
+	                Cycle,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,
+                        f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,
+                        f21,f22,f23,f24,f25,f26,f27,f28,f29,f30,
+                        f31,f32,f33,f34,f35,f36,f37,f38,f39,f40,
+                        f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,
+                        f51,f52,f53,f54,f55
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes;IMEX=0'',
+		               [MeterReadCycle$])'
+)
+ INSERT INTO  tmpData( TDSP,
+                        Cycle,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,
+		        f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,
+                        f21,f22,f23,f24,f25,f26,f27,f28,f29,f30,
+                        f31,f32,f33,f34,f35,f36,f37,f38,f39,f40,
+                        f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,
+                        f51,f52,f53,f54,f55)
+      EXEC('Select TDSP,
+	                Cycle,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,
+                        f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,
+                        f21,f22,f23,f24,f25,f26,f27,f28,f29,f30,
+                        f31,f32,f33,f34,f35,f36,f37,f38,f39,f40,
+                        f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,
+                        f51,f52,f53,f54,f55
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes;'',
+		               [MeterReadCycletext$])'
+)
+
+      DELETE FROM tmpData WHERE TDSP IS NULL AND Cycle IS NULL AND f1 IS NULL
+
+      DECLARE @n int
+      SET @n = 1
+      DECLARE @dat Datetime
+      SET @dat = '01-01-2004'
+      DECLARE @datestr varchar(25)
+      SET @datestr = (select convert(varchar,@dat,110))
+      DECLARE @sql nvarchar(200)
+
+      WHILE(@n<=55)
+      BEGIN
+        SET @datestr = (SELECT convert(varchar,@dat,110))
+        SET @sql = 'Insert into PRC_Mtr_Read_Cycle (TDSP_ID,Cycle,Read_Date,Mnth_Yr)' + 
+                 ' select b.TDSP_ID,a.Cycle,f'+cast(@n as nvarchar)+','''+@datestr+''' from tmpdata a,PRC_TDSP b where a.tdsp = b.TDSP_Name '
+    
+        EXEC(@Sql)
+        SET @dat = DATEADD (m , 1, @dat)
+        SET @n= @n + 1
+      END
+
+       DROP TABLE tmpdata
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importPricingScalarsfrmXLS
+
+create procedure dbo.sp_importPricingScalarsfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table #tmpData
+  end
+
+
+create table #tmpData (Zone nvarchar(30),
+                      	DayType nvarchar(30),Month int,Hr1 float,
+		      	Hr2 float,Hr3 float,Hr4 float,
+		      	Hr5 float,Hr6 float,Hr7 float,
+			Hr8 float,Hr9 float,Hr10 float,
+			Hr11 float,Hr12 float,Hr13 float,
+			Hr14 float,Hr15 float,Hr16 float,
+			Hr17 float,Hr18 float,Hr19 float,
+			Hr20 float,Hr21 float,Hr22 float,
+			Hr23 float,Hr24 float 
+			)
+
+insert into #tmpData(Zone,
+	     DayType,
+	     Month,Hr1,Hr2,
+	     Hr3,Hr4,Hr5,Hr6,
+	     Hr7,Hr8,Hr9,Hr10,
+	     Hr11,Hr12,Hr13,Hr14,
+	     Hr15,Hr16,Hr17,Hr18,
+	     Hr19,Hr20,Hr21,Hr22,
+	     Hr23,Hr24 
+ )
+exec('Select Zone,
+	     DayType,
+	     Month,Hr1,Hr2,
+	     Hr3,Hr4,Hr5,Hr6,
+	     Hr7,Hr8,Hr9,Hr10,
+	     Hr11,Hr12,Hr13,Hr14,
+	     Hr15,Hr16,Hr17,Hr18,
+	     Hr19,Hr20,Hr21,Hr22,
+	     Hr23,Hr24  
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+		       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'',
+			 [Scalars$])')
+
+delete from #tmpData where Zone is null and 
+			  DayType is null and 
+			  Month is null
+
+declare @hr int
+set @hr = 1
+declare @n varchar(20)
+declare @sql varchar(400)
+
+while (@hr <= 24)
+  begin
+    set @n =  cast(@hr as varchar)
+    set @sql = ('select Hr'+ @n + ' ,'+@n+'as Hour,
+					 b.Congestion_Zone_ID,
+					 c.Day_Type_ID ,
+					 a.Month from #tmpData a,prc_Congestion_Zones b,prc_day_Types c where b.Congestion_Zone=a.Zone and c.Day_Type=a.DayType')
+
+	insert into PRC_Scalars(Price_Scalars,
+				     Hours,
+				     Congestion_Zone_ID,
+				     Day_Type_ID,Mnth)
+		exec(@sql)
+
+    set @hr = @hr + 1
+end
+ 
+drop table #tmpData  
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+--exec sp_importDataSrcfrmXLS
+CREATE   procedure dbo.sp_importDataSrcfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (SourceName nvarchar(100))
+
+insert into tmpData(SourceName)
+exec('Select SourceName
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'',
+                         [Datasource$])')
+
+delete from tmpdata where SourceName is null
+
+insert into PRC_Fwd_Curves_Data_Src(Data_Src)
+            select SourceName from tmpData
+ 
+drop table tmpData  
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importProductsfrmXLS
+create  procedure dbo.sp_importProductsfrmXLS as
+BEGIN
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (product nvarchar(100),description nvarchar(500))
+
+insert into tmpData(
+            product,description)
+exec('Select ProductName,Description 
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                         [Products$])')
+
+delete from tmpData where product is null 
+
+insert into PRC_Products(Prdct_Name,descrptn)
+select product,description from tmpData
+  
+drop table tmpData  
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importRateCodesfrmXLS
+
+CREATE   procedure dbo.sp_importRateCodesfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData(TDSP nvarchar(25),
+                      RateCode nvarchar(100),
+                      RateClass nvarchar(150),
+                      Description nvarchar(200))
+
+insert into tmpData(
+            TDSP,RateCode,RateClass,Description
+           )
+exec('Select TDSP,
+             RateCode,
+             RateClass,
+             Description 
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                         [RateCodes$])')
+
+insert into tmpData(
+             TDSP,RateCode,RateClass,Description)
+exec('Select TDSPTEXT,
+             RateCodetext,
+             RateClasstext,
+             RateDescriptiontext 
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                         [RateCodes$])')
+
+   
+delete from tmpData where TDSP is null or 
+                          RateCode is null 
+
+insert into PRC_Rate_Codes(TDSP_ID,
+                           Rate_Code,
+                           Rate_Class,
+                           Descrptn)
+      select b.TDSP_ID,
+             a.RateCode,
+             a.RateClass,
+             a.Description 
+      from tmpData a,PRC_TDSP b 
+      where a.TDSP = b.TDSP_Name
+  
+drop table tmpData  
+
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+-- exec sp_importSeasonfrmXLS
+
+create PROCEDURE dbo.sp_importSeasonfrmXLS as
+BEGIN
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+    CREATE TABLE tmpData (season nvarchar(30),seasonname nvarchar(30),mnth int)
+
+    INSERT INTO tmpData(seasonname,season,mnth)
+    EXEC('Select SeasonName,Season,Month
+          from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                           ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                             [Season$])')
+
+    DELETE FROM tmpData where season is null
+
+    INSERT INTO PRC_Seasons(Season_Name)
+    SELECT seasonname FROM tmpData where seasonname is not null
+ 
+    INSERT INTO PRC_Season_Mnth(Mnth,Season_ID)
+    SELECT a.mnth,b.Season_ID FROM tmpData a,PRC_Seasons b 
+    WHERE a.season = b.Season_Name
+  
+   DROP TABLE tmpData  
+
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importServiceVoltagefrmXLS
+
+CREATE  PROCEDURE dbo.sp_importServiceVoltagefrmXLS as
+BEGIN
+
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+     CREATE TABLE tmpData (VOL varchar(10),DES varchar(200))
+
+     INSERT INTO tmpData(VOL,DES)
+     EXEC('Select ServiceVoltageType,Description 
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                               [ServiceVoltage$])')
+
+     DELETE FROM tmpData where VOL IS NULL
+
+     INSERT INTO PRC_Srvce_Vltge(Srvce_Vltge_Type,descrptn)
+      SELECT VOL,DES FROM tmpData
+  
+     DROP TABLE tmpData  
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+-- exec sp_importTaxTypefrmXLS
+
+CREATE PROCEDURE dbo.sp_importTaxTypefrmXLS as
+BEGIN
+
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+    CREATE TABLE tmpData (TaxID int,TaxType varchar(50),Des varchar(200),Rate float)
+
+    INSERT INTO tmpData(TaxID,TaxType,Des,Rate)
+     EXEC('Select Taxid,TaxType,Description,Rate 
+           from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                            ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                              [TaxType$])')
+
+     DELETE FROM tmpData WHERE TaxType IS NULL
+
+     INSERT INTO PRC_Tax_Types(Tax_Type_Id,Tax_Type,descrptn)
+     SELECT TaxID,TaxType,Des FROM tmpData
+     
+     INSERT INTO PRC_Tax_Rates(Tax_Rate_Id,Tax_Type_Id,Tax_Rate)
+     SELECT a.TaxID ,b.Tax_Type_Id, a.Rate FROM tmpData a,Prc_Tax_Types b 
+     WHERE a.TaxType = b.Tax_type    
+  
+     DROP TABLE tmpData 
+END
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importWeatherZonefrmXLS
+
+CREATE PROCEDURE dbo.sp_importWeatherZonefrmXLS as
+BEGIN
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and 
+                OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+       BEGIN
+         DROP TABLE tmpData
+       END
+
+    CREATE TABLE tmpData (WeatherCode varchar(50),
+                          WeatherZone varchar(200),
+                          CongestionZone nvarchar(30))
+
+     INSERT INTO tmpData(WeatherCode,
+                         WeatherZone,
+                         CongestionZone)
+     EXEC('Select WeatherZoneCode,
+                  WeatherZone,
+                  CongestionZone 
+           from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                            ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                              [WeatherZone$])')
+
+     DELETE FROM tmpData WHERE WeatherCode IS NULL
+
+     INSERT INTO PRC_Weather_Zones(Weather_Zone_Code,
+                                   Weather_Zone,
+                                   Congestion_Zone_ID)
+     SELECT  a.WeatherCode,
+              a.WeatherZone,
+              b.Congestion_Zone_ID FROM tmpData a,PRC_Congestion_Zones b
+              WHERE a.CongestionZone = b.Congestion_Zone
+  
+DROP table tmpData      
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec sp_importZipCodefrmXLS
+CREATE    procedure dbo.sp_importZipCodefrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (F1 varchar(50),f2 int,f3 int)
+
+insert into tmpData(
+            f1,f2,f3
+           )
+exec('Select ZipCode,WeatherZoneID,CongestionZoneID from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', [ZipCode$])')
+
+delete from tmpData where F1 is null 
+
+insert into PRC_Zip_Code(Zip_Code,Weather_Zone_ID,Congestion_Zone_ID)
+Select f1,f2,f3 from tmpData
+  
+drop table tmpData  
+
+end
+
+--delete from PRC_Zip_Code
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+--exec dbo.sp_importChargeTypesfrmXLS
+
+CREATE PROCEDURE dbo.sp_importChargeTypesfrmXLS AS
+BEGIN
+
+IF EXISTS 
+  (SELECT * FROM dbo.SYSOBJECTS 
+            WHERE ID = OBJECT_ID(N'[dbo].[tmpData]') and 
+                       OBJECTPROPERTY(id, N'IsUserTable') = 1)
+    BEGIN
+      DROP TABLE tmpData
+    END
+
+CREATE TABLE tmpData (ChargeType NVARCHAR(100),ParentType NVARCHAR(100))
+
+INSERT INTO tmpData(ChargeType,ParentType)
+EXEC('Select chargename,Parenttype 
+       from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                        ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                          [ChargeTypes$])')
+
+DELETE FROM tmpdata WHERE ChargeType is null
+
+INSERT INTO PRC_chrge_Types(Chrge_Type)
+        SELECT ChargeType
+        from tmpData 
+
+UPDATE PRC_chrge_types 
+       SET Parent_Type = parentid  
+      from prc_chrge_types a      
+          join (SELECT c.Chrge_Type_ID as parentid,b.ChargeType as chargetype from tmpData b,prc_chrge_types c 
+                WHERE b.parenttype = c.Chrge_Type) o
+      on a.Chrge_Type = o.chargetype
+
+
+DROP TABLE tmpData  
+END
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importTDSPRateCodesfrmXLS
+
+CREATE PROCEDURE dbo.sp_importTDSPRateCodesfrmXLS as
+BEGIN
+
+     IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+        BEGIN
+          DROP TABLE tmpData
+        END
+
+     CREATE TABLE tmpData (TDSP nvarchar(30),
+                      Category nvarchar(30),
+                      TDSPRateCode nvarchar(30),
+                      SCUD bit,
+                      SCUDPercentage float,
+                      ServiceVoltage nvarchar(30))
+     INSERT INTO tmpData(
+                      TDSP,
+                      Category,
+                      TDSPRateCode,
+                      SCUD,
+                      SCUDPercentage,
+                      ServiceVoltage)
+     EXEC('Select TDSP,Category,TDSPRateCode,SCUD,SCUDPercentage,ServiceVoltage
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\Globalsettings.xls;HDR=yes'',
+                               [SCUD$])')
+     INSERT INTO tmpData(
+                      TDSP,
+                      Category,
+                      TDSPRateCode,
+                      SCUD,
+                      SCUDPercentage,
+                      ServiceVoltage)
+     EXEC('Select TDSPtext,Categorytext,TDSPRateCodetext,SCUDtext,SCUDPercentagetext,ServiceVoltagetext
+           from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                            ''EXCEL 8.0;Database=d:\PricinginitialInput\Globalsettings.xls;HDR=yes'',
+                              [SCUD$])')
+
+     DELETE FROM tmpData WHERE TDSP IS NULL and TDSPRateCode is null
+
+     INSERT INTO PRC_TDSP_Rate_Codes(Rate_Code_ID,
+                                     Mtr_Category_ID,
+                                     Srvce_Vltge_ID,
+                                     SCUD,
+                                     SCUD_Prcnt)
+     SELECT b.Rate_Code_ID,d.Mtr_Category_ID,c.Srvce_Vltge_ID,a.SCUD,a.SCUDPercentage 
+     FROM tmpData a,PRC_Rate_Codes b,PRC_Srvce_Vltge c,PRC_Mtr_Categories d,PRC_TDSP e
+     WHERE a.TDSP = e.TDSP_Name and
+           e.TDSP_ID = b.TDSP_ID and
+           a.TDSPRateCode = b.Rate_Code and
+           a.ServiceVoltage = c.Srvce_Vltge_Type and
+           a.Category = d.Mtr_Category_Name 
+     union all
+     SELECT b.Rate_Code_ID,NULL as Mtr_Category_ID,c.Srvce_Vltge_ID,a.SCUD,a.SCUDPercentage 
+     FROM tmpData a,PRC_Rate_Codes b,PRC_Srvce_Vltge c,PRC_TDSP e
+     WHERE a.TDSP = e.TDSP_Name and
+           e.TDSP_ID = b.TDSP_ID and
+           a.TDSPRateCode = b.Rate_Code and
+           a.ServiceVoltage = c.Srvce_Vltge_Type and
+           a.Category is null 
+
+
+      DROP TABLE tmpData  
+END
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importTDSPchargesfrmXLS
+CREATE  procedure dbo.sp_importTDSPchargesfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmptable]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmptable
+  end
+
+create table tmptable(TDSPID int,
+                      TDSP nvarchar(20),
+                      TDSPRateCode nvarchar(20),
+                      TDSPReferenceColumn int ,
+                      ID int ,
+                      Chargename nvarchar(250),
+                      Chargefullname nvarchar(250),
+                      chargeType nvarchar(250),
+                      UNIT nvarchar(100)
+                    )
+insert into tmptable(TDSPID,
+                     TDSP,TDSPRateCode,
+                     TDSPReferenceColumn,ID,
+                     Chargename,Chargefullname,
+                     chargeType,UNIT)
+exec('select TDSPID,TDSP,TDSPRateCode,TDSPReferenceColumn,ID,Chargename,Chargefullname,chargeType,UNIT
+       from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                        ''EXCEL 8.0;Database=d:\PricinginitialInput\testing.xls;HDR=yes'',
+                          [Refcolumn$]) where tdsp is not null ')
+
+insert into tmptable(TDSPID,TDSP,TDSPRateCode,
+                     TDSPReferenceColumn)
+exec('select TDSPIDtext,TDSPtext,TDSPRateCodetext,TDSPReferenceColumntext
+       from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                        ''EXCEL 8.0;Database=d:\PricinginitialInput\testing.xls;HDR=yes'',
+                          [Refcolumn$])where tdsp is not null ')
+delete from tmptable where tdsp is null
+
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') 
+           and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpdata(RefColumn int,
+ CustomerCharge float,MeteringCharge float,
+ CompetitiveMeteringCredit float,RetailClawbackCredit float,
+ RetailClawbackCreditExpiry datetime,SummerDemandCharges float,
+ SummerEnergyCharges float,WinterDemandCharges float,
+ WinterEnergyCharges float,SummerDemandCharge float,
+ SummerEnergyCharge float,WinterDemandCharge float,
+ WinterEnergyCharge float,NuclearDecom1 float,
+ NuclearDecom2 float,SystemBenefitFund float,
+ TCDemandCharge float,TCEnergyCharge float,
+ EMCCredit float,EMCCredit1 float,
+ EnergyCharge float,NMSOffTDCharges float,
+ RROffTDCharges float,
+ PowerFactorforkVAtokW float,BillingDemandRatchet float,
+ MonthlyCharge float,DemandCharge float,
+ EnergyCharge1 float)
+
+
+insert into tmpdata(RefColumn,
+ CustomerCharge,MeteringCharge,
+ CompetitiveMeteringCredit,RetailClawbackCredit,
+ RetailClawbackCreditExpiry,SummerDemandCharges,
+ SummerEnergyCharges,WinterDemandCharges,
+ WinterEnergyCharges,SummerDemandCharge,
+ SummerEnergyCharge,WinterDemandCharge,
+ WinterEnergyCharge,NuclearDecom1,
+ NuclearDecom2,SystemBenefitFund,
+ TCDemandCharge,TCEnergyCharge,
+ EMCCredit,EMCCredit1,
+ EnergyCharge,NMSOffTDCharges,
+ RROffTDCharges,
+ PowerFactorforkVAtokW,BillingDemandRatchet,
+ MonthlyCharge,DemandCharge,
+ EnergyCharge1)
+
+exec('Select 
+ RefColumn,
+ CustomerCharge,MeteringCharge,
+ CompetitiveMeteringCredit,RetailClawbackCredit,
+ RetailClawbackCreditExpiry,SummerDemandCharges,
+ SummerEnergyCharges,WinterDemandCharges,
+ WinterEnergyCharges,SummerDemandCharge,
+ SummerEnergyCharge,WinterDemandCharge,
+ WinterEnergyCharge,NuclearDecom1,
+ NuclearDecom2,SystemBenefitFund,
+ TCDemandCharge,TCEnergyCharge,
+ EMCCredit,EMCCredit1,
+ EnergyCharge,NMSOffTDCharges,
+ RROffTDCharges,
+ PowerFactorforkVAtokW,BillingDemandRatchet,
+ MonthlyCharge,DemandCharge,
+ EnergyCharge1
+ from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                  ''EXCEL 8.0;Database=d:\PricinginitialInput\testing.xls;HDR=yes'',
+                    [TDSPCharge$]) ')
+
+delete from tmpData where RefColumn is null 
+
+
+
+declare @chargecount int
+declare @totalchargecount int
+declare @TDSPRateCodeCount int
+declare @ratecount int
+declare @unitId int
+declare @chargeId int
+declare @RateCodeID int
+declare @ChargeName nvarchar(40)
+set @totalchargecount = (select count(Chargename) from tmptable where Chargename is not null)
+set @TDSPRateCodeCount = (select count(TDSPrateCode) from tmptable where TDSPrateCode is not null)
+set @ratecount = 189
+set @chargecount = 1
+declare @powerf int
+declare @chargename2 nvarchar(40)
+
+
+
+while(@ratecount<=@TDSPRateCodeCount)
+begin
+ 
+set @RateCodeID = (select d.Rate_Code_ID 
+                      from tmptable a,PRC_TDSP b,PRC_Rate_Codes c,PRC_TDSP_Rate_Codes d
+                      where a.TDSP=b.TDSP_Name and
+                            b.TDSP_ID = c.TDSP_ID and
+                            c.Rate_Code = a.TDSPRateCode and
+                            c.Rate_Code_ID = d.Rate_Code_ID and
+                            a.TDSPID = @ratecount)
+print @RateCodeID
+
+while(@chargecount <= @totalchargecount)
+begin
+
+ 
+    set @UnitId = (select UOM_ID 
+                  from prc_UOM a,tmptable b 
+                  where b.id = @chargecount and 
+                        b.unit=a.Unit)
+
+   
+    set @chargeId = ( select b.TDSP_Chrge_ID
+                  from tmptable a,Prc_TDSP_Chrge_Names b
+                  where b.TDSP_Chrge_Name = a.Chargefullname and 
+                        b.Chrge_Type_ID = (select Chrge_Type_ID 
+                                          from PRC_Chrge_Types,tmptable 
+                                          where Chrge_Type = tmptable.ChargeType and 
+                                                 tmptable.ID=@chargecount)
+                        and a.ID = @chargecount )
+
+
+   set @ChargeName = (select chargename from tmptable where id = @chargecount)
+
+insert into PRC_TDSP_Chrge_rates(Rate_Code_Id,UOM_ID,Chrge,TDSP_Chrge_ID)
+    exec( 'select '+@RateCodeId+','+@UnitId+',cast(isnull(a.'+@ChargeName+',0)as float),'+@chargeId +'
+      from tmpdata a,tmptable b 
+      where a.RefColumn =  b.TDSPReferenceColumn and
+            b.TDSPID = '+@ratecount+'')
+                                                        
+   set @chargecount = @chargecount + 1 
+
+end
+
+set @UnitId =  (select UOM_ID 
+                  from prc_UOM 
+                  where unit = '%')
+set @chargeId = ( select TDSP_Chrge_ID
+                  from Prc_TDSP_Chrge_Names 
+                  where TDSP_Chrge_Name = 'Power Factor for kVA to kW' and 
+                       Chrge_Type_ID = (select Chrge_Type_ID 
+                                          from PRC_Chrge_Types 
+                                          where Chrge_Type = 'TDSP Charges')
+                         )  
+set @powerf = (select TDSP_Chrge_ID
+                  from Prc_TDSP_Chrge_Names 
+                  where TDSP_Chrge_Name = 'Billing Demand Ratchet, %' and 
+                       Chrge_Type_ID = (select Chrge_Type_ID 
+                                          from PRC_Chrge_Types 
+                                          where Chrge_Type = 'TDSP Charges')
+                )
+set @ChargeName = 'PowerFactorforkVAtokW'
+set @chargename2 = 'BillingDemandRatchet'
+
+
+Insert into PRC_TDSP_Power_Fctr_Ratchet(Power_Fctr,Dmnd_ratchet_Prcnt,Rate_Code_Id)
+    exec( 'select cast(isnull(a.'+@ChargeName+',0)as float),cast(isnull(a.'+@chargename2+',0)as float), '+@RateCodeId+'
+      from tmpdata a,tmptable b 
+      where a.RefColumn =  b.TDSPReferenceColumn and
+            b.TDSPID = '+@ratecount+'')
+
+
+set @ratecount = @ratecount + 1
+set @chargecount = 1
+
+end
+
+drop table tmpData  
+drop table tmptable
+
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+CREATE  procedure dbo.sp_InsertRatioFrmScalars as 
+Begin
+delete from [Shaping_Premium_Ratios]
+
+SELECT a.Price_blck_ID,
+DayOfWeek =  case when Blck_Name like '2%' 
+                         then ('1,0')
+                         else case when Blck_Name like '5%' 
+                                   then ('2,0')
+                                   else ('1,2')
+                                   end
+                         end
+into #blckdetails       
+FROM prc_Price_blck_header a,prc_Price_blck b 
+WHERE  Blck_Name IN ('2x16','5x16','2x8','5x8','7x8')
+ and a.Price_blck_ID=b.Price_blck_ID 
+ and DayOfWeek =  case when Blck_Name like '2%' 
+                       then 1
+                       else case when Blck_Name like '5%' 
+                                  then 2
+                                  else 2
+                                  end
+                       end
+ 
+declare cursorPriceBlck cursor for
+select Price_blck_ID from prc_Price_blck_header where Blck_Name in (
+'2x16',
+'5x16',
+'2x8',
+'5x8',
+'7x8'
+)
+order by Price_blck_ID 
+ 
+
+declare @priceblckid int
+declare @n int
+set @n = 1
+
+open cursorPriceBlck 
+WHILE (@n<=5)
+BEGIN
+   FETCH NEXT from cursorPriceBlck
+   INTO @priceblckid
+
+
+declare @substr nvarchar
+set @substr = (select distinct dayofweek from #blckdetails where Price_Blck_Id = @priceblckid)
+declare @first int
+set @first = cast (SUBSTRING(@substr,1,1) as int)
+declare @second int
+set @second = cast (SUBSTRING(@substr,3,1) as int)
+
+INSERT INTO [Shaping_Premium_Ratios]([Price_Blck_ID], [Congestion_Zone_ID], [Load_Profile], [Mnth], [Ratio])
+ select  b.Price_Blck_Id ,Congestion_Zone_ID, Load_Profile,c.mnth, sum(a.Price_Scalars*c.value)/sum(c.value) as ratio 
+    from Prc_Scalars a,prc_Price_blck b,Prc_NIDR c 
+    where 
+          b.Price_Blck_Id = @priceblckid
+          and b.day_type_Id = a.Day_Type_Id 
+          and b.Hour = a.hours  
+          and b.day_type_Id = c.Day_Type_Id 
+          and b.Hour = c.hour 
+  	  and a.mnth = c.mnth
+          and b.dayofweek in (@first,@second)
+  group by c.mnth ,a.Congestion_Zone_ID,c.Load_Profile, b.Price_Blck_Id  order by c.Load_Profile
+
+set @n = @n + 1
+
+END
+
+close cursorPriceBlck
+deallocate cursorPriceBlck
+
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+--exec sp_importTDSPChargesNamesfrmXLS
+create procedure dbo.sp_importTDSPChargesNamesfrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (TDSPChargeName nvarchar(200),chargeType nvarchar(200))
+
+insert into tmpData(TDSPChargeName,chargetype)
+exec('Select TDSPChargeName,ChargeType
+      from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database=d:\PricinginitialInput\testing.xls;HDR=yes'',
+                         [ChargeNames$])')
+
+delete from tmpdata where TDSPChargeName is null
+
+insert into PRC_TDSP_Chrge_Names(TDSP_Chrge_Name,Chrge_Type_ID)
+            select a.TDSPChargeName, b.Chrge_Type_ID from tmpData a,Prc_Chrge_Types b
+            where a.chargetype = b.Chrge_type
+ 
+drop table tmpData  
+
+end
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importEnergyNamesfrmXLS
+CREATE procedure dbo.sp_importEnergyNamesfrmXLS as
+BEGIN
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+      CREATE TABLE tmpData (ChargeType nvarchar(100),EnergyChargeName nvarchar(50))
+
+      INSERT INTO tmpData(
+            ChargeType,
+            EnergyChargeName)
+      EXEC('Select ChargeType,
+                   EnergyChargeName 
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', 
+                               [EnergyNames$])')
+
+      DELETE FROM tmpData WHERE ChargeType IS NULL
+
+      INSERT INTO PRC_Enrgy_Chrge_Names(Chrge_Type_ID,Chrge_Name)
+      SELECT b.Chrge_Type_ID,EnergyChargeName from tmpData a,PRC_Chrge_Types b
+      WHERE b.Chrge_Type = a.ChargeType
+
+      DROP TABLE tmpData  
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importEnergyChargefrmXLS
+
+CREATE  procedure dbo.sp_importEnergyChargefrmXLS as
+begin
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  begin 
+   drop table tmpData
+  end
+
+create table tmpData (MnthYr datetime,HoustonAS float,CongestionChrge float,GrossFee float,
+                       UFE float,ERCOTAdminFee float,RECCost float)
+
+insert into tmpData(
+            MnthYr,HoustonAS,CongestionChrge,GrossFee,UFE,ERCOTAdminFee,RECCost
+           )
+exec('Select MonthYear,HoustonAS,Congestion,GrossFee,UFE,ERCOTAdminFee,RECCost from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',''EXCEL 8.0;Database=d:\PricinginitialInput\GlobalSettings.xls;HDR=yes'', [EnergyCharge$])')
+
+delete from tmpData where MnthYr is null 
+
+insert into PRC_Enrgy_Chrge_Rates(Mnth_Yr,Enrgy_Chrge_ID,UOM_ID,Chrge)
+select a.mnthyr,b.Enrgy_Chrge_ID,C.UOM_ID,a.HoustonAS from tmpData a,prc_Enrgy_Chrge_Names b,PRC_UOM c
+where b.Chrge_Name = 'AS Charges($/MWh)' and c.Unit = '$/MWh'
+
+insert into PRC_Enrgy_Chrge_Rates(Mnth_Yr,Enrgy_Chrge_ID,UOM_ID,Chrge)
+select a.mnthyr,b.Enrgy_Chrge_ID,C.UOM_ID,a.CongestionChrge from tmpData a,prc_Enrgy_Chrge_Names b,PRC_UOM c
+where b.Chrge_Name = 'Congestion Charges($/MWh)'and c.Unit = '$/MWh'
+
+insert into PRC_Enrgy_Chrge_Rates(Mnth_Yr,Enrgy_Chrge_ID,UOM_ID,Chrge)
+select a.mnthyr,b.Enrgy_Chrge_ID,C.UOM_ID,a.GrossFee from tmpData a,prc_Enrgy_Chrge_Names b,PRC_UOM c
+where b.Chrge_Name = 'Gross Receipts Assessment Fee($/MWh)'and c.Unit = '$/MWh'
+
+insert into PRC_Enrgy_Chrge_Rates(Mnth_Yr,Enrgy_Chrge_ID,UOM_ID,Chrge)
+select a.mnthyr,b.Enrgy_Chrge_ID,C.UOM_ID,a.UFE from tmpData a,prc_Enrgy_Chrge_Names b,PRC_UOM c
+where b.Chrge_Name = 'UFE($/MWh)'and c.Unit = '$/MWh'
+
+insert into PRC_Enrgy_Chrge_Rates(Mnth_Yr,Enrgy_Chrge_ID,UOM_ID,Chrge)
+select a.mnthyr,b.Enrgy_Chrge_ID,C.UOM_ID,a.ERCOTAdminFee from tmpData a,prc_Enrgy_Chrge_Names b,PRC_UOM c
+where b.Chrge_Name = 'ERCOT Admin Fee($/MWh)'and c.Unit = '$/MWh'
+
+insert into PRC_Enrgy_Chrge_Rates(Mnth_Yr,Enrgy_Chrge_ID,UOM_ID,Chrge)
+select a.mnthyr,b.Enrgy_Chrge_ID,C.UOM_ID,a.RECCost from tmpData a,prc_Enrgy_Chrge_Names b,PRC_UOM c
+where b.Chrge_Name = 'REC'and c.Unit = '$/MWh'
+
+--delete from PRC_Enrgy_Chrge_Rates
+ 
+--  select * from PRC_Enrgy_Chrge_Rates
+drop table tmpData  
+
+end
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+-- exec sp_importNIDRfrmXLS
+
+CREATE  PROCEDURE dbo.sp_importNIDRfrmXLS as
+BEGIN
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects 
+               WHERE ID = object_id(N'[dbo].[tmpData]') and OBJECTPROPERTY(ID, N'IsUserTable') = 1) 
+      BEGIN
+        DROP TABLE tmpData
+      END
+
+      CREATE TABLE tmpData (Profilename nvarchar(100),mnth int,Hr int,dayType nvarchar(30),value float )
+
+      INSERT INTO tmpData(
+            Profilename,
+            mnth,
+            Hr,
+            dayType,
+            value )
+      EXEC('Select Profile,Mnth,Hr,Typ,val
+            from OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                             ''EXCEL 8.0;Database=d:\PricinginitialInput\NIDR.xls;HDR=yes'', 
+                               [NIDRProfiles$])')
+
+      DELETE FROM tmpData WHERE Profilename IS NULL
+
+      INSERT INTO PRC_NIDR(Load_Profile,Mnth,Hour,Day_Type_ID,value)
+              SELECT  a.Profilename,a.mnth,a.Hr,b.Day_Type_ID,a.Value
+              from tmpData a,prc_Day_Types b
+              where a.dayType = b.day_type
+
+      DROP TABLE tmpData  
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- EXEC sp_importPICUsagefrmXLS '1','d:\\PricinginitialInput\q\Pricing Input Creator Ver 005 Englehart &Greenwood 101106.xls'
+
+CREATE PROCEDURE dbo.sp_importPICUsagefrmXLS(
+
+@ProspectiveCustId NVARCHAR(100),
+@PicFileName NVARCHAR(350)
+
+)
+AS
+BEGIN
+     /* PIC data(Customer details) import */
+     IF EXISTS (SELECT * FROM dbo.sysobjects 
+       WHERE ID = object_id(N'[dbo].[tmpData]') and 
+                  OBJECTPROPERTY(ID, N'IsUserTable') = 1)
+     BEGIN 
+        DROP TABLE tmpData
+     END
+
+
+     CREATE TABLE tmpData (ESIID nvarchar(150),
+			Cust_Name nvarchar(250),Rate_Code_ID nvarchar(120),Zip_Code nvarchar(310),
+			Mtr_Cycle nvarchar(150),Adress_1 nvarchar(250),
+			Adress_2 nvarchar(250),Adress_3 nvarchar(250),
+                        Load_Profile nvarchar(300))
+/*select from excel file and insert into tmp table*/
+     INSERT INTO tmpData(
+            ESIID,Cust_Name,Rate_Code_ID,Zip_Code,Mtr_Cycle,Adress_1,Adress_2,Adress_3,Load_Profile
+           )
+     EXEC('SELECT f2,f3,f4,f5,f6,f7,f8,f9,f10
+           FROM OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                            ''EXCEL 8.0;Database='+@PicFileName+';HDR=no;IMEX=1'',
+                              [Output$]) WHERE  f2 IS not NULL and f16 IS not NULL ')
+DELETE FROM tmpdata WHERE ESIID = 'ESI ID'
+/*checks for exist ESIID. if Exists updates the cust details and deletes pic_usage and from tpmdata */
+IF exists (SELECT a.esiid FROM tmpdata a,prc_pic b WHERE a.Esiid = b.ESIID and b.Prospective_Cust_ID = @ProspectiveCustId )
+BEGIN
+    UPDATE [PRC_PIC]
+         SET [Zip_Code]=ZipCode,
+             [Rate_Code_ID]=RatecodeID, 
+             [Mtr_Cycle]=MtrCycle, 
+             [Cust_Name]=CustName, 
+             [Adress_1]=Adress1,
+             [Adress_2]=Adress2,
+             [Adress_3]=Adress3,
+             [PIC_Imported_On]=today,
+             [Load_Profile]=LoadProfile
+    FROM PRC_PIC a 
+      join(SELECT  d.Zip_Code as ZipCode,
+                    c.Rate_code_ID as RatecodeID,  
+                    d.Mtr_Cycle as MtrCycle ,    
+                    d.Cust_Name as CustName ,
+                    d.Adress_1 as Adress1,
+                    d.Adress_2 as Adress2,
+                    d.Adress_3 as Adress3,
+                    getdate() as today,
+                    d.Load_Profile as LoadProfile,
+                    e.Prospective_Cust_ID as Prospective_Cust_ID,
+                    e.ESIID as ESIID
+     FROM prc_rate_codes c, tmpdata d,prc_pic e
+     WHERE tdsp_id in( SELECT tdsp_id FROM prc_tdsp b 
+                       WHERE b.esiid_prefix = substring(d.ESIID,1,7)) 
+                             and c.rate_code=d.rate_code_id
+                             and e.ESIID = d.ESIID 
+                             and e.Prospective_Cust_ID = @ProspectiveCustId )o 
+     ON a.Prospective_Cust_ID = o.Prospective_Cust_ID and a.ESIID = o.ESIID
+
+DELETE FROM PRC_PIC_USAGE WHERE PIC_Ref_ID in (select b.PIC_Ref_ID from tmpdata a,prc_pic b where a.ESIID = b.ESIID and b.Prospective_Cust_ID = @ProspectiveCustId )
+DELETE FROM tmpdata where ESIID in (select b.ESIID from tmpdata a,prc_pic b where a.ESIID = b.ESIID and b.Prospective_Cust_ID = @ProspectiveCustId )
+END
+
+/*if ESIID not exists inserts into PRC_PIC table and generates pic_ref_id*/
+IF EXISTS (SELECT * FROM tmpdata where ESIID not in (select a.ESIID from tmpdata a,prc_pic b where a.ESIID = b.ESIID and b.Prospective_Cust_ID = @ProspectiveCustId ))
+BEGIN
+    INSERT INTO PRC_PIC(Prospective_Cust_ID,
+                    ESIID,
+                    Cust_Name,
+                    Adress_1,
+                    Adress_2,
+                    Adress_3,
+                    Load_Profile,
+                    Mtr_Cycle,
+                    Zip_Code,
+                    Rate_Code_ID,
+                    PIC_Imported_On)
+     SELECT @ProspectiveCustId,
+                    d.ESIID,
+                    d.Cust_Name,
+                    d.Adress_1,
+                    d.Adress_2,
+                    d.Adress_3,
+                    d.Load_Profile,
+                    d.Mtr_Cycle,
+                    d.Zip_Code,
+                    c.Rate_code_ID,
+                    getdate()
+     FROM prc_rate_codes c, tmpdata d
+     WHERE tdsp_id in( SELECT tdsp_id FROM prc_tdsp b 
+                       WHERE b.esiid_prefix = substring(d.ESIID,1,7)) 
+                             and c.rate_code=d.rate_code_id
+                             
+END
+/*updates pic import date in prospective customer table */
+UPDATE [PRC_Prospective_Cust]
+SET  [PIC_Imported_On]= getdate()
+WHERE Prospective_Cust_ID = @ProspectiveCustId
+      
+DROP TABLE tmpData  
+
+ /* PIC Usage import*/
+
+     IF EXISTS 
+        (SELECT * FROM dbo.sysobjects 
+         WHERE id = object_id(N'[dbo].[tmpData1]') and 
+               OBJECTPROPERTY(id, N'IsUserTable') = 1)
+         BEGIN 
+           DROP TABLE tmpData1
+         END
+
+     CREATE TABLE tmpData1 (  ESIID nvarchar(50),f1 Datetime,f2 Datetime,f3 Datetime,f4 Datetime,	
+                              f5 Datetime,f6 Datetime,f7 Datetime,f8 Datetime,
+                              f9 Datetime,f10 Datetime,f11 Datetime,f12 Datetime,
+                              f13 float,f14 float,f15 float,f16 float,
+                              f17 float,f18 float,f19 float,f20 float,
+                              f21 float,f22 float,f23 float,f24 float, 
+                              f25 float,f26 float,f27 float,f28 float,
+                              f29 float,f30 float,f31 float,f32 float,
+                              f33 float,f34 float,f35 float,f36 float,
+                              f37 float,f38 float,f39 float,f40 float,
+                              f41 float,f42 float,f43 float,f44 float,
+                              f45 float,f46 float,f47 float,f48 float,
+                              f49 float,f50 float,f51 float,f52 float,
+                              f53 float,f54 float,f55 float,f56 float,
+                              f57 float,f58 float,f59 float,f60 float
+	                   )
+      INSERT INTO 
+           tmpData1( ESIID,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,
+                     f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,
+                     f21,f22,f23,f24,f25,f26,f27,f28,f29,f30,                     f31,f32,f33,f34,f35,f36,f37,f38,f39,f40,
+                     f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,
+                     f51,f52,f53,f54,f55,f56,f57,f58,f59,f60		     
+           )
+     EXEC('SELECT    f2,f16,f17,f18,f19,f20,
+                     f21,f22,f23,f24,f25,f26,f27,f28,f29,f30,
+                     f31,f32,f33,f34,f35,f36,f37,f38,f39,f40,
+                     f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,
+                     f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,
+                     f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,
+                     f71,f72,f73,f74,f75 
+      FROM OPENROWSET (''Microsoft.Jet.OleDB.4.0'',
+                       ''EXCEL 8.0;Database='+@PicFileName+';HDR=no;IMEX=0'',
+                         [Output$]) WHERE  f2 IS not NULL and f2 !=''ESI ID'' '
+           )
+      
+   
+      DELETE FROM tmpdata1 WHERE f1 IS NULL
+  
+    DECLARE @usageId int
+    DECLARE @DmndId int
+    DECLARE @ApparentId int
+    SET @usageId = (SELECT UOM_ID FROM PRC_UOM WHERE Unit='kwh')
+    SET @DmndId = (SELECT UOM_ID FROM PRC_UOM WHERE Unit='kw')
+    SET @ApparentId = (SELECT UOM_ID FROM PRC_UOM WHERE Unit='KVA')
+    DECLARE @sql nvarchar(600)
+    DECLARE @perdayusage float
+
+    DECLARE @n int
+    SET @n = 1
+    WHILE(@n<=12)
+    BEGIN
+    SET @sql='SELECT  b.PIC_Ref_ID,
+                          f'+cast(@n AS nvarchar)+',
+                          '+cast(@n AS nvarchar)+',
+                          ISNULL(f'+cast(@n+12 AS nvarchar)+',0),
+                          ISNULL(f'+cast(@n+24 AS nvarchar)+',0),
+                          ISNULL(f'+cASt(@n+36 AS nvarchar)+',0),
+                          ISNULL(f'+cast(@n+48 AS nvarchar)+',0),
+                          '+cast(@usageId AS nvarchar)+',
+                          '+cast(@DmndId AS nvarchar)+',
+                          '+cast(@ApparentId AS nvarchar)+'
+             FROM tmpData1 a,PRC_PIC b 
+             WHERE b.ESIID = a.ESIID '
+
+     INSERT INTO PRC_PIC_Usage(PIC_Ref_ID,
+                          Read_Date,
+                          Mnth,
+                          Number_Of_Days,
+                          Historical_Usage,
+                          Historical_Dmnd,
+                          Historical_Apparent_Power,
+                          Usage_Unit_ID,
+                          Dmnd_Unit_ID,
+                          Power_Unit_ID
+                          )
+            EXEC(@sql)
+
+     SET @n = @n + 1
+   
+   
+     END
+
+/*Updates max_kVA ,Max_kW,Avg_$CP_kVA,avg_4CP_kW in PRC_PIC table.Values taken from PRC_PIC_USAGE table*/
+
+   UPDATE a
+        SET Max_kVA = maxkVA,
+            Max_kW = maxkW
+    FROM PRC_PIC a
+          join(
+                SELECT max(Historical_Apparent_Power) AS maxkVA,
+                       max(Historical_Dmnd)AS maxkW,
+                           c.PIC_Ref_ID AS RefID       
+                FROM PRC_PIC_USAGE c,PRC_PIC d,tmpdata1 b 
+                WHERE c.PIC_Ref_ID = d.PIC_Ref_ID and
+                      d.ESIID = b.ESIID
+                GROUP BY c.PIC_Ref_ID 
+               )o
+     ON a.PIC_Ref_ID = o.RefID 
+
+    UPDATE a
+        SET Avg_4CP_kVA = kVAAverage,
+            Avg_4CP_kW = kWAverage
+    FROM PRC_PIC a
+          join(SELECT avg(Historical_Apparent_Power) AS kVAAverage,
+                      avg(Historical_Dmnd)AS kWAverage,
+                      c.PIC_Ref_ID AS RefID       
+               FROM PRC_PIC_USAGE c,PRC_PIC d,tmpdata1 b 
+               WHERE c.Mnth in(6,7,8,9) and 
+                     c.PIC_Ref_ID = d.PIC_Ref_ID and
+                     d.ESIID = b.ESIID
+               GROUP BY c.PIC_Ref_ID 
+                )o
+     ON a.PIC_Ref_ID = o.RefID 
+       
+   
+     DROP TABLE tmpdata1
+IF(@@ERROR<>0)
+begin
+print @@ERROR
+end
+
+END
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+--exec sp_ExtendEnergyPrice
+
+ALTER  procedure dbo.sp_ExtendEnergyPrice as
+begin
+
+declare cursorzone cursor for
+select Congestion_Zone_ID from prc_Congestion_Zones where Congestion_Zone in (
+'North',
+'Sellers Choice',
+'NorthEast',
+'Houston',
+'South',
+'West'
+)
+order by Congestion_Zone_ID 
+
+declare @marketdate datetime
+set @marketdate = (select max(Mrkt_Date) from prc_fwd_curve_blck)
+
+declare @ZoneId int
+declare @n int
+set @n = 1
+
+open cursorzone 
+WHILE (@n<=6)
+BEGIN
+   FETCH NEXT from cursorzone
+   INTO @ZoneId
+
+   print @ZoneId
+
+     if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpHeatRate]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+        begin 
+          drop table tmpHeatRate
+        end
+
+      create table tmpHeatRate(NoOfmnth int IDENTITY (1, 1) NOT NULL,
+                         mnthYr Datetime,
+                         ZoneID int,
+                         HeatRateValue float)
+
+
+      insert into tmpHeatRate(mnthYr ,
+                    ZoneID ,
+                    HeatRateValue)
+      select fwd.mnth_Yr ,fwd.Congestion_zone_ID,(fwd.Price*1000/hh.Price) as heatRate
+      from prc_Fwd_Curve_blck fwd ,Prc_HH_Price hh,prc_price_blck_header c
+      where fwd.Price_blck_ID = c.Price_blck_ID and
+           c.Blck_Name = '7x24' and
+           fwd.Congestion_zone_ID = @ZoneId and
+           fwd.Mrkt_Date = (select max(Mrkt_Date) 
+                            from prc_Fwd_Curve_blck) and
+           fwd.Mrkt_Date = hh.Mrkt_Date and
+           fwd.mnth_Yr = hh.mnth_Yr
+                  
+      declare @mnth int
+      set @mnth = ( select count(*) 
+                    from tmpheatrate
+                    where zoneid= @ZoneId )
+      declare @mnthYr datetime
+       set @mnthYr = (select max(mnthYr) from tmpHeatRate where zoneid = @ZoneId )
+
+
+
+       while(@mnth <=80 )
+         begin
+           print 'haetrate'
+           print @mnth
+           set @mnthYr = dateadd(month,1,@mnthYr)
+           insert into tmpHeatRate(mnthYr ,
+                                   ZoneID ,
+                                   HeatRateValue)
+           select @mnthYr ,ZoneID ,HeatRateValue 
+                           from tmpHeatRate 
+                           where mnthYr =dateadd(month,-12,@mnthYr)
+ 
+           set @mnth = ( select count(*) 
+                         from tmpheatrate
+                         where zoneid = @ZoneId )
+
+
+        end
+
+       --select * from tmpHeatRate
+       --drop table tmpHeatRate  
+
+       declare cursorPriceBlck cursor for
+       select Price_blck_ID from prc_Price_blck_header where Blck_Name in (
+           '5x16',
+           '2x16',
+           '7x8',
+           'Wrap',
+           '7x24')
+       order by Price_blck_ID 
+ 
+      --print 'cursorPriceBlck'
+
+       declare @priceblckid int
+       declare @m int
+       set @m = 1
+
+      open cursorPriceBlck 
+      WHILE (@m<=5)
+        BEGIN
+            FETCH NEXT from cursorPriceBlck
+            INTO @priceblckid
+            print @priceblckid
+
+            if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[tmpEnergyPrice]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+            begin 
+             drop table tmpEnergyPrice
+            end
+
+            create table tmpEnergyPrice(mnthnumberID int IDENTITY (1, 1) NOT NULL,Price float,mnthYear datetime)
+
+            insert into tmpEnergyPrice(Price,mnthYear)
+            (select Price,Mnth_Yr from prc_fwd_curve_blck 
+                           where Congestion_zone_ID = @ZoneId and 
+                                 Price_blck_ID = @priceblckid and
+                                 Mrkt_Date =  (select max(Mrkt_Date) from prc_fwd_curve_blck)
+             ) 
+
+             declare @mnthnumber int
+             declare @totalcounts int
+             declare @mnthdiff datetime
+             set @mnthdiff = (select max(Mnth_Yr) from prc_fwd_curve_blck 
+                              where Congestion_zone_ID =@ZoneId and 
+                                     Price_blck_ID = @priceblckid)
+
+             declare @gasmrktdate datetime
+             set @gasmrktdate = (select max(Mrkt_Date) from prc_Gas_Price)
+             declare @i int
+             set @i= 1
+             declare @gasprice1 float
+             declare @gasprice2 float
+             declare @engprice float
+             declare @heatvalue float
+             declare @engmarketDate datetime
+             set @engmarketDate = (select max(Mrkt_Date) from prc_fwd_curve_blck)
+
+             while(@i <= 80)
+                BEGIN
+                   set @mnthdiff = dateadd(month,1,@mnthdiff)
+                   set @totalcounts = (select count(*) from tmpEnergyPrice )
+                   if @totalcounts<=12
+                       set @mnthnumber = 1 
+                   else 
+                       set @mnthnumber = 12
+
+                   set @gasprice1 = (select price from prc_Gas_Price 
+                                     where Mnth_Yr = dateadd(month,-(@mnthnumber),@mnthdiff) and 
+                                           Mrkt_date = @gasmrktdate)
+                   set @gasprice2 = (select price from prc_Gas_Price 
+                                     where Mnth_Yr = @mnthdiff and
+                                           Mrkt_date = @gasmrktdate)
+                   set @engprice =(select price from tmpEnergyPrice where mnthYear = dateadd(month,-(@mnthnumber),@mnthdiff) )
+
+                   set @heatvalue = (select HeatRateValue
+                                     from tmpHeatRate 
+                                     where mnthYr = @mnthdiff )
+
+                   insert into tmpEnergyPrice(mnthYear,Price) 
+                   select @mnthdiff,((((@gasprice2-@gasprice1)*HeatRateValue)/1000)+@engprice)
+                         from tmpHeatRate 
+                         where mnthYr = @mnthdiff 
+
+                   delete from tmpEnergyPrice where price is null
+/*
+print @gasprice1
+print @gasprice2
+print @gasprice2-@gasprice1
+print @mnthdiff
+print @engprice
+print @heatvalue 
+print @i
+print ((((@gasprice2 - @gasprice1)*@heatvalue)/1000)+@engprice)*/
+             
+                   set @i = @i + 1
+                END
+
+              delete from prc_Fwd_Curve_Blck where Price_Blck_ID= @priceblckid and Congestion_Zone_ID = @ZoneId and Mrkt_Date = (select max(Mrkt_Date) from prc_Fwd_Curve_Blck)
+              insert into prc_Fwd_Curve_Blck(Mrkt_Date,
+                                             Price_Blck_ID,
+                                             Mnth_Yr,Price,
+                                             Congestion_Zone_ID,
+                                              Data_Src_ID)
+              select @marketdate,@priceblckid,mnthYear,Price,@ZoneId,1 from tmpEnergyPrice
+
+
+
+              set @m = @m + 1
+              drop table tmpEnergyPrice
+            END 
+            close cursorPriceBlck
+            deallocate cursorPriceBlck
+
+             set @n = @n + 1
+             drop table tmpHeatRate
+       END 
+       close cursorzone
+       deallocate cursorzone
+       drop table tmpEnergyPrice
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+-- exec Sp_GasPrice '03/08/2006'
+
+CREATE  Procedure Sp_GasPrice(@Mktdate datetime) as 
+begin 
+
+begin tran
+
+delete from PRC_Gas_Price
+
+if @@error<>0 
+BEGIN
+GOTO FAILURE
+END
+
+insert into PRC_Gas_Price(Mrkt_Date, Mnth_Yr, Price, Data_Src_ID)
+SELECT [InsertDate],  
+       convert(datetime, [MarketPeriod])  marketperiod, [LastValue], 1 
+  FROM [BOSS].[dbo].[INO_NYMEX_NATURALGAS]
+ where [InsertDate] = @Mktdate 
+  and len(marketperiod) = 8 and Market not like '%E%'
+
+
+
+
+if @@error<>0 
+GOTO FAILURE
+ELSE
+GOTO SUCCESS
+
+FAILURE:
+ROLLBACK TRAN 
+
+SUCCESS:
+COMMIT TRAN
+end 
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+-- exec Sp_Fwd_Curves '2005-08-24 00:00:00.000'
+CREATE  Procedure Sp_Fwd_Curves(@Mktdate datetime) as 
+begin 
+
+
+
+	/*declare @cnt integer
+
+	Set @cnt=(select count(*) 
+			 from(
+			 select b.profileid 
+				from prc_Load_profiletypes a 
+				left join boss..teeprofile b 
+				on a.profile_type=b.profilename)a
+			 where a.profileid is null)
+
+
+	if @cnt>0 
+
+		select @cnt
+	else
+*/
+begin tran
+
+delete from PRC_FWD_CURVE_PROFILE
+
+if @@error<>0 
+BEGIN
+GOTO FAILURE
+END
+
+insert into Prc_Fwd_curve_Profile(Mrkt_Date, Weather_Zone_Id, Data_Src_ID, Profile_ID, Mnth_Yr, Price)
+		select a.forecastdate,c.weather_zone_id,a.sourceid,b.profile_id,a.monthandyear,a.pricepermwh 
+			from
+			(select a.sourceid,a.forecastdate,b.profilename,c.weathername,a.monthandyear,a.pricepermwh 
+			from (select * from boss..teeprofilemonthly where forecastdate=@Mktdate) a
+			inner join boss..teeprofile b on a.profileid=b.profileid
+			inner join boss..teeweather c on a.weatherid=c.weatherid	)a
+		left join prc_Load_profiletypes b on a.profilename=b.profile_type
+		left join Prc_weather_zones c on a.weathername=c.weather_zone_code
+
+if @@error<>0 
+BEGIN
+GOTO FAILURE
+END
+
+delete from PRC_FWD_CURVE_BLCK
+
+if @@error<>0
+BEGIN
+GOTO FAILURE
+END
+
+insert into PRC_FWD_CURVE_BLCK(Mrkt_Date, Price_Blck_ID, Mnth_Yr, Price, Congestion_Zone_ID,Data_Src_ID) 
+select a.forecastdate,b.Price_Blck_ID,a.monthandyear,a.price,c.congestion_zone_id, a.sourceid 
+			from
+			(select a.sourceid,a.forecastdate,b.ProductName,c.ZoneName,a.monthandyear,a.price 
+			from (select * from boss..TEECurveMonthly where forecastdate=@Mktdate) a
+			inner join boss..TEEProduct b on a.ProductId=b.ProductId
+			inner join boss..TEEZone c on a.ZoneId=c.ZoneId)a
+		left join PRC_Price_Blck_Header b on a.ProductName=b.Blck_Name
+		left join PRC_Congestion_Zones c on a.ZoneName=c.Congestion_Zone
+
+if @@error<>0 
+BEGIN
+GOTO FAILURE
+END
+
+
+delete from PRC_HH_Price
+
+if @@error<>0
+BEGIN
+GOTO FAILURE
+END
+
+insert into PRC_HH_Price(Mrkt_Date, Mnth_Yr, Price, Data_Src_ID) 
+select ForecastDate, MonthAndYear, Price, SourceId from boss..TEECurveMonthly where ProductId = 4 and ForecastDate = @Mktdate
+
+
+/*if @@error<>0 
+GOTO FAILURE
+
+
+
+exec sp_importExtendEnergyPricefrmXLS*/
+
+
+if @@error<>0 
+BEGIN
+GOTO FAILURE
+END
+else
+GOTO SUCCESS
+
+FAILURE:
+ROLLBACK TRAN 
+
+SUCCESS:
+COMMIT TRAN 
+end 
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+/*
+
+exec sp_importAREPfrmXLS
+exec sp_importDataSrcfrmXLS
+exec dbo.sp_importDaytypefrmXLS
+exec dbo.sp_importCDRStatusfrmXLS
+exec sp_importCongestionZonefrmXLS
+exec dbo.sp_importCustomerStatusfrmXLS
+exec sp_importCalendarfrmXLS
+exec dbo.sp_importUOMfrmXLS
+exec dbo.sp_importDealLeversfrmXLS
+exec sp_importTDSPfrmXLS
+exec sp_importDLFCodefrmXLS
+exec sp_importDLFValuefrmXLS
+exec sp_importLoadProfilefrmXLS
+exec sp_importMeterCategoryfrmXLS
+exec sp_importPrcBlckfrmXLS
+exec sp_importPremiumfrmXLS
+exec sp_importPricingReadCyclefrmXLS 
+exec sp_importPricingScalarsfrmXLS
+
+
+exec sp_importProductsfrmXLS
+exec sp_importRateCodesfrmXLS
+exec sp_importSeasonfrmXLS
+exec dbo.sp_importChargeTypesfrmXLS
+exec sp_importTDSPChargesNamesfrmXLS
+exec sp_importEnergyNamesfrmXLS
+exec sp_importServiceVoltagefrmXLS
+exec sp_importTaxTypefrmXLS
+exec sp_importTDSPRateCodesfrmXLS
+exec sp_importWeatherZonefrmXLS
+exec sp_importZipCodefrmXLS
+exec sp_importTDSPchargesfrmXLS
+exec sp_importEnergyChargefrmXLS
+exec sp_importNIDRfrmXLS
+exec dbo.sp_InsertRatioFrmScalars
+
+*/

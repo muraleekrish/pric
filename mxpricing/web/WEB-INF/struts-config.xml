@@ -1,0 +1,892 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	
+    <form-beans>
+	<form-bean name = "CongestionZoneList" type = "com.savant.pricing.presentation.global.CongestionZoneListForm"/>
+	<form-bean name = "WeatherZoneList" type = "com.savant.pricing.presentation.global.WeatherZoneListform"/>
+    <form-bean name = "zipcodeList" type = "com.savant.pricing.presentation.global.ZipCodeListForm"/>
+    <form-bean name = "frmzip" type = "com.savant.pricing.presentation.global.ZipCodeAddForm"/>
+	<form-bean name = "frmtdspList" type = "com.savant.pricing.presentation.global.tdsp.TDSPListForm"/>
+	<form-bean name = "frmMeterList" type = "com.savant.pricing.presentation.global.tdsp.MeterTypeForm"/>   	
+	<form-bean name = "frmMeterReadCyclesList" type = "com.savant.pricing.presentation.global.tdsp.MeterReadCyclesListForm"/>   	
+    <form-bean name = "frmServiceVoltageList" type = "com.savant.pricing.presentation.global.tdsp.ServiceVoltageListForm"/>   	
+    <form-bean name = "frmrateCodeList" type = "com.savant.pricing.presentation.global.tdsp.RateCodeForm"/>   	
+    <form-bean name = "frmrateCodeAssList" type = "com.savant.pricing.presentation.global.tdsp.RateCodeAssociationForm"/>   	
+	<form-bean name = "frmLoadProfileList" type = "com.savant.pricing.presentation.global.LoadProfileForm"/> 
+	<form-bean name = "frmSeasonList" type = "com.savant.pricing.presentation.global.calendar.SeasonListForm"/> 
+	<form-bean name = "frmDayTypeList" type = "com.savant.pricing.presentation.global.calendar.DayTypeListForm"/> 
+	<form-bean name = "frmLossFactorCode" type = "com.savant.pricing.presentation.global.LossFactorCodeListForm"/> 
+	   
+  	<form-bean name = "frmDealLeverList" type = "com.savant.pricing.pconfig.deallevers.PcDealLeversListForm"/> 
+  	<form-bean name = "frmCostofCapital" type = "com.savant.pricing.pconfig.deallevers.CostofCapitalForm"/> 
+ 	<form-bean name = "frmDealLeverEdit" type = "com.savant.pricing.pconfig.deallevers.PcDealLeversEditForm"/> 
+  	<form-bean name = "frmCostofCapitalEdit" type = "com.savant.pricing.pconfig.deallevers.CostofCapitalEditForm"/> 
+ 	<form-bean name = "frmpcMeterReadsList" type = "com.savant.pricing.presentation.pconfiguration.MeterReadRates"/> 
+ 	<form-bean name = "frmpcMeterReadsAdd" type = "com.savant.pricing.presentation.pconfiguration.MeterReadsAddForm"/> 
+ 	
+ 	<form-bean name = "frmpcProductsList" type = "com.savant.pricing.presentation.pconfiguration.ProductsListForm"/> 
+ 	<form-bean name = "frmTLF" type = "com.savant.pricing.presentation.pconfiguration.TLFForm"/> 
+ 	<form-bean name = "frmDLF" type = "com.savant.pricing.presentation.pconfiguration.DLFForm"/> 
+ 	<form-bean name = "frmTaxRatesList" type = "com.savant.pricing.presentation.pconfiguration.TaxRatesForm"/> 
+ 	<form-bean name = "frmpremium" type = "com.savant.pricing.presentation.pconfiguration.PremiumForm"/> 
+ 	<form-bean name = "frmTDSPChargesList" type = "com.savant.pricing.presentation.pconfiguration.TDSPChargesListForm"/> 
+	<form-bean name = "frmpcOtherCharges" type = "com.savant.pricing.presentation.pconfiguration.OtherChargesListForm"/> 
+	<form-bean name = "frmotherchargeAdd" type = "com.savant.pricing.presentation.pconfiguration.OtherChargesAddForm"/> 
+	
+
+	<form-bean name = "importenergy" type="com.savant.pricing.presentation.fulcruminput.ImportInputEnergyForm"/>
+	<form-bean name = "importxls" type="com.savant.pricing.presentation.fulcruminput.ImportInputEnergyForm"/>	
+	<form-bean name = "viewHistory" type="com.savant.pricing.summary.SummaryForm"/>
+	   	
+   	<form-bean name = "frmContract" type = "com.savant.pricing.presentation.pricing.ContractsTrackingForm"/>
+	<form-bean name = "frmcontractsList" type = "com.savant.pricing.presentation.pricing.ContractsListForm"/>
+   	<form-bean name = "frmProspectiveCustomerManagerList" type = "com.savant.pricing.presentation.pricing.ProspectiveCustomerListForm"/>
+   	<form-bean name = "frmProspectiveCustomerManagerAdd" type = "com.savant.pricing.presentation.pricing.ProspectiveCustomerAddForm"/>
+   	
+   	<form-bean name = "frmProspectiveCustomerFileAdd" type = "com.savant.pricing.presentation.pricing.ProspectiveCustomerFileForm"/>
+   	
+   	<form-bean name = "frmEssiidList" type = "com.savant.pricing.presentation.pricing.EssiidForm"/>
+   	<form-bean name = "frmEcompList" type = "com.savant.pricing.presentation.pricing.EcompForm"/>
+   	<form-bean name = "frmRunList" type = "com.savant.pricing.presentation.pricing.RunListForm"/>
+   	<form-bean name = "frmdashboard" type = "com.savant.pricing.presentation.pricing.DashboardForm"/>
+   	<form-bean name = "frmheatRate" type = "com.savant.pricing.presentation.pricing.HeatRateForm"/>
+   	<form-bean name = "frmEpp" type = "com.savant.pricing.presentation.pricing.EPPForm"/>
+   	<form-bean name = "FileUpload" type="com.savant.pricing.presentation.pricing.FileUploadForm"/>
+   	<form-bean name = "PreferenceAnalyst" type="com.savant.pricing.presentation.pricing.PreferenceAnalystForm"/>
+   	<form-bean name = "Ecomp" type="com.savant.pricing.presentation.pricing.EcompoForm"/>
+   	<form-bean name = "DealLeverAnalyst" type="com.savant.pricing.presentation.pricing.DealLeversAnalyForm"/>
+   	<form-bean name = "frmpcCalendarList" type = "com.savant.pricing.presentation.pconfiguration.CalendarListForm"/> 
+   	<form-bean name = "frmholiday" type="com.savant.pricing.presentation.pconfiguration.CalendarForm"/>
+   	<form-bean name = "frmMrktCommentry" type="com.savant.pricing.presentation.pconfiguration.MarketCommentryForm"/>
+   	<form-bean name = "frmAggLoadProfile" type="com.savant.pricing.presentation.aggregatorlp.AggLoadProfileForm"/>
+   	<form-bean name = "frmScheduleLst" type="com.savant.pricing.presentation.pricing.ScheduleListForm"/>
+
+   	<form-bean name = "proposal" type="com.savant.pricing.presentation.contract.ContactListForm"/>
+   	<form-bean name = "ContractTemplate" type="com.savant.pricing.presentation.contracttemplate.ContractForm"/>
+   	<form-bean name = "frmrunresultError" type="com.savant.pricing.presentation.pricing.RunListErrorForm"/>
+   
+   	<form-bean name = "frmusertype" type = "com.savant.pricing.presentation.security.UsertypeForm"/>
+   	<form-bean name = "frmusertypeList" type = "com.savant.pricing.presentation.security.UserTypeListForm"/>
+   	<form-bean name = "frmuser" type = "com.savant.pricing.presentation.security.UserForm"/>
+   	<form-bean name = "usrSettingsEdit" type = "com.savant.pricing.presentation.security.UserSettingsForm"/>
+   	<form-bean name = "frmUserList" type = "com.savant.pricing.presentation.security.UserListForm"/>   	
+   	<form-bean name = "frmRole" type = "com.savant.pricing.presentation.security.NewRoleAddForm"/>
+   	<form-bean name = "frmRoleList" type = "com.savant.pricing.presentation.security.RoleListForm"/>   	
+   	<form-bean name = "FileUpload" type="com.savant.pricing.presentation.pricing.FileUploadForm"/>
+   	<form-bean name = "PreferenceRep" type="com.savant.pricing.presentation.pricing.PreferenceRepForm"/>
+    <form-bean name = "formUserLogin" type = "com.savant.pricing.presentation.security.LoginForm"/>
+    
+    <form-bean name = "xPressPricingList" type="com.savant.pricing.presentation.matrix.XpressPricingListForm"/>
+    <form-bean name = "xPressPricingView" type="com.savant.pricing.presentation.matrix.XPressPricingViewResultForm"/>
+    <form-bean name = "matrixCustList" type="com.savant.pricing.presentation.matrix.PriceMatrixCustomerForm"/>
+    
+     <form-bean name = "formDailyProfile" type = "com.savant.pricing.presentation.tdp.DailyProfileForm"/>  
+     <form-bean name = "formIDRProfiler" type = "com.savant.pricing.presentation.tdp.IDRProfileForm"/>  
+     <form-bean name = "formImportData" type = "com.savant.pricing.presentation.tdp.ImportDataForm"/>  
+
+   	</form-beans>
+
+	<global-forwards>
+	</global-forwards>
+
+	<action-mappings>
+	
+	    <action path="/gCongestionZone" type="com.savant.pricing.presentation.global.CongestionZoneAction"
+	        name="CongestionZoneList"
+	        scope="request"	         
+	        input="/jsp/global/zones/gCongestionZone.jsp">
+			<forward name="success" path="/jsp/global/zones/gCongestionZone.jsp" />
+			<forward name="failure" path="/jsp/global/zones/gCongestionZone.jsp" />
+		</action>
+		
+		<action path="/weatherZoneList" type="com.savant.pricing.presentation.global.WeatherZoneAction"
+	        name="WeatherZoneList"
+	        scope="request"	         
+	        input="/jsp/global/zones/gWeatherZone.jsp">
+			<forward name="success" path="/jsp/global/zones/gWeatherZone.jsp" />
+			<forward name="failure" path="/jsp/global/zones/gWeatherZone.jsp" />
+		</action>
+		<action path="/zipcodeList" type="com.savant.pricing.presentation.global.ZipCodeListAction"
+	        name="zipcodeList"
+	        scope="request"	         
+	        input="/jsp/global/zones/gZipCode.jsp">
+			<forward name="success" path="/jsp/global/zones/gZipCode.jsp" />
+			<forward name="failure" path="/jsp/global/zones/gZipCode.jsp" />
+		</action>
+
+		<action path="/zipAdd" type="com.savant.pricing.presentation.global.ZipCodeListAction"
+	        name="frmzip"
+	        scope="request"	         
+	        input="/jsp/global/zones/gZipAdd.jsp">
+			<forward name="success" path="/jsp/global/zones/gZipCode.jsp" />
+			<forward name="failure" path="/jsp/global/zones/gZipAdd.jsp" />
+		</action>
+
+  	    <action path="/tdspList" type="com.savant.pricing.presentation.global.tdsp.TDSPListAction"
+	        name="frmtdspList"
+	        scope="request"	         
+	        input="/jsp/global/tdsp/gtdsp.jsp">
+			<forward name="success" path="/jsp/global/tdsp/gtdsp.jsp" />
+			<forward name="failure" path="/jsp/global/tdsp/gtdsp.jsp" />
+		</action>
+		<action path="/meterTypeList" type="com.savant.pricing.presentation.global.tdsp.MeterTypeAction"
+	        name="frmMeterList"
+	        scope="request"	         
+	        input="/jsp/global/tdsp/gmetertype.jsp">
+			<forward name="success" path="/jsp/global/tdsp/gmetertype.jsp" />
+			<forward name="failure" path="/jsp/global/tdsp/gmetertype.jsp" />
+		</action>
+		<action path="/ServiceVoltageType" type="com.savant.pricing.presentation.global.tdsp.ServiceVoltageListAction"
+	        name="frmServiceVoltageList"
+	        scope="request"	         
+	        input="/jsp/global/tdsp/gservicevoltage.jsp">
+			<forward name="success" path="/jsp/global/tdsp/gservicevoltage.jsp" />
+			<forward name="failure" path="/jsp/global/tdsp/gservicevoltage.jsp" />
+		</action>
+		<action path="/rateCodeList" type="com.savant.pricing.presentation.global.tdsp.RateCodeAction"
+	        name="frmrateCodeList"
+	        scope="request"	         
+	        input="/jsp/global/tdsp/gratecode.jsp">
+			<forward name="success" path="/jsp/global/tdsp/gratecode.jsp" />
+			<forward name="failure" path="/jsp/global/tdsp/gratecode.jsp" />
+		</action>
+		<action path="/rateCodeAssociationList" type="com.savant.pricing.presentation.global.tdsp.RateCodeAssociationAction"
+	        name="frmrateCodeAssList"
+	        scope="request"	         
+	        input="/jsp/global/tdsp/gRateCodeAssociation.jsp">
+			<forward name="success" path="/jsp/global/tdsp/gRateCodeAssociation.jsp" />
+			<forward name="failure" path="/jsp/global/tdsp/gRateCodeAssociation.jsp" />
+		</action>
+		<action path="/LoadProfileList" type="com.savant.pricing.presentation.global.LoadProfileAction"
+	        name="frmLoadProfileList"
+	        scope="request"	         
+	        input="/jsp/global/gLoadProfile.jsp">
+			<forward name="success" path="/jsp/global/gLoadProfile.jsp" />
+			<forward name="failure" path="/jsp/global/gLoadProfile.jsp" />
+		</action>		
+		<action path="/SeasonList" type="com.savant.pricing.presentation.global.calendar.SeasonListAction"
+	        name="frmSeasonList"
+	        scope="request"	         
+	        input="/jsp/global/calendar/gSeason.jsp">
+			<forward name="success" path="/jsp/global/calendar/gSeason.jsp" />
+			<forward name="failure" path="/jsp/global/calendar/gSeason.jsp" />
+		</action>
+		<action path="/DayTypeList" type="com.savant.pricing.presentation.global.calendar.DayTypeListAction"
+	        name="frmDayTypeList"
+	        scope="request"	         
+	        input="/jsp/global/calendar/gDayType.jsp">
+			<forward name="success" path="/jsp/global/calendar/gDayType.jsp" />
+			<forward name="failure" path="/jsp/global/calendar/gDayType.jsp" />
+		</action>
+		<action path="/LossFactorCode" type="com.savant.pricing.presentation.global.LossFactorCodeListAction"
+	        name="frmLossFactorCode"
+	        scope="request"	         
+	        input="/jsp/global/losses/gLossFactorCode.jsp">
+			<forward name="success" path="/jsp/global/losses/gLossFactorCode.jsp" />
+			<forward name="failure" path="/jsp/global/losses/gLossFactorCode.jsp" />
+		</action>
+		<action path="/MeterReadCyclesList" type="com.savant.pricing.presentation.global.tdsp.MeterReadCyclesListAction"
+	        name="frmMeterReadCyclesList"
+	        scope="request"	         
+	        input="/jsp/global/tdsp/gmeterreadcycles.jsp">
+			<forward name="success" path="/jsp/global/tdsp/gmeterreadcycles.jsp" />
+			<forward name="failure" path="/jsp/global/tdsp/gmeterreadcycles.jsp" />
+		</action>
+		<!-- Global setting end -->
+		
+		<!--Pricing Configuration Starts -->
+		
+		<action path="/pcDealLevers" type="com.savant.pricing.pconfig.deallevers.PcDealLeversAction"
+	        name="frmDealLeverList"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/dealLevers/pcDealLevers.jsp">
+			<forward name="success" path="/jsp/pconfiguration/dealLevers/pcDealLevers.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/dealLevers/pcDealLevers.jsp" />
+		</action>
+		
+		<action path="/costCap" type="com.savant.pricing.pconfig.deallevers.CostofCapitalAction"
+	        name="frmCostofCapital"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/dealLevers/costCapital.jsp">
+			<forward name="success" path="/jsp/pconfiguration/dealLevers/costCapital.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/dealLevers/costCapital.jsp" />
+		</action>
+		
+		<action path="/costCapEdit" type="com.savant.pricing.pconfig.deallevers.CostofCapitalEditAction"
+	        name="frmCostofCapitalEdit"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/dealLevers/costCapitalEdit.jsp">
+			<forward name="success" path="/jsp/pconfiguration/dealLevers/costCapital.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/dealLevers/costCapitalEdit.jsp" />
+		</action>
+		
+		<action path="/pcDealLeverEdit" type="com.savant.pricing.pconfig.deallevers.PcDealLeversEditAction"
+	        name="frmDealLeverEdit"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/dealLevers/pcDealLeversEdit.jsp">
+			<forward name="success" path="/jsp/pconfiguration/dealLevers/pcDealLevers.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/dealLevers/pcDealLeversEdit.jsp" />
+		</action>
+		
+		<action path="/pcDealLeverView" type="com.savant.pricing.pconfig.deallevers.PcDealLeversEditAction"
+	        name="frmDealLeverEdit"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/dealLevers/pcDealLeversView.jsp">
+			<forward name="success" path="/jsp/pconfiguration/dealLevers/pcDealLevers.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/dealLevers/pcDealLeversView.jsp" />
+		</action>
+		
+		 <action path="/pcMeterReadsList" type="com.savant.pricing.presentation.pconfiguration.MeterReadRatesAction"
+	        name="frmpcMeterReadsList"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/TDSP/pcMeterReads.jsp">
+			<forward name="success" path="/jsp/pconfiguration/TDSP/pcMeterReads.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/TDSP/pcMeterReads.jsp" />
+		</action>
+
+		<action path="/MeterReadsAdd" type="com.savant.pricing.presentation.pconfiguration.MeterReadsAddAction"
+	        name="frmpcMeterReadsAdd"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/TDSP/pcMeterReadsAdd.jsp">
+			<forward name="success" path="/jsp/pconfiguration/TDSP/pcMeterReadsAdd.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/TDSP/pcMeterReadsAdd.jsp" />
+			<forward name="list" path="/jsp/pconfiguration/TDSP/pcMeterReads.jsp" />
+		</action>
+		
+		<action path="/pcContract" type="com.savant.pricing.presentation.contracttemplate.ContactListAction"
+	        name="ContractTemplate"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/Contract.jsp">
+			<forward name="success" path="/jsp/pconfiguration/Contract.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/Contract.jsp" />
+		</action>
+		
+		 <action path="/productsList" type="com.savant.pricing.presentation.pconfiguration.ProductsListAction"
+	        name="frmpcProductsList"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/Pricing/pcProducts.jsp">
+			<forward name="success" path="/jsp/pconfiguration/Pricing/pcProducts.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/Pricing/pcProducts.jsp" />
+		</action>
+		
+		<!-- Holiday starts -->
+			
+		<action path="/calendarList" type="com.savant.pricing.presentation.pconfiguration.CalendarListAction"
+	        name="frmpcCalendarList"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/calendar/pcCalendar.jsp">
+			<forward name="success" path="/jsp/pconfiguration/calendar/pcCalendar.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/calendar/pcCalendar.jsp" />
+		</action>
+		
+		<action path="/holidaysAdd" type="com.savant.pricing.presentation.pconfiguration.CalendarAction"
+	        name="frmholiday"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/calendar/pccalendaradd.jsp">
+			<forward name="failure" path="/jsp/pconfiguration/calendar/pccalendaradd.jsp" />
+			<forward name="success" path="/jsp/pconfiguration/calendar/pcCalendar.jsp" />
+		</action>
+		
+		<action path="/mrktCom" type="com.savant.pricing.presentation.pconfiguration.MarketCommentryAction"
+	        name="frmMrktCommentry"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/marketcommentry.jsp">
+			<forward name="failure" path="/jsp/pconfiguration/marketcommentry.jsp" />
+			<forward name="success" path="/jsp/pconfiguration/marketcommentry.jsp" />
+		</action>
+		
+		<action path="/holidaysEdit" type="com.savant.pricing.presentation.pconfiguration.CalendarAction"
+	        name="frmholiday"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/calendar/pccalendaredit.jsp">
+			<forward name="failure" path="/jsp/pconfiguration/calendar/pccalendaredit.jsp" />
+			<forward name="success" path="/jsp/pconfiguration/calendar/pcCalendar.jsp" />
+		</action>
+		
+		<action path="/holidaysView" type="com.savant.pricing.presentation.pconfiguration.CalendarAction"
+	        name="frmholiday"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/calendar/pcCalendar.jsp">
+			<forward name="failure" path="/jsp/pconfiguration/calendar/pccalendarview.jsp" />
+			<forward name="success" path="/jsp/pconfiguration/calendar/pcCalendar.jsp" />
+		</action>
+		
+		<action path="/TLFList" type="com.savant.pricing.presentation.pconfiguration.TLFAction"
+	        name="frmTLF"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/Losses/pcTLF.jsp">
+			<forward name="success" path="/jsp/pconfiguration/Losses/pcTLF.jsp"/>
+			<forward name="failure" path="/jsp/pconfiguration/Losses/pcTLF.jsp"/>
+		</action>
+		
+		<action path="/DLFList" type="com.savant.pricing.presentation.pconfiguration.DLFAction"
+	        name="frmDLF"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/losses/pcDLF.jsp">
+			<forward name="success" path="/jsp/pconfiguration/Losses/pcDLF.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/Losses/pcDLF.jsp" />
+		</action>
+		
+		<action path="/TaxRatesList" type="com.savant.pricing.presentation.pconfiguration.TaxRatesAction"
+	        name="frmTaxRatesList"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/charges/pcTaxes.jsp">
+			<forward name="success" path="/jsp/pconfiguration/charges/pcTaxes.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/charges/pcTaxes.jsp" />
+		</action>
+		
+		<action path="/Premium" type="com.savant.pricing.presentation.pconfiguration.PremiumAction"
+	        name="frmpremium"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/charges/pcPremium.jsp">
+			<forward name="success" path="/jsp/pconfiguration/charges/pcPremium.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/charges/pcPremium.jsp" />
+		</action>
+		
+		<action path="/TDSPChargesList" type="com.savant.pricing.presentation.pconfiguration.TDSPChargesListAction"
+	        name="frmTDSPChargesList"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/charges/pcTDSPCharges.jsp">
+			<forward name="success" path="/jsp/pconfiguration/charges/pcTDSPCharges.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/charges/pcTDSPCharges.jsp" />
+		</action>
+		
+		<action path="/pcOtherCharges" type="com.savant.pricing.presentation.pconfiguration.OtherChargesListAction"
+	        name="frmpcOtherCharges"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/charges/pcOtherCharges.jsp">
+			<forward name="success" path="/jsp/pconfiguration/charges/pcOtherCharges.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/charges/pcOtherCharges.jsp" />
+		</action>
+		
+		<action path="/otherchargeAdd" type="com.savant.pricing.presentation.pconfiguration.OtherChargeAddAction"
+	        name="frmotherchargeAdd"
+	        scope="request"	         
+	        input="/jsp/pconfiguration/charges/pcOtherChargesadd.jsp">
+			<forward name="success" path="/jsp/pconfiguration/charges/pcOtherChargesadd.jsp" />
+			<forward name="failure" path="/jsp/pconfiguration/charges/pcOtherChargesadd.jsp" />
+			<forward name="list" path="/jsp/pconfiguration/charges/pcOtherCharges.jsp" />
+		</action>
+				
+		<!--Pricing Configuration Ends -->
+		
+		<action path="/contractsList" type="com.savant.pricing.presentation.pricing.ContractsListAction"
+	        name="frmcontractsList"
+	        scope="request"	         
+	        input="/jsp/pricing/Contracts.jsp">
+			<forward name="success" path="/jsp/pricing/Contracts.jsp" />
+			<forward name="failure" path="/jsp/pricing/Contracts.jsp" />
+		</action>
+		
+		<action path="/frmProspectiveCustomerManagerList" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerListAction"
+	        name="frmProspectiveCustomerManagerList"
+	        scope="request"	         
+	        input="/prospectiveCustomersManager.jsp">
+			<forward name="success" path="/jsp/pricing/prospectiveCustomersManager.jsp" />
+			<forward name="failure" path="/jsp/pricing/prospectiveCustomersManager.jsp" />
+		</action>
+		
+		<action path="/runSearch" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerListAction"
+	        name="frmProspectiveCustomerManagerList"
+	        scope="request"	         
+	        input="/jsp/pricerun/searchcustomer.jsp">
+			<forward name="success" path="/jsp/pricerun/searchcustomer.jsp" />
+			<forward name="failure" path="/jsp/pricerun/searchcustomer.jsp" />
+		</action>
+		
+		<action path="/runList" type="com.savant.pricing.presentation.pricing.RunListAction"
+	        name="frmRunList"
+	        scope="request"	         
+	        input="/jsp/pricerun/run.jsp">
+			<forward name="success" path="/jsp/pricerun/run.jsp" />
+			<forward name="failure" path="/jsp/pricerun/run.jsp" />
+			<forward name="searchCustomer" path="/jsp/pricerun/searchcustomer.jsp" />
+		</action>
+		
+		<action path="/autoRun" type="com.savant.pricing.presentation.pricing.RunListAction"
+	        name="frmRunList"
+	        scope="request"	         
+	        input="/jsp/pricerun/autorun.jsp">
+			<forward name="success" path="/jsp/pricerun/autorun.jsp" />
+			<forward name="failure" path="/jsp/pricerun/autorun.jsp" />
+		</action>
+		
+		<action path="/runnext" type="com.savant.pricing.presentation.pricing.RunListAction"
+	        name="frmRunList"
+	        scope="request"	         
+	        input="/jsp/pricerun/runnext.jsp">
+			<forward name="success" path="/jsp/pricerun/runnext.jsp" />
+			<forward name="failure" path="/jsp/pricerun/runnext.jsp" />
+			<forward name="run" path="/jsp/pricerun/runresult.jsp"/>
+		</action>
+		
+		<action path="/autorun" type="com.savant.pricing.presentation.pricing.RunListAction"
+	        name="frmRunList"
+	        scope="request"	         
+	        input="/jsp/pricerun/autorun.jsp">
+			<forward name="success" path="/jsp/pricerun/autorun.jsp" />
+			<forward name="failure" path="/jsp/pricerun/autorun.jsp" />
+			<forward name="run" path="/jsp/pricerun/runresult.jsp"/>
+		</action>
+		
+		<action path="/runresult" type="com.savant.pricing.presentation.pricing.RunListAction"
+	        name="frmRunList"
+	        scope="request"	         
+	        input="/jsp/pricerun/runresult.jsp">
+			<forward name="success" path="/jsp/pricerun/runresult.jsp" />
+			<forward name="failure" path="/jsp/pricerun/runresult.jsp" />
+		</action>
+		
+		<action path="/aggLoadProfile" type="com.savant.pricing.presentation.aggregatorlp.AggLoadProfileAction"
+	        name="frmAggLoadProfile"
+	        scope="request"	         
+	        input="/jsp/pricerun/aggregatedProfile.jsp">
+			<forward name="success" path="/jsp/pricerun/aggregatedProfile.jsp"/>
+			<forward name="failure" path="/jsp/pricerun/aggregatedProfile.jsp"/>
+		</action>
+		
+		
+		<action path="/dashBoard" type="com.savant.pricing.presentation.pricing.DashboardAction"
+	        name="frmdashboard"
+	        scope="request"	         
+	        input="/jsp/pricerun/dashboard.jsp">
+			<forward name="success" path="/jsp/pricerun/dashboard.jsp" />
+			<forward name="failure" path="/jsp/pricerun/dashboard.jsp" />
+			<forward name="cpe" path="/jsp/pricerun/proposal.jsp" />
+		</action>
+		<action path="/runresulterror" type="com.savant.pricing.presentation.pricing.RunListErrorAction"
+	        name="frmrunresultError"
+	        scope="request"	         
+	        input="/jsp/pricerun/runResultError.jsp">
+			<forward name="success" path="/jsp/pricerun/runResultError.jsp" />
+			<forward name="failure" path="/jsp/pricerun/runResultError.jsp" />
+			<forward name="back" path="/jsp/pricerun/runresult.jsp"/>
+		</action>
+		<action path="/heatrate" type="com.savant.pricing.presentation.pricing.DashboardAction"
+	        name="frmheatRate"
+	        scope="request"	         
+	        input="/jsp/pricerun/heatrate.jsp">
+			<forward name="success" path="/jsp/pricerun/heatrate.jsp" />
+			<forward name="failure" path="/jsp/pricerun/heatrate.jsp" />
+		</action>
+		<action path="/epp" type="com.savant.pricing.presentation.pricing.DashboardAction"
+	        name="frmEpp"
+	        scope="request"	         
+	        input="/jsp/pricerun/epp.jsp">
+			<forward name="success" path="/jsp/pricerun/epp.jsp" />
+			<forward name="failure" path="/jsp/pricerun/epp.jsp" />
+		</action>
+		
+		<!-- Proposal starts -->
+		
+		<action path="/frmproposal" type="com.savant.pricing.presentation.contract.ContractListAction"
+	        name="proposal"
+	        scope="request"	         
+	        input="/jsp/pricerun/proposal.jsp">
+			<forward name="success" path="/jsp/pricerun/proposal.jsp" />
+			<forward name="pdf" path="/jsp/pricerun/pdf.jsp" />
+			<forward name="contract" path="/jsp/pricerun/ContractPdf.jsp" />
+			<forward name="failure" path="/jsp/pricerun/proposal.jsp" />
+		</action>
+		
+		<!-- proposal ends -->
+		
+		<!-- fulcrum input starts -->
+		
+		<action
+             path="/inputXls" type="com.savant.pricing.presentation.fulcruminput.ImportInputEnergyAction"
+             name="importxls"
+             scope="request"
+             input="/jsp/inputs/importforwardcurves.jsp">
+            <forward name="success" path="/jsp/inputs/importforwardcurves.jsp"/>
+            <forward name="failure" path="/jsp/inputs/importforwardcurves.jsp"/>
+         </action>
+         
+		<action
+             path="/inputfulcrum" type="com.savant.pricing.presentation.fulcruminput.ImportInputEnergyAction"
+             name="importenergy"
+             scope="request"
+             input="/jsp/inputs/importforwardcurves.jsp">
+            <forward name="success" path="/jsp/inputs/importforwardcurves.jsp"/>
+            <forward name="failure" path="/jsp/inputs/importforwardcurves.jsp"/>
+         </action>
+         <action
+             path="/viewhistory" type="com.savant.pricing.summary.SummaryAction"
+             name="viewHistory"
+             scope="request"
+             input="/jsp/pricing/History.jsp">
+            <forward name="success" path="/jsp/pricing/History.jsp"/>
+            <forward name="failure" path="/jsp/pricing/History.jsp"/>
+         </action>
+         <action
+             path="/viewenergyprice" type="com.savant.pricing.presentation.fulcruminput.ViewEnegryAction"
+             name="importenergy"
+             scope="request"
+             input="/jsp/inputs/vinFulcrumCurves.jsp">
+            <forward name="success" path="/jsp/inputs/vinFulcrumCurves.jsp"/>
+            <forward name="failure" path="/jsp/inputs/vinFulcrumCurves.jsp"/>
+         </action>
+         <action
+             path="/viewgasprice" type="com.savant.pricing.presentation.fulcruminput.ViewGasPriceAction"
+             name="importenergy"
+             scope="request"
+             input="/jsp/inputs/vinTEENaturalGas.jsp">
+            <forward name="success" path="/jsp/inputs/vinTEENaturalGas.jsp"/>
+            <forward name="failure" path="/jsp/inputs/vinTEENaturalGas.jsp"/>
+         </action>
+         <action
+             path="/viewProfilePrice" type="com.savant.pricing.presentation.fulcruminput.viewProfileDetailsAction"
+             name="importenergy"
+             scope="request"
+             input="/jsp/inputs/viewProfileDetails.jsp">
+            <forward name="success" path="/jsp/inputs/viewProfileDetails.jsp"/>
+            <forward name="failure" path="/jsp/inputs/viewProfileDetails.jsp"/>
+         </action>
+         
+         
+         <!-- fulcrum input ends -->
+		
+		<action path="/frmProspectiveCustomerRepList" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerListAction"
+	        name="frmProspectiveCustomerManagerList"
+	        scope="request"	         
+	        input="/jsp/pricing/prospectiveCustomersRep.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+		</action>
+		<action
+             path="/FileUpload" type="com.savant.pricing.presentation.pricing.FileUploadAction"
+             name="FileUpload"
+             scope="request"
+             input="/jsp/pricing/ImportPic.jsp">
+            <forward name="success" path="/jsp/pricing/ImportPic.jsp"/>
+            <forward name="failure" path="/jsp/pricing/ImportPic.jsp"/>
+         </action>
+		<action
+             path="/managerviewPic" type="com.savant.pricing.presentation.pricing.FileUploadAction"
+             name="FileUpload"
+             scope="request"
+             input="/jsp/pricing/MangrViewPic.jsp">
+            <forward name="success" path="/jsp/pricing/MangrViewPic.jsp"/>
+            <forward name="failure" path="/jsp/pricing/MangrViewPic.jsp"/>
+         </action>
+         <action
+             path="/PreferenceAnalyst" type="com.savant.pricing.presentation.pricing.PreferenceAnalystAction"
+             name="PreferenceAnalyst"
+             scope="request"
+             validate="true"
+             input="/jsp/pricing/Preference.jsp">
+            <forward name="success" path="/jsp/pricing/ecomp.jsp"/>
+            <forward name="failure" path="/jsp/pricing/Preference.jsp"/>
+         </action>
+          <action
+             path="/Ecomp" type="com.savant.pricing.presentation.pricing.EcompoAction"
+             name="Ecomp"
+             scope="request"
+             validate="true"
+             input="/jsp/pricing/ecomp.jsp">
+            <forward name="success" path="/jsp/pricing/DealLevers.jsp"/>
+            <forward name="failure" path="/jsp/pricing/ecomp.jsp"/>
+         </action>
+         <action
+             path="/DealLeverAnalyst" type="com.savant.pricing.presentation.pricing.DealLeveversAnalystAction"
+             name="DealLeverAnalyst"
+             scope="request"
+             validate="true"
+             input="/jsp/pricing/Preference.jsp">
+            <forward name="success" path="/jsp/pricing/DealLevers.jsp"/>
+            <forward name="failure" path="/jsp/pricing/DealLevers.jsp"/>
+         </action>
+		
+		<action path="/frmProspectiveCustomerMngrList" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerMngrListAction"
+	        name="frmProspectiveCustomerManagerList"
+	        scope="request"	         
+	        input="/jsp/pricing/ProspectiveCustomersMngr.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomersMngr.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersMngr.jsp" />
+		</action>
+		<action path="/frmProspectiveCustomerAnalystList" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerAnalystListAction"
+	        name="frmProspectiveCustomerManagerList"
+	        scope="request"	         
+	        input="/jsp/pricing/ProspectiveCustomersAnalyst.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomersAnalyst.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersAnalyst.jsp" />
+			<forward name="addCustomer" path="/jsp/pricing/ProspectiveCustomersRepAdd.jsp" />
+			
+		</action>
+		<action path="/prospectiveCustomersFile" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerFileAction"
+	        name="frmProspectiveCustomerFileAdd"
+	        scope="request"	      
+	        input="/jsp/pricing/ProspectiveCustomerUsageFile.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomerUsageFile.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomerUsageFile.jsp" />
+			
+			
+		</action>
+		
+		<action path="/prospectiveCustomersRepAdd" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerListAction"
+	        name="frmProspectiveCustomerManagerAdd"
+	        scope="request"	      
+	        input="/jsp/pricing/ProspectiveCustomersRepAdd.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersRepAdd.jsp" />
+			<forward name="preference" path="/jsp/pricing/PreferenceRepAdd.jsp" />
+			<forward name="Analyst" path="/jsp/pricing/ProspectiveCustomersAnalyst.jsp" />
+			<forward name="Manager" path="/jsp/pricing/ProspectiveCustomersMngr.jsp" />
+			<forward name="Rep" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+			
+		</action>
+		
+		<action path="/essiidlist" type="com.savant.pricing.presentation.pricing.EssiidAction"
+	        name="frmEssiidList"
+	        scope="request"	      
+	        input="/jsp/pricing/Essiid.jsp">
+			<forward name="success" path="/jsp/pricing/Essiid.jsp" />
+			<forward name="failure" path="/jsp/pricing/Essiid.jsp" />
+		</action>
+		
+		<action path="/pRepView" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerListAction"
+	        name="frmProspectiveCustomerManagerAdd"
+	        scope="request"	      
+	        input="/jsp/pricing/ProspectiveCustomersRep.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+		</action>
+		<action path="/ProspectiveCustomerRepEdit" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerListAction"
+	        name="frmProspectiveCustomerManagerAdd"
+	        scope="request"	
+	        input="/jsp/pricing/ProspectiveCustomersRepEdit.jsp">
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersRepEdit.jsp" />
+			<forward name="Manageredit" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+			<forward name="success" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+			<forward name="Esiid" path="/essiidlist.do" />
+			<forward name="Ecomp" path="/ecomp.do" />
+			<forward name="preference" path="/frmPreferenceRepEdit.do" />
+			<forward name="Analyst" path="/jsp/pricing/ProspectiveCustomersAnalystEdit.jsp" />
+			<forward name="Manager" path="/jsp/pricing/ProspectiveCustomersMngrEdit.jsp" />
+			<forward name="Rep" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+		</action>
+		  <action
+             path="/frmPreferenceRepAdd" type="com.savant.pricing.presentation.pricing.PreferenceRepAction"
+             name="PreferenceRep"
+             scope="request"
+             input="/jsp/pricing/PreferenceRepAdd.jsp">
+            <forward name="success" path="/jsp/pricing/ProspectiveCustomersRep.jsp"/>
+            <forward name="failure" path="/jsp/pricing/PreferenceRepAdd.jsp"/>
+            <forward name="Analyst" path="/jsp/pricing/ProspectiveCustomersAnalyst.jsp" />
+			<forward name="Manager" path="/jsp/pricing/ProspectiveCustomersMngr.jsp" />
+			<forward name="Rep" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+         </action>
+            
+		
+		  <action
+             path="/frmPreferenceRepEdit" type="com.savant.pricing.presentation.pricing.PreferenceRepAction"
+             name="PreferenceRep"
+             scope="request"
+             input="/jsp/pricing/PreferenceRepEdit.jsp">
+            <forward name="success" path="/jsp/pricing/ProspectiveCustomersRep.jsp"/>
+            <forward name="failure" path="/jsp/pricing/PreferenceRepEdit.jsp"/>
+            <forward name="Analyst" path="/jsp/pricing/ProspectiveCustomersAnalystEdit.jsp" />
+			<forward name="Manager" path="/jsp/pricing/ProspectiveCustomersMngrEdit.jsp" />
+			<forward name="Rep" path="/jsp/pricing/ProspectiveCustomersRep.jsp" />
+         </action>
+				
+		<action path="/pMngrEdit" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerMngrListAction"
+	        name="frmProspectiveCustomerManagerAdd"
+	        scope="request"	
+	        input="/jsp/pricing/ProspectiveCustomersMngrEdit.jsp">
+			<forward name="success" path="/jsp/pricing/ProspectivecustomerManagercustEdit.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersMngr.jsp" />
+			<forward name="approve" path="/jsp/pricing/ProspectiveCustomersMngrEdit.jsp" />
+			<forward name="next" path="/jsp/pricing/MangrViewPic.jsp" />
+		</action>
+		<action path="/ProspectiveCustomerAnalystEdit" type="com.savant.pricing.presentation.pricing.ProspectiveCustomerAnalystListAction"
+	        name="frmProspectiveCustomerManagerAdd"
+	        scope="request"	
+	        input="/jsp/pricing/ProspectiveCustomersAnalystEdit.jsp">
+			<forward name="success" path="/jsp/pricing/ImportPic.jsp" />
+			<forward name="approve" path="/jsp/pricing/ProspectiveCustomersAnalystEdit.jsp" />
+			<forward name="failure" path="/jsp/pricing/ProspectiveCustomersAnalystEdit.jsp" />
+		</action>
+		<action path="/ContractEdit" type="com.savant.pricing.presentation.pricing.ContractsTrackingAction"
+	        name="frmContract"
+	        scope="request"
+	        input="/jsp/pricing/ContractEdit.jsp">
+			<forward name="failure" path="/jsp/pricing/ContractEdit.jsp" />
+			<forward name="success" path="/jsp/pricing/Contracts.jsp" />
+		</action>
+		<action path="/schedule" type="com.savant.pricing.presentation.pricing.ScheduleListAction"
+	        name="frmScheduleLst"
+	        scope="request"	      
+	        input="/jsp/pricing/schedule.jsp">
+			<forward name="success" path="/jsp/pricing/schedule.jsp" />
+			<forward name="failure" path="/jsp/pricing/schedule.jsp" />
+		</action>
+	
+	
+		<action path="/usertype" type="com.savant.pricing.presentation.security.UserTypeListAction"
+	        name="frmusertypeList"
+	        scope="request"	         
+	        input="/jsp/security/usertype.jsp">
+			<forward name="failure" path="/jsp/security/usertype.jsp" />
+			<forward name="success" path="/jsp/security/usertype.jsp" />
+		</action>
+		
+		<action path="/userTypeAdd" type="com.savant.pricing.presentation.security.UsertypeAction"
+	        name="frmusertype"
+	        scope="request"	         
+	        input="/jsp/security/usertypeadd.jsp">
+			<forward name="failure" path="/jsp/security/usertypeadd.jsp" />
+			<forward name="success" path="/jsp/security/usertype.jsp" />
+		</action>
+		<action path="/userTypeEdit" type="com.savant.pricing.presentation.security.UsertypeAction"
+	        name="frmusertype"
+	        scope="request"
+	        	         
+	        input="/jsp/security/usertypeedit.jsp">
+			<forward name="failure" path="/jsp/security/usertypeedit.jsp" />
+			<forward name="success" path="/jsp/security/usertype.jsp" />
+		</action>
+		<action path="/UserTypeview" type="com.savant.pricing.presentation.security.UsertypeAction"
+	        name="frmusertype"
+	        scope="request"
+	        	         
+	        input="/jsp/security/userTypeView.jsp">
+			<forward name="failure" path="/jsp/security/usertype.jsp" />
+			<forward name="success" path="/jsp/security/usertype.jsp" />
+		</action>
+		<action path="/userList" type="com.savant.pricing.presentation.security.UserListAction"
+	        name="frmUserList"
+	        scope="request"	         
+            validate="true"	  
+	        input="/jsp/security/user.jsp">
+			<forward name="failure" path="/jsp/security/user.jsp" />
+			<forward name="success" path="/jsp/security/user.jsp" />
+		</action>
+		<action path="/frmUserview" type="com.savant.pricing.presentation.security.UserAction"
+	        name="frmuser"
+	        scope="request"	         
+	        input="/jsp/security/userview.jsp">
+			<forward name="failure" path="/jsp/security/userview.jsp" />
+			<forward name="success" path="/jsp/security/userview.jsp" />
+		</action>
+		
+		<action path="/userAdd" type="com.savant.pricing.presentation.security.UserAction"
+	        name="frmuser"
+	        scope="request"	         
+	        input="/jsp/security/useradd.jsp">
+			<forward name="failure" path="/jsp/security/useradd.jsp" />
+			<forward name="success" path="/jsp/security/user.jsp" />
+		</action>
+		<action path="/userEdit" type="com.savant.pricing.presentation.security.UserAction"
+	        name="frmuser"
+	        scope="request"
+	        validate="true"
+	        input="/jsp/security/useredit.jsp">
+			<forward name="failure" path="/jsp/security/user.jsp" />
+			<forward name="success" path="/jsp/security/useredit.jsp" />
+		</action>
+		<action path="/RoleList" type="com.savant.pricing.presentation.security.RoleListAction"
+	        name="frmRoleList"
+	        scope="request"	         
+	        input="/jsp/security/roles.jsp">
+			<forward name="failure" path="/jsp/security/roles.jsp" />
+			<forward name="success" path="/jsp/security/roles.jsp" />
+		</action>
+		
+		<action path="/RoleAdd" type="com.savant.pricing.presentation.security.NewRoleAddAction"
+	        name="frmRole"
+	        scope="request"	         
+	        input="/jsp/security/roleadd.jsp">
+			<forward name="failure" path="/jsp/security/roleadd.jsp" />
+			<forward name="success" path="/jsp/security/roles.jsp" />
+		</action>
+		<action path="/RoleEdit" type="com.savant.pricing.presentation.security.RoleEditAction"
+	        name="frmRole"
+	        scope="request"
+	        input="/jsp/security/roleedit.jsp">
+			<forward name="failure" path="/jsp/security/roleedit.jsp" />
+			<forward name="success" path="/jsp/security/roles.jsp" />
+		</action>
+		<action path="/frmRoleView" type="com.savant.pricing.presentation.security.RoleEditAction"
+	        name="frmRole"
+	        scope="request"
+	        input="/jsp/security/roleview.jsp">
+			<forward name="failure" path="/jsp/security/roleview.jsp" />
+			<forward name="success" path="/jsp/security/roles.jsp" />
+		</action>
+		
+		<action path="/frmSeurityLogin" type="com.savant.pricing.presentation.security.LoginAction"
+	        name="formUserLogin"
+	        scope="request"
+	        input="/jsp/index.jsp">
+			<forward name="success" path="/jsp/firstPage.jsp" />
+			<forward name="failure" path="/jsp/index.jsp" />
+		</action>
+		
+		<action path="/settingsEdit" type="com.savant.pricing.presentation.security.UserSettingsAction"
+	        name="usrSettingsEdit"
+	        scope="request"
+	        input="/jsp/settings.jsp">
+			<forward name="failure" path="/jsp/settings.jsp" />
+			<forward name="success" path="/jsp/index.jsp" />
+		</action>
+		
+		<action path="/frmXpressPricingList" type="com.savant.pricing.presentation.matrix.XpressPricingListAction"
+	        name="xPressPricingList"
+	        scope="request"
+	        input="/jsp/matrix/xpressPricingList.jsp">
+			<forward name="failure" path="/jsp/matrix/xpressPricingList.jsp" />
+			<forward name="success" path="/jsp/matrix/xpressPricingList.jsp" />
+		</action>
+		
+		<action path="/frmPriceMatrix" type="com.savant.pricing.presentation.matrix.XpressPricingListAction"
+	        name="xPressPricingList"
+	        scope="request"
+	        input="/jsp/matrix/matrixPricingList.jsp">
+			<forward name="failure" path="/jsp/matrix/matrixPricingList.jsp" />
+			<forward name="success" path="/jsp/matrix/matrixPricingList.jsp" />
+		</action>
+		
+		<action path="/frmXPressPricingView" type="com.savant.pricing.presentation.matrix.XPressPricingViewResultAction"
+	        name="xPressPricingView"
+	        scope="request"
+	        input="/jsp/matrix/xpressPricing.jsp">
+			<forward name="failure" path="/jsp/matrix/xpressPricing.jsp" />
+			<forward name="pdfsuccess" path="/jsp/matrix/customerFiles.jsp" />
+			<forward name="success" path="/jsp/matrix/xpressPricing.jsp" />
+		</action>
+		
+		<action path="/frmMatrixCustomers" type="com.savant.pricing.presentation.matrix.PriceMatrixCustAction"
+	        name="matrixCustList"
+	        scope="request"
+	        input="/jsp/matrix/customerFiles.jsp">
+			<forward name="failure" path="/jsp/matrix/customerFiles.jsp" />
+			<forward name="success" path="/jsp/matrix/customerFiles.jsp" />
+		</action>
+		
+		
+		<action path="/frmIDRProfiler" type="com.savant.pricing.presentation.tdp.IDRProfileAction"
+	        name="formIDRProfiler"
+	        scope="request"
+	        input="j/sp/tdp/idrprofiler.jsp">
+			<forward name="success" path="/jsp/tdp/importedData.jsp?error=error" />
+			<forward name="failure" path="/jsp/tdp/idrprofiler.jsp" />
+		</action>
+		
+		<action path="/frmDailyProfile" type="com.savant.pricing.presentation.tdp.DailyProfileAction"
+	        name="formDailyProfile"
+	        scope="request"
+	        input="/jsp/tdp/dailyprofile.jsp">
+			<forward name="success" path="/jsp/tdp/tdp.jsp" />
+			<forward name="failure" path="/jsp/tdp/tdp.jsp" />
+		</action>
+    
+    	<action path="/frmImportData" type="com.savant.pricing.presentation.tdp.ImportDataAction"
+	        name="formImportData"
+	        scope="request"
+	        input="jsp/tdp/idrprofiler.jsp">
+			<forward name="success" path="jsp/tdp/idrprofiler.jsp" />
+			<forward name="failure" path="jsp/tdp/idrprofiler.jsp" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

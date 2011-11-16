@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<timers>
+
+	<!--
+	This Timer configuration document is used to schedule classes of
+	type MXenergyTimerTask. The several options available are:
+		
+	Class: The name of the scheduled class with the full package name
+	Hour: The hour at which to run the task, in 24 hour format
+	Minute: The minute at which to run the task
+	Seconds are set 0 by default
+	Frequency: The several options are: 
+		-hourly: set the minute to run
+		-daily: set the hour and minute to run
+		-weekly: set the hour, minute and day(s) of the week to run
+		-monthly: set the hour, minute and numeric day(s) of the week to run
+		
+		Examples:
+		Hourly: runs every hour at minute 7
+            <time>
+                  <minute>7</minute>                  
+                  <frequency>hourly</frequency> 
+            </time>
+
+	    Daily: runs every day at 4:35 AM
+            <time>
+                  <hour>4</hour>
+                  <minute>35</minute>                  
+                  <frequency>daily</frequency> 
+            </time>
+
+	    Weekly: runs on wednesday and thursdays at 7:42 PM
+            <time>
+                  <hour>19</hour>
+                  <minute>42</minute>                  
+                  <frequency>weekly</frequency> 
+                  <days>
+                        <day>wednesday</day>
+						<day>thursday</day>
+                  </days>           
+            </time> 
+
+		Monthly: runs on the 5th and 19th of every month at 8:19 AM
+            <time>
+                  <hour>8</hour>
+                  <minute>19</minute>                  
+                  <frequency>monthly</frequency>      
+                  <days>
+                        <day>5</day> 
+                        <day>19</day> 
+                  </days>           
+            </time>
+		
+	-->
+	<timer enabled="true">
+		<class>com.savant.pricing.common.AutoMXenergyPriceRun</class>
+	  <time>
+                  <hour>04</hour>
+                  <minute>00</minute>                  
+                  <frequency>daily</frequency> 
+            </time>
+	</timer>
+	
+
+</timers>

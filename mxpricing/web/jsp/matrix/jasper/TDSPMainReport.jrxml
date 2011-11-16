@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Unnamed" pageWidth="690" pageHeight="950" columnWidth="650" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="mxep"/>
+	<property name="com.jasperassistant.designer.HGuides" value="92"/>
+	<parameter name="ReportDate" class="java.lang.String"/>
+	<parameter name="ExpDate" class="java.lang.String"/>
+	<parameter name="subRepPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["E:/pricingdata/jasper/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="disclaimer" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" "]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Email" class="java.lang.String"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="lstTdspDetails" class="java.util.List"/>
+	<field name="lstTdspDetails2" class="java.util.List"/>
+	<field name="marketCommentry" class="java.lang.String"/>
+	<detail>
+		<band height="439">
+			<frame>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="650" height="433" backcolor="#C0C0C0"/>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="0" y="1" width="250" height="13" backcolor="#877E87"/>
+					<box topBorder="1Point" leftBorder="1Point" bottomBorder="1Point" rightBorder="None"/>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="249" y="1" width="400" height="13" forecolor="#FFFFFF" backcolor="#FF0000"/>
+					<box borderColor="#000000" padding="0" topBorder="1Point" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+				</frame>
+				<frame>
+					<reportElement x="0" y="13" width="649" height="60"/>
+					<box border="1Point"/>
+					<frame>
+						<reportElement mode="Opaque" x="12" y="0" width="624" height="56"/>
+						<image hyperlinkType="None">
+							<reportElement x="6" y="3" width="162" height="50"/>
+							<graphicElement/>
+							<imageExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"mxEnergy.GIF"]]></imageExpression>
+						</image>
+						<textField hyperlinkType="None">
+							<reportElement positionType="Float" x="180" y="4" width="433" height="30"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="20" pdfFontName="Helvetica-Bold"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA["Price Matrix For "+$P{ReportDate}]]></textFieldExpression>
+						</textField>
+						<textField hyperlinkType="None">
+							<reportElement positionType="Float" x="180" y="38" width="433" height="13"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font size="8" pdfFontName="Helvetica-Bold"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA["Expires on "+$P{ExpDate}]]></textFieldExpression>
+						</textField>
+					</frame>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="12" y="73" width="625" height="348"/>
+					<subreport>
+						<reportElement positionType="Float" x="5" y="64" width="261" height="10"/>
+						<subreportParameter name="tireagleLogoPath">
+							<subreportParameterExpression><![CDATA[$P{subRepPath}]]></subreportParameterExpression>
+						</subreportParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.Collection)$F{lstTdspDetails})]]></dataSourceExpression>
+						<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"PriceMatrixMain.jasper"]]></subreportExpression>
+					</subreport>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true" hyperlinkType="None">
+						<reportElement positionType="Float" x="7" y="22" width="613" height="20"/>
+						<box topBorder="None" topPadding="2" leftBorder="1Point" leftPadding="2" bottomBorder="1Point" bottomPadding="2" rightBorder="1Point" rightPadding="2"/>
+						<textElement textAlignment="Justified"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{marketCommentry}==null?null:$F{marketCommentry}.equalsIgnoreCase("null")?null:$F{marketCommentry}+"\n"]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="7" y="3" width="613" height="20"/>
+						<box topBorder="1Point" leftBorder="1Point" bottomBorder="None" rightBorder="1Point"/>
+						<textElement>
+							<font size="11" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[ Market Commentary]]></text>
+					</staticText>
+					<image scaleImage="Clip" hyperlinkType="None">
+						<reportElement positionType="Float" x="15" y="99" width="594" height="192" isPrintInFirstWholeBand="true" forecolor="#000000" backcolor="#FFFFFF"/>
+						<graphicElement pen="1Point"/>
+						<imageExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"MMPrice.jpeg"]]></imageExpression>
+					</image>
+					<frame>
+						<reportElement positionType="Float" x="180" y="291" width="253" height="20" forecolor="#000000"/>
+						<box border="1Point"/>
+						<staticText>
+							<reportElement positionType="Float" x="35" y="3" width="87" height="16" forecolor="#FD565D"/>
+							<textElement/>
+							<text><![CDATA[7X24 Houston]]></text>
+						</staticText>
+						<line>
+							<reportElement x="142" y="10" width="20" height="1" forecolor="#0000E6"/>
+							<graphicElement/>
+						</line>
+						<staticText>
+							<reportElement x="170" y="4" width="80" height="16" forecolor="#0000D7"/>
+							<textElement/>
+							<text><![CDATA[NG Price]]></text>
+						</staticText>
+						<rectangle radius="0">
+							<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="23" y="6" width="6" height="7" forecolor="#FD565D" backcolor="#FD565D"/>
+							<graphicElement pen="1Point"/>
+						</rectangle>
+					</frame>
+					<subreport>
+						<reportElement positionType="Float" x="4" y="306" width="552" height="14"/>
+						<subreportParameter name="disclaimer">
+							<subreportParameterExpression><![CDATA[$P{disclaimer}]]></subreportParameterExpression>
+						</subreportParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.Collection)$F{lstTdspDetails})]]></dataSourceExpression>
+						<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"disclaimer.jasper"]]></subreportExpression>
+					</subreport>
+					<subreport>
+						<reportElement positionType="Float" x="311" y="64" width="261" height="10"/>
+						<subreportParameter name="tireagleLogoPath">
+							<subreportParameterExpression><![CDATA[$P{subRepPath}]]></subreportParameterExpression>
+						</subreportParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.Collection)$F{lstTdspDetails2})]]></dataSourceExpression>
+						<subreportExpression class="java.lang.String"><![CDATA[$P{subRepPath}+"PriceMatrixMain.jasper"]]></subreportExpression>
+					</subreport>
+					<staticText>
+						<reportElement positionType="Float" mode="Opaque" x="4" y="324" width="384" height="18" forecolor="#000000" backcolor="#CFCFCF"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="9"/>
+						</textElement>
+						<text><![CDATA[Copyright MXenergy Inc. Contact MXenergy Call Toll Free 800.785.4373 E-mail:   ]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true" hyperlinkType="None">
+						<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="388" y="324" width="230" height="18" forecolor="#0000FF" backcolor="#CFCFCF"/>
+						<box border="None" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font size="9" isItalic="false" isUnderline="true" pdfFontName="Helvetica-Oblique"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[ "feedback@mxenergy.com"]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="Float" x="7" y="47" width="138" height="16"/>
+						<box padding="0" topBorder="None" leftBorder="None" bottomBorder="None" rightBorder="None"/>
+						<textElement textAlignment="Left">
+							<font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Indicative Energy Prices ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="10" y="79" width="171" height="15"/>
+						<box padding="0" topBorder="None" leftBorder="None" bottomBorder="None" rightBorder="None"/>
+						<textElement textAlignment="Left">
+							<font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Forward Electric & Gas Curves]]></text>
+					</staticText>
+				</frame>
+			</frame>
+			<elementGroup/>
+		</band>
+	</detail>
+</jasperReport>

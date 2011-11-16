@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PriceBlockVO"
+        table="PRC_Price_Blck">
+
+		<composite-id> 
+ 		 <key-many-to-one name="priceBlock" class="com.savant.pricing.calculation.valueobjects.PriceBlockHeaderVO" column="Price_Blck_ID" lazy = "false"/>    
+ 		 <key-many-to-one name="dayType" class="com.savant.pricing.valueobjects.DayTypesVO" column="Day_Type_ID"/>    
+   		 <key-property name="day" type="int" column="Dayofweek"/>
+   		 <key-property name="hour" type="int" column="Hour"/>
+   		</composite-id>	
+
+	</class>
+</hibernate-mapping>

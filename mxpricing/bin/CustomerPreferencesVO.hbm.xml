@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.CustomerPreferencesVO"
+        table="PRC_Cust_Preference">
+
+	    <composite-id> 
+ 		 <key-many-to-one name="prospectiveCustomer" class="com.savant.pricing.valueobjects.ProspectiveCustomerVO" column="Prospective_Cust_ID" lazy="false"/>    
+   		</composite-id>	
+
+
+		<property
+            name="contractStartDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Contract_Start_Date"
+        />
+		
+		<property
+            name="contractEndDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Contract_End_Date"
+        />
+		
+		
+		<property
+            name="autoRun"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Auto_Run"
+        />
+		
+		<property
+            name="priceRunEligibleDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Price_Run_Eligible_Date"
+        />
+		
+		<property
+            name="priceReRun"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Price_Rerun"
+        />
+        
+		<property
+            name="unitary"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="shapingPremiumUnitary"
+        />
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.securityadmin.valueobject.UsersVO"
+        table="PRC_Users">
+
+        <id
+            name="userId"
+            column="User_ID"
+            type="string">
+            
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+	
+		
+		
+		<property
+            name="password"
+            type="string"
+            update="true"
+            insert="true"
+            column="User_Password"
+        />
+		
+		<property
+            name="firstName"
+            type="string"
+            update="true"
+            insert="true"
+            column="User_First_Name"
+        />
+		
+		<property
+            name="lastName"
+            type="string"
+            update="true"
+            insert="true"
+            column="User_Last_Name"
+        />
+		
+		<property
+            name="emailId"
+            type="string"
+            update="true"
+            insert="true"
+            column="User_Email_ID"
+        />
+		
+		<property
+            name="comment"
+            type="string"
+            update="true"
+            insert="true"
+            column="User_Comment"
+        />
+		
+		<property
+            name="createdBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Created_By"
+        />
+		
+		<property
+            name="createdDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Created_Date"
+        />
+		
+		<property
+            name="modifiedBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Modified_By"
+        />
+		
+		
+		<property
+            name="modifiedDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Modified_Date"
+        />
+		
+		<property
+            name="valid"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Is_Valid"
+        />
+		<many-to-one name="parentUser"  column="User_Parent_ID" lazy="false"/>
+	    <many-to-one name="userTypes" column="User_Type_ID" lazy="false"/>
+	</class>
+</hibernate-mapping>

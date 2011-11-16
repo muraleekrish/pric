@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.securityadmin.valueobject.MenuItemsVO"
+        table="PRC_Menu_Items">
+
+        <id
+            name="menuItemID"
+            column="Menu_Item_ID"
+            type="int">
+            <generator class="assigned"/>
+        </id>
+		
+		<property
+            name="menuItemName"
+            type="string"
+            update="true"
+            insert="true"
+            column="Menu_Item_Name"
+        />
+		
+		<property
+            name="displayName"
+            type="string"
+            update="true"
+            insert="true"
+            column="Menu_Item_Display_Name"
+        />
+		
+		<property
+            name="discription"
+            type="string"
+            update="true"
+            insert="true"
+            column="Menu_Item_Descrptn"
+        />
+		
+		<property
+            name="menuLevels"
+            type="long"
+            update="true"
+            insert="true"
+           	column="Menu_Level"
+        />
+		
+		<property
+            name="menuOrder"
+            type="long"
+            update="true"
+            insert="true"
+            column="Menu_Order"
+        />
+		
+		<property
+            name="menuPath"
+            type="string"
+            update="true"
+            insert="true"
+            column="Menu_Path"
+        />
+		
+		<property
+            name="createdBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Created_By"
+        />
+		
+		<property
+            name="createdDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Created_Date"
+        />
+		
+		<property
+            name="modifiedBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Modified_By"
+        />
+		
+		<property
+            name="modifiedDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Modified_Date"
+        />
+		
+		<property
+            name="valid"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Is_Valid"
+        />
+        <many-to-one name="menuItem" column="Parent_Menu_Item"/>
+	</class>
+</hibernate-mapping>

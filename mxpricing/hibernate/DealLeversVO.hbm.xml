@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.DealLeversVO"
+        table="PRC_Deal_Levers">
+
+        <id
+            name="dealLeverIdentifier"
+            column="Deal_Lever_ID"
+            type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		<property
+            name="dealLever"
+            type="string"
+            update="true"
+            insert="true"
+            column="Deal_Lever"
+        />
+		<many-to-one name="unit" fetch="join" column="UOM_ID"/>    	
+		<property
+            name="value"
+            type="float"
+            update="true"
+            insert="true"
+            column="Deal_Lever_Value"
+        />
+		<property
+            name="overRide"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Is_Override"
+        />
+    </class>
+
+</hibernate-mapping>

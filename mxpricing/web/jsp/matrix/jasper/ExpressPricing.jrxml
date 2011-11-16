@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Unnamed" pageWidth="595" pageHeight="600" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="com.jasperassistant.designer.DataSource" value="TermReport"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<parameter name="tireagleLogoPath" class="java.lang.String"/>
+	<parameter name="expDate" class="java.util.Date"/>
+	<parameter name="offerDate" class="java.util.Date"/>
+	<parameter name="monthlykva" class="java.lang.String"/>
+	<field name="annualkWh" class="java.lang.String"/>
+	<field name="billMonth" class="java.lang.String"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="cogZone" class="java.lang.String"/>
+	<field name="custName" class="java.lang.String"/>
+	<field name="depositAmt" class="java.lang.String"/>
+	<field name="loadFactor" class="java.lang.String"/>
+	<field name="mnthCustCharge" class="java.lang.String"/>
+	<field name="monthlyDemandkVA" class="java.lang.String"/>
+	<field name="monthlyEnergykWh" class="java.lang.String"/>
+	<field name="paymentHistory" class="java.lang.String"/>
+	<field name="pricingAnalyst" class="java.lang.String"/>
+	<field name="refNumber" class="java.lang.String"/>
+	<field name="salesMgrName" class="java.lang.String"/>
+	<field name="salesRepName" class="java.lang.String"/>
+	<field name="tdsp" class="java.lang.String"/>
+	<field name="term" class="java.lang.String"/>
+	<field name="termReport" class="java.util.List"/>
+	<detail>
+		<band height="442">
+			<frame>
+				<reportElement mode="Opaque" x="4" y="2" width="548" height="419" forecolor="#FFFFFF" backcolor="#3CA26F"/>
+				<frame>
+					<reportElement mode="Opaque" x="5" y="79" width="537" height="320" forecolor="#400040" backcolor="#FFFFFF"/>
+					<subreport>
+						<reportElement positionType="Float" x="2" y="239" width="483" height="12"/>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.List)$F{termReport})]]></dataSourceExpression>
+						<subreportExpression class="java.lang.String"><![CDATA[$P{tireagleLogoPath}+"termReport.jasper"]]></subreportExpression>
+					</subreport>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="26" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" isStyledText="true">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Customer Name]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="156" y="26" width="369" height="14"/>
+						<textElement textAlignment="Left">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{custName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="48" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[TDSP]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="156" y="48" width="116" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{tdsp}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="118" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Sales Rep Name]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="403" y="118" width="121" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{salesRepName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="164" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Estimated Annual kWh*]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="156" y="164" width="116" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{annualkWh}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="94" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Bill Month]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="156" y="94" width="116" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{billMonth}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="164" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Pricing Analyst]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="403" y="164" width="121" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{pricingAnalyst}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="188" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Load Factor, %]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="156" y="141" width="116" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{monthlyDemandkVA}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="403" y="48" width="121" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{refNumber}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="156" y="118" width="116" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{monthlyEnergykWh}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="156" y="71" width="116" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{cogZone}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="403" y="141" width="121" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{salesMgrName}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="403" y="71" width="121" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{mnthCustCharge}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="403" y="188" width="121" height="14"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{depositAmt}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="71" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Customer Charge, $]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="188" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Deposit Amount]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="118" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Monthly Energy kWh]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="141" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Sales Manager Name:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="48" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Reference Number]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="289" y="94" width="100" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Term]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="71" width="114" height="14" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Congestion Zone]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="29" y="211" width="293" height="14" backcolor="#FFFFFF"/>
+						<textElement>
+							<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[Does Customer have three months of good payment history?]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="163" y="5" width="74" height="13" forecolor="#FF0000"/>
+						<textElement>
+							<font size="10"/>
+						</textElement>
+						<text><![CDATA[Offer Expires At]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="8" y="265" width="522" height="29"/>
+						<textElement>
+							<font size="9"/>
+						</textElement>
+						<text><![CDATA[* Estimated Annual kWh based on customer inputs and corresponding profiles. Consumption will vary for individual customers.
+** Energy Price Including ERCOT and PUC charges excludes all TDSP delivery charges.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="Float" x="9" y="299" width="468" height="12" forecolor="#FF8000"/>
+						<textElement>
+							<font size="9"/>
+						</textElement>
+						<text><![CDATA[PLEASE RETURN COMPLETED COPY WITH EACH CONTRACT SUBMITTED FOR ENROLLMENT]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="403" y="94" width="121" height="14"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{term}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="334" y="211" width="36" height="14"/>
+						<textElement/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{paymentHistory}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="156" y="188" width="116" height="14"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{loadFactor}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="26" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement>
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="141" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="48" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="118" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="164" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="94" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="164" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="188" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="48" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="118" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="148" y="71" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="141" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="71" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="94" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="393" y="188" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Transparent" x="326" y="211" width="3" height="14" backcolor="#FFFFFF"/>
+						<textElement>
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="277" y="5" width="17" height="13" forecolor="#FF0000" backcolor="#D9FFD9"/>
+						<textElement>
+							<font pdfFontName="Helvetica"/>
+						</textElement>
+						<text><![CDATA[On]]></text>
+					</staticText>
+					<textField pattern="MMM d, yyyy">
+						<reportElement positionType="Float" x="295" y="5" width="111" height="13" forecolor="#FF0000"/>
+						<textElement verticalAlignment="Top"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$P{expDate}]]></textFieldExpression>
+					</textField>
+					<textField pattern="h:mm a">
+						<reportElement positionType="Float" x="237" y="5" width="40" height="13" forecolor="#FF0000"/>
+						<textElement/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$P{expDate}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Transparent" x="259" y="-21" width="3" height="16" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+						<textElement>
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="29" y="141" width="114" height="14"/>
+						<textElement verticalAlignment="Middle">
+							<font pdfFontName="Helvetica-Bold"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$P{monthlykva}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement x="138" y="5" width="275" height="29" forecolor="#FFFFFF"/>
+					<box border="None"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="18" isBold="true" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[EXPRESS PRICING SHEET
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="152" y="33" width="248" height="18" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ELECTRICITY FIXED PRICE OFFER]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="183" y="58" width="82" height="16" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date of Offer]]></text>
+				</staticText>
+				<image scaleImage="FillFrame" hAlign="Center" onErrorType="Blank">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="19" y="13" width="80" height="47"/>
+					<box border="1Point" padding="0"/>
+					<graphicElement pen="1Point"/>
+					<imageExpression class="java.lang.String"><![CDATA[$P{tireagleLogoPath}+"MXenergy.JPEG"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="213" y="402" width="92" height="14" forecolor="#FFFFFF" backcolor="#3CA26F"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Copyright of MXEnergy]]></text>
+				</staticText>
+				<textField pattern="MMM d, yyyy">
+					<reportElement x="270" y="58" width="93" height="16" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$P{offerDate}]]></textFieldExpression>
+				</textField>
+				<image scaleImage="FillFrame" hAlign="Center" onErrorType="Blank">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="447" y="15" width="80" height="47"/>
+					<box border="1Point" padding="0"/>
+					<graphicElement pen="1Point"/>
+					<imageExpression class="java.lang.String"><![CDATA[$P{tireagleLogoPath}+"MXenergy.JPEG"]]></imageExpression>
+				</image>
+			</frame>
+			<textField>
+				<reportElement positionType="Float" x="4" y="423" width="213" height="16"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{custName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="M/d/yy h:mm a">
+				<reportElement positionType="Float" x="417" y="425" width="133" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

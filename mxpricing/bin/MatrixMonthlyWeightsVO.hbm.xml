@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.matrixpricing.valueobjects.MatrixMonthlyWeightsVO"
+        table="PRC_MM_Monthly_Weights">
+
+		<composite-id> 
+ 		 <key-many-to-one name="loadProfile" class="com.savant.pricing.valueobjects.LoadProfileTypesVO" column="Profile_ID"/>    
+  		 <key-many-to-one name="congestionZone" class="com.savant.pricing.valueobjects.CongestionZonesVO" column="Congestion_Zone_ID"/>    
+  		 <key-many-to-one name="weatherZone" class="com.savant.pricing.valueobjects.WeatherZonesVO" column="Weather_Zone_ID"/>    
+   		 <key-property name="month" type="int" column="Mnth"/>
+   		</composite-id>	
+			
+		<property
+            name="value"
+            type="float"
+            update="true"
+            insert="true"
+            column="Percent_Value"
+        />
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class name="com.savant.pricing.calculation.valueobjects.GasPriceVO" table="PRC_Gas_Price">
+
+		<composite-id> 
+   		 <key-property name="marketDate" type="timestamp" column="Mrkt_Date"/>
+   		 <key-property name="monthYear" type="date" column="Mnth_Yr"/>
+  		 <key-many-to-one name="dataSource" class="com.savant.pricing.calculation.valueobjects.ForwardCurvesSourceVO" column="Data_Src_ID" lazy="false"/>    
+   		</composite-id>			
+		<property
+            name="price"
+            type="float"
+            update="true"
+            insert="true"
+            column="LastValue"
+        />
+       
+        
+    </class>
+
+</hibernate-mapping>

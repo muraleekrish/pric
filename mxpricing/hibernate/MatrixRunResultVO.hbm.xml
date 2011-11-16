@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.savant.pricing.matrixpricing.valueobjects.MatrixRunResultVO"
+        table="PRC_MM_RunResult">
+        
+        <composite-id> 
+          <key-property name="priceRunRefNo" type="string" column="Price_Run_Ref_No"/>
+		  <key-many-to-one name="prospectiveCust" class="com.savant.pricing.valueobjects.ProspectiveCustomerVO" column="Prospective_Cust_ID"/>
+		  <key-property name="term" type="int" column="Term"/> 
+        </composite-id>	
+        
+   		<property
+            name="esiId"
+            type="string"
+            update="true"
+            insert="true"
+            column="ESIID"
+        />
+        
+        <many-to-one name="tdsp" column="TDSP_ID" lazy="false"/>    	
+        <many-to-one name="loadProfile" column="Profile_ID" lazy="false"/> 
+        <many-to-one name="congestion" column="Congestion_Zone_ID" lazy="false"/> 
+        
+        <property
+            name="energyOnlyPrice"
+            type="float"
+            update="true"
+            insert="true"
+            column="Enrgy_Only_Price"
+        />
+        
+        <property
+            name="tdspCharge"
+            type="float"
+            update="true"
+            insert="true"
+            column="TDSP_Charges"
+        />
+        
+        <property
+            name="ancCharge"
+            type="float"
+            update="true"
+            insert="true"
+            column="Anc_Charges"
+        />
+        
+       <property
+            name="custCharge"
+            type="float"
+            update="true"
+            insert="true"
+            column="Cust_Charge"
+        />       
+        
+    </class>
+</hibernate-mapping>

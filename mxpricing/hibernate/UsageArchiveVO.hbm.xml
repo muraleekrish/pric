@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.UsageArchiveVO"
+        table="PRC_Usage_Archive">
+
+        <composite-id> 
+   	 		 <key-many-to-one name="usageRef" class="com.savant.pricing.calculation.valueobjects.PricingUsageHeaderVO" column="PRC_Usage_Ref_ID"/>    
+       		 <key-property name="termMonth" type="date" column="Mnth_Yr"/>
+  	 		 <key-many-to-one name="dayType" class="com.savant.pricing.valueobjects.DayTypesVO" column="Day_Type_ID"/>    
+       		 <key-property name="hour" type="int" column="Hour"/>  	 		 
+   		</composite-id>
+   		
+   		
+        
+		<many-to-one name="unit" fetch="join" column="UOM_ID"/>    	
+		
+		<property
+            name="usageStartDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Usage_start_Date"
+        />
+		<property
+            name="usageEndDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Usage_End_Date"
+        />
+		
+		<property
+            name="forecastedUsage"
+            type="float"
+            update="true"
+            insert="true"
+            column="Forecasted_Usage"
+        />
+		
+		<property
+            name="forecastedUsageWL"
+            type="float"
+            update="true"
+            insert="true"
+            column="Forecasted_UsageWL"
+        />
+		<property
+            name="archivalDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Archive_Date"
+        />
+		
+		
+    </class>
+
+</hibernate-mapping>

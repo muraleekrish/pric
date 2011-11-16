@@ -1,0 +1,133 @@
+<!-- 
+  Copyright (c) 2002, 2003,2004 Eteration Bilisim A.S.
+  Naci Dai and others.
+  
+  Parts developed under contract ref:FT/R&D/MAPS/AMS/2004-09-09/AL are 
+  Copyright France Telecom, 2004.
+  
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+  
+  Contributors:
+      Eteration Bilisim A.S. - initial API and implementation
+      Naci Dai
+  For more information on eteration, please see
+  <http://www.eteration.com/>.
+ -->
+<project name="webmodulebuilder"  default="deploy"  basedir=".">
+
+
+  <!-- set global properties for this build -->
+  <property file="build.properties"/>
+  <property name="dist" value="../../dist" />
+  <property name="web" value="../" />
+  
+   
+  <target name="init">
+    <!-- Create the dist directory structure used by compile
+         and copy the deployment descriptors into it-->
+    <mkdir dir="${dist}"/>
+    <mkdir dir="${dist}/WEB-INF"/>
+    <mkdir dir="${dist}/WEB-INF/classes"/>
+    <mkdir dir="${dist}/WEB-INF/lib"/>
+    <copy todir="${dist}">
+      <fileset dir="${web}">
+        <include name="**/*.*"/>
+        <exclude name="**/*.java"/>
+      	<exclude name="**/html/*.*"/>
+        <exclude name="**/jsp_servlet/*.class"/>
+        <exclude name="**/build.xml"/>
+        <exclude name="**/deploy.xml"/>
+        <exclude name="**/build.properties"/>
+        <exclude name="**/servers.xml"/>
+        <exclude name="**/targets.xml"/>
+        <exclude name="**/*.war"/>
+      </fileset>
+    </copy>
+    <copy todir="${dist}/WEB-INF/classes">
+      <fileset dir="${project.dir}/${bin.dir}">
+        <include name="**/*.*"/>
+        <exclude name="**/jsp_servlet/*.class"/>
+        <exclude name="**/*.java"/>
+      </fileset>
+    	<fileset dir="${project.dir}/config">
+    	        <include name="**/*.*"/>
+    	        <exclude name="**/jsp_servlet/*.class"/>
+    	        <exclude name="**/*.java"/>
+    	      </fileset>
+    </copy>
+  	<copy todir="${dist}/WEB-INF/lib">
+  	      <fileset dir="${project.dir}/thirdparty/apache">
+  	    	 <include name="**/*.*"/>
+  	       </fileset>
+   </copy>
+  	<copy todir="${dist}/WEB-INF/lib">
+  	  	      <fileset dir="${project.dir}/thirdparty/general">
+  	  	    	 <include name="**/*.*"/>
+  	  	       </fileset>
+  	   </copy>
+	<copy todir="${dist}/WEB-INF/lib">
+	  	<fileset dir="${project.dir}/thirdparty/hibernate">
+	  		<include name="**/*.*"/>
+	  	</fileset>
+	 </copy>
+  	<copy todir="${dist}/WEB-INF/lib">
+  		  	<fileset dir="${project.dir}/thirdparty/jasper">
+  		  		<include name="**/*.*"/>
+  		  	</fileset>
+  		 </copy>
+	<copy todir="${dist}/WEB-INF/lib">
+		<fileset dir="${project.dir}/thirdparty/sqlserver">
+	  		<include name="**/*.*"/>
+	  	</fileset>
+	</copy>
+  	<copy todir="${dist}/WEB-INF/lib">
+  			<fileset dir="${project.dir}/thirdparty/excel">
+  		  		<include name="**/*.*"/>
+  		  	</fileset>
+  		</copy>
+	<copy todir="${dist}/WEB-INF/lib">
+	      <fileset dir="${project.dir}/thirdparty/jfreechart">
+			<include name="**/*.*"/>
+	  	  </fileset>
+	</copy>
+  	<copy todir="${dist}/WEB-INF/lib">
+  		      <fileset dir="${project.dir}/thirdparty/dwr">
+  				<include name="**/*.*"/>
+  		  	  </fileset>
+	</copy>
+    
+  </target>
+
+
+  
+  <target name="deploy" depends="undeploy,init" >
+    <!-- Create the distribution directory -->
+    <delete file="${war}.war" failonerror="false" />
+	<jar jarfile="${war}.war" basedir="${dist}" manifest="${dist}/META-INF/MANIFEST.MF"/>    
+  	<copy file="${war}.war" todir="${deploy.dir}"/>
+    <delete file="${war}.war" failonerror="false" />
+    <delete dir="${dist}" failonerror="false" />
+  	<delete dir="${deploy.dir}/${war}"/>
+  </target>
+  
+  <target name="deployTool">
+	  <ant antfile="./deploy.xml" dir="." target="deploy" inheritall="true">
+	  </ant>
+  </target> 
+  
+  
+  
+  <target name="undeploy">
+    <!-- Sometimes you can undeploy with deleting the module file but it is best dealt on an appserver basis
+         at undeployTool target -->
+  </target>
+  <target name="undeployTool">
+	  <ant antfile="./undeploy.xml" dir="." target="undeploy" inheritall="true">
+	  </ant>
+  </target>   
+  
+
+</project>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Unnamed" pageWidth="570" pageHeight="842" columnWidth="570" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="Contract"/>
+	<field name="billingAddress" class="java.lang.String"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="contractStartDate" class="java.util.Date"/>
+	<field name="customerName" class="java.lang.String"/>
+	<field name="dollarperkWh" class="java.lang.String"/>
+	<field name="emailAddress" class="java.lang.String"/>
+	<field name="fax" class="java.lang.String"/>
+	<field name="noticeContactName" class="java.lang.String"/>
+	<field name="phoneNumber" class="java.lang.String"/>
+	<field name="serviceAddress" class="java.lang.String"/>
+	<field name="term" class="java.lang.String"/>
+	<field name="zipCodeState" class="java.lang.String"/>
+	<detail>
+		<band height="820">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="37" width="96" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Applicant billing name: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="61" width="108" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Applicant billing address: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="111" width="133" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Applicant billing service address: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="135" width="84" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[City, State, Zipcode :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="159" width="104" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Applicant email address:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="183" width="85" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Applicant ESI ID #:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="219" width="457" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[If applicable, name of individual legally authorized to act for customer and relationship to applicant:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="48" y="436" width="480" height="105"/>
+				<textElement>
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Signed_________________________  Date:_______________________
+
+
+MXenergy
+
+
+By:____________________________ Date:_______________________
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="168" y="10" width="228" height="21"/>
+				<box border="None"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[MXENERGY/ ENROLLMENT AUTHORIZATION / PUCT LICENSE NO. 10113]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="387" width="543" height="36"/>
+				<textElement textAlignment="Justified">
+					<font size="9" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[I have read and understand this Enrollment Authorization and the Terms of Service that describe the service I will be receiving.  I am at least eighteen years of age and legally authorized to select or change retail electric providers for the service address(s) listed above. 
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="327" width="543" height="48"/>
+				<textElement textAlignment="Justified">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[____By initialing here and signing below, I am authorizing MXenergy to become my new retail electric provider and to act as my agent to perform the necessary tasks to establish my electric service account with MXenergy. This authorization to establish or switch my provider of electric service extends to the following locations (list each service address):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="243" width="543" height="20"/>
+				<textElement>
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[____By initialing here, I acknowledge that I have read and understand the Terms of Service for the product for which I am enrolling. 
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="85" y="183" width="68" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[See Appendix A]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="97" y="37" width="446" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="61" width="433" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{billingAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="111" width="407" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{serviceAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="135" width="457" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{zipCodeState}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="159" width="437" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{emailAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="267" width="543" height="57"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["____By initialing here, I acknowledge that I understand that the price I am agreeing to is stated in the Terms of Service.  The term of the contract that I am agreeing to is  "+ $F{term} +" months and that I will be required to pay a deposit in the amount of $"+$F{dollarperkWh} +" in order to enroll.  I prefer to receive information from my REP in English/Spanish (circle one).  There is a penalty for early cancellation specified in the Terms of Service."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="86" width="112" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Billing Telephone Number: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="114" y="86" width="429" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="None"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{phoneNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

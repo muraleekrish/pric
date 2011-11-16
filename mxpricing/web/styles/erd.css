@@ -1,0 +1,59 @@
+/* CSS Document */
+
+.loginfo {
+	background-image:url(../images/banner_06-03_06.gif);
+	background-repeat:repeat-x;
+	color:#FFF;
+	font-size:11px;
+	font-weight:bold;
+	vertical-align:top;
+	padding:1px 5px 0px 3px;
+	text-align:right;
+}
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.submenubg{
+	background-image:url(../images/sub.gif);
+	background-repeat:repeat-x;	
+}
+.submenu{
+	background-image:url(../images/sub.gif);
+	background-repeat:repeat-x;	
+	font-size:11px;
+	font-weight:bold;	
+	font-family:"Trebuchet MS";
+	padding:0px 7px 0px 7px;
+}
+
+
+.submenu a:link{ text-decoration:none; color:#000000; }
+.submenu a:visited{text-decoration:none; color:#000000;}
+.submenu a:hover{text-decoration:none; color:#000000;}
+.submenu a:active{text-decoration:none; color:#000000;}
+
+.submenuhi{
+	background-image:url(../images/subhi.gif);
+	background-repeat:repeat-x;
+	font-size:11px;
+	font-weight:bold;	
+	font-family:"Trebuchet MS";
+	padding:0px 7px 0px 7px;
+}
+.submenuhi a:link{ text-decoration:none; color:#000000; }
+.submenuhi a:visited{text-decoration:none; color:#000000;}
+.submenuhi a:hover{text-decoration:none; color:#000000;}
+.submenuhi a:active{text-decoration:none; color:#000000;}
+
+.footer {
+	background-image:url(../images/Copyrights.gif);
+	background-repeat:repeat;
+	border-top:solid 1px #0C9102;
+	font-size:10px;
+	padding:5px 5px 3px 2px;
+	text-align:right;
+}

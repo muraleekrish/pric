@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PriceRunCustomerVO"
+        table="PRC_Price_Run_Cust">
+
+        <id
+            name="priceRunCustomerRefId"
+            column="PriceRunCustomer_Ref_ID"
+            type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		<many-to-one name="priceRunRef" fetch="join" column="Pricerun_Ref_No" lazy="false"/>    	
+		<many-to-one name="prospectiveCustomer" column="Prospective_Cust_ID" lazy="false"/>    	
+		<property
+            name="runStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Run_Status"
+        />
+        <property
+            name="startDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Cntrct_StartDate"
+        />
+		<property
+            name="reason"
+            type="string"
+            update="true"
+            insert="true"
+            column="Reason"
+        />
+        <property
+            name="taxExempt"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="Tax_Exempt"
+        />
+        <set name="customerContracts" inverse="true" lazy="false">
+            <key column="PriceRunCustomer_Ref_ID"/>
+            <one-to-many class="com.savant.pricing.valueobjects.ContractsVO"/>
+        </set>
+    </class>
+
+</hibernate-mapping>

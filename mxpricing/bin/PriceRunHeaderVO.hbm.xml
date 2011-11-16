@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PriceRunHeaderVO"
+        table="PRC_Price_Run_Header">
+
+        <id
+            name="priceRunRefNo"
+            column="Pricerun_Ref_No"
+            type="string">
+            
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		<property
+            name="priceRunTime"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Price_Run_Time"
+        />
+		
+		<property
+            name="fwdCurveDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Fwd_Curve_Date"
+        />
+		
+		<property
+            name="gasPrice"
+            type="float"
+            update="true"
+            insert="true"
+            column="Gas_Price"
+        />
+		
+		<property
+            name="runBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Run_By"
+        />
+		
+		<property
+            name="runType"
+            type="string"
+            update="true"
+            insert="true"
+            column="Run_Type"
+        />
+		
+		<property
+            name="comments"
+            type="string"
+            update="true"
+            insert="true"
+            column="Comments"
+        />
+        
+         <property
+            name="gasPriceDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="gas_price_date"
+        />
+
+    </class>
+
+</hibernate-mapping>

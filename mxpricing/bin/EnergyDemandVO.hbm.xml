@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.EnergyDemandVO"
+        table="PRC_Enrgy_Dmnd">
+        <composite-id> 
+  		 <key-many-to-one name="usageRef" class="com.savant.pricing.calculation.valueobjects.PricingUsageHeaderVO" column="PRC_Usage_Ref_ID"/>    
+        </composite-id> 
+		
+		<many-to-one name="unit" fetch="join" column="UOM_ID"/>    	
+		
+		<property
+            name="energyDemand"
+            type="float"
+            update="true"
+            insert="true"
+            column="Enrgy_Dmnd"
+        />
+		<property
+            name="billingDemand"
+            type="float"
+            update="true"
+            insert="true"
+            column="Billing_Dmnd"
+        />
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.valueobjects.CustomerFilesVO"
+        table="PRC_Cust_files">
+
+		<composite-id> 
+ 		 <key-many-to-one name="prospectiveCust" class="com.savant.pricing.valueobjects.ProspectiveCustomerVO" column="Prospective_Cust_ID"/>    
+   		 <key-property name="fileName" type="string" column="File_Name"/>
+   		</composite-id>	
+		<property
+            name="createdDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Created_Date"
+        />
+		
+		
+		<property
+            name="createdBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Created_by"
+        />
+		
+		<property
+            name="description"
+            type="string"
+            update="true"
+            insert="true"
+            column="Descrptn"
+        />
+		<many-to-one name="fileType" fetch="join" column="File_Type"/>    	
+    </class>
+
+</hibernate-mapping>

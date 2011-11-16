@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="PriceMatrixSummary" pageWidth="248" pageHeight="200" columnWidth="248" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="mxep"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="profile" class="java.lang.String"/>
+	<field name="term12" class="java.lang.Double"/>
+	<field name="term18" class="java.lang.Double"/>
+	<field name="term24" class="java.lang.Double"/>
+	<field name="term36" class="java.lang.Double"/>
+	<field name="term6" class="java.lang.Double"/>
+	<field name="zoneName" class="java.lang.String"/>
+	<detail>
+		<band height="17">
+			<frame>
+				<reportElement positionType="Float" x="0" y="0" width="246" height="16"/>
+				<box topBorder="None" leftBorder="None" bottomBorder="1Point" rightBorder="1Point"/>
+				<textField hyperlinkType="None">
+					<reportElement positionType="Float" x="1" y="0" width="60" height="16"/>
+					<box padding="0" topBorder="1Point" leftBorder="1Point" bottomBorder="None" rightBorder="1Point"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["  "+$F{profile}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0000" hyperlinkType="None">
+					<reportElement positionType="Float" x="61" y="0" width="37" height="16"/>
+					<box padding="0" topBorder="1Point" leftBorder="None" bottomBorder="None" rightBorder="1Point"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{term6}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0000" hyperlinkType="None">
+					<reportElement positionType="Float" x="98" y="0" width="37" height="16"/>
+					<box padding="0" topBorder="1Point" leftBorder="None" bottomBorder="None" rightBorder="1Point"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{term12}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0000" hyperlinkType="None">
+					<reportElement positionType="Float" x="135" y="0" width="37" height="16"/>
+					<box padding="0" topBorder="1Point" leftBorder="None" bottomBorder="None" rightBorder="1Point"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{term18}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0000" hyperlinkType="None">
+					<reportElement positionType="Float" x="172" y="0" width="37" height="16"/>
+					<box padding="0" topBorder="1Point" leftBorder="None" bottomBorder="None" rightBorder="1Point"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{term24}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.0000" hyperlinkType="None">
+					<reportElement positionType="Float" x="209" y="0" width="37" height="16"/>
+					<box padding="0" topBorder="1Point" leftBorder="None" bottomBorder="None" rightBorder="1Point"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{term36}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<elementGroup/>
+		</band>
+	</detail>
+</jasperReport>

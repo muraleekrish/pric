@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.PricingScalarsVO"
+        table="PRC_Scalars">
+
+		<composite-id> 
+   		 <key-property name="month" type="int" column="Mnth"/>
+ 		 <key-many-to-one name="dayType" class="com.savant.pricing.valueobjects.DayTypesVO" column="Day_Type_ID"/>    
+   		 <key-property name="hour" type="int" column="Hours"/>
+  		 <key-many-to-one name="congestionZone" class="com.savant.pricing.valueobjects.CongestionZonesVO" column="Congestion_Zone_ID"/>    
+   		</composite-id>			
+		<property
+            name="priceScalars"
+            type="float"
+            update="true"
+            insert="true"
+            column="Price_Scalars"
+        />
+    </class>
+
+</hibernate-mapping>

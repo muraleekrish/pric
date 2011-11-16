@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="SubReport" pageWidth="330" pageHeight="370" columnWidth="330" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isFloatColumnFooter="true" whenResourceMissingType="Empty" isIgnorePagination="true">
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="PriceComparisionSubreport"/>
+	<field name="class" class="java.lang.Class"/>
+	<field name="components" class="java.lang.String"/>
+	<field name="term1" class="java.lang.String"/>
+	<field name="term2" class="java.lang.String"/>
+	<field name="term3" class="java.lang.String"/>
+	<field name="term4" class="java.lang.String"/>
+	<field name="term5" class="java.lang.String"/>
+	<detail>
+		<band height="14">
+			<frame>
+				<reportElement x="0" y="0" width="330" height="14"/>
+				<box padding="0" topBorder="Thin" leftBorder="None" bottomBorder="None" rightBorder="1Point"/>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="82" height="14" backcolor="#D8D8D8"/>
+					<box padding="0" topBorder="None" leftBorder="Thin" bottomBorder="Thin" rightBorder="None"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="8" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{components}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" x="82" y="0" width="50" height="14"/>
+					<box padding="0" topBorder="None" leftBorder="Thin" bottomBorder="Thin" rightBorder="None"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="8" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{term1}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" x="131" y="0" width="50" height="14"/>
+					<box padding="0" topBorder="None" leftBorder="Thin" bottomBorder="Thin" rightBorder="None"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="8" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{term2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" x="180" y="0" width="50" height="14"/>
+					<box padding="0" topBorder="None" leftBorder="Thin" bottomBorder="Thin" rightBorder="None"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="8" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{term3}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" x="279" y="0" width="50" height="14"/>
+					<box padding="0" topBorder="None" leftBorder="None" bottomBorder="Thin" rightBorder="None"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="8" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{term5}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement positionType="Float" x="229" y="0" width="50" height="14"/>
+					<box padding="0" topBorder="None" leftBorder="Thin" bottomBorder="Thin" rightBorder="Thin"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial Narrow" size="8" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{term4}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

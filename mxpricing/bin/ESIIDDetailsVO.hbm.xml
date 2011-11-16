@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.valueobjects.ESIIDDetailsVO"
+        table="PRC_ESIID_Details">
+
+		<composite-id> 
+   	 		 <key-many-to-one name="prospectiveCustomer" class="com.savant.pricing.valueobjects.ProspectiveCustomerVO" column="Prospective_Cust_ID"/>    
+    		 <key-property name="esiId" type="string" column="ESIID"/>
+   		</composite-id>
+		<property
+            name="serviceAddress1"
+            type="string"
+            update="true"
+            insert="true"
+            column="Srvce_Address1"
+        />
+		<property
+            name="serviceAddress2"
+            type="string"
+            update="true"
+            insert="true"
+            column="Srvce_Address2"
+        />
+		<property
+            name="city"
+            type="string"
+            update="true"
+            insert="true"
+            column="City"
+        />
+		
+		<property
+            name="state"
+            type="string"
+            update="true"
+            insert="true"
+            column="State"
+        />
+		<property
+            name="zip"
+            type="int"
+            update="true"
+            insert="true"
+            column="Zip"
+        />
+		<property
+            name="county"
+            type="string"
+            update="true"
+            insert="true"
+            column="County"
+        />
+		
+		<property
+            name="tdsp"
+            type="string"
+            update="true"
+            insert="true"
+            column="TDSP"
+        />
+        
+		<property
+            name="dunsNo"
+            type="float"
+            update="true"
+            insert="true"
+            column="DUNS_Number"
+        />
+        <property
+            name="meterReadCycle"
+            type="string"
+            update="true"
+            insert="true"
+            column="Mtr_Read_Cycle"
+        />
+        
+        <property
+            name="status"
+            type="string"
+            update="true"
+            insert="true"
+            column="Status"
+        />
+        
+        <property
+            name="premiseType"
+            type="string"
+            update="true"
+            insert="true"
+            column="Premise_Type"
+        />
+        
+        <property
+            name="powerRegion"
+            type="string"
+            update="true"
+            insert="true"
+            column="Power_Region"
+        />
+        
+        <property
+            name="stationCode"
+            type="string"
+            update="true"
+            insert="true"
+            column="Station_Code"
+        />
+        <property
+            name="stationName"
+            type="string"
+            update="true"
+            insert="true"
+            column="Station_Name"
+        />
+        
+        <property
+            name="metered"
+            type="string"
+            update="true"
+            insert="true"
+            column="Metered"
+        />
+        
+        <property
+            name="openServiceOrder"
+            type="string"
+            update="true"
+            insert="true"
+            column="Open_Srvce_Order"
+        />
+        <property
+            name="polrCustClass"
+            type="string"
+            update="true"
+            insert="true"
+            column="POLR_Cust_Class"
+        />
+    </class>
+
+</hibernate-mapping>

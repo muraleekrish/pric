@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Disclaimer" pageWidth="620" pageHeight="400" columnWidth="610" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="true"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="PriceMatrixPDFSummary"/>
+	<parameter name="disclaimer" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" "]]></defaultValueExpression>
+	</parameter>
+	<field name="class" class="java.lang.Class"/>
+	<field name="fileName" class="java.lang.String"/>
+	<field name="listTDSPDetails" class="java.util.List"/>
+	<field name="tdsp" class="java.lang.String"/>
+	<columnFooter>
+		<band height="72">
+			<textField hyperlinkType="None">
+				<reportElement positionType="Float" x="4" y="4" width="610" height="57"/>
+				<box border="1Point" padding="2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Disclaimer:\n "+$P{disclaimer}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

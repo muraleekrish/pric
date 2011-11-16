@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.TDSPChargeRatesVO"
+        table="PRC_TDSP_Chrge_Rates">
+
+		<composite-id> 
+ 		 <key-many-to-one name="tdspChargeName" class="com.savant.pricing.calculation.valueobjects.TDSPChargeNamesVO" column="TDSP_Chrge_ID" lazy="false" />    
+  		 <key-many-to-one name="tdspRateCode" class="com.savant.pricing.valueobjects.TDSPRateCodesVO" column="Rate_Code_ID"/>    
+   		</composite-id>	
+        <many-to-one name="unit" column="UOM_ID"/>
+            
+		<property
+            name="charge"
+            type="float"
+            update="true"
+            insert="true"
+            column="Chrge"
+        />
+		
+    </class>
+
+</hibernate-mapping>

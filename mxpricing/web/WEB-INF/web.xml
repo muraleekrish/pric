@@ -1,0 +1,403 @@
+<?xml version="1.0" ?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<!-- Copyright (c) 2002 by ObjectLearn. All Rights Reserved. -->
+<web-app>
+<!-- Standard Action Servlet Configuration (with debugging) -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>application</param-name>
+			<param-value>ApplicationResources</param-value>
+		</init-param>
+	<init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>validate</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	
+	<!--  Startup Config   --> 
+	<servlet>
+		<servlet-name>startup</servlet-name> 
+		<servlet-class>com.savant.pricing.util.servlets.StartupServlet</servlet-class> 
+		<init-param>
+			<param-name>timerconfig</param-name> 
+			<param-value>WEB-INF/conf/timerconfig.xml</param-value> 
+		</init-param>
+		<load-on-startup>4</load-on-startup> 
+	</servlet>
+	
+	<servlet>
+		<servlet-name>PreRequisites</servlet-name>
+		<servlet-class>com.savant.pricing.common.PreRequisites</servlet-class>
+	    <load-on-startup>3</load-on-startup>
+	</servlet>
+	
+	<servlet>
+    	<servlet-name>picContent</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.PICServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>inputEnergyBlock</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.fulcruminput.EnergyInputServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>updateAutoRun</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.UpdateAutoRun</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>inputEnergyProfile</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.fulcruminput.EnergyProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>callCPEPDFServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.pdf.CPEPDFServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>callAggExcelServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.aggregatorlp.LoadProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>callCustomerExportExcelServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.ExportToExcelServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>ScheduleExcelServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.ScheduleExcelServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>callContractBlankPDFServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.pdf.ContractBlankPdfServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>ProspectiveCustomerFileServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.ProspectiveCustomerFileServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>callCommentsServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.CommentsServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>callContractPDFServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.pdf.ContractPDFServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>MMPDFServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.pdf.MMPricingServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>XpressPricingPdf</servlet-name>
+    	<servlet-class>com.savant.pricing.matrixpricing.pdf.ExpressPricingServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>PriceMatrixPdf</servlet-name>
+    	<servlet-class>com.savant.pricing.matrixpricing.pdf.PriceMatrixPDFServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>callIDRView</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.fulcruminput.IDRProfileDetailsServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>callNIDRView</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.fulcruminput.NIDRProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>DashBoardContent</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.DashBoardServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>Epp</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.EppServlet</servlet-class>
+    </servlet>
+	<servlet>
+    	<servlet-name>DashBoardComboContent</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.DashBoardComboServlet</servlet-class>
+    </servlet>
+    
+	<servlet>
+    	<servlet-name>DashBoardComboESIID</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.DashBoardComboESIIDServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>DealLeverAnalyst</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pricing.DealLeverAnalystServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>ContractExpServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.pdf.ContractExpireDateServlet</servlet-class>
+    </servlet>
+    
+     <servlet>
+    	<servlet-name>updateOverride</servlet-name>
+    	<servlet-class>com.savant.pricing.pconfig.deallevers.UpdateOverride</servlet-class>
+  	</servlet>     
+    <servlet>
+    	<servlet-name>DisplayChart</servlet-name>
+    	<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+  	</servlet>
+  	<servlet>
+    	<servlet-name>pdfConverter</servlet-name>
+    	<servlet-class>com.sample.PdfConverter</servlet-class>
+    </servlet>	
+    <servlet>
+    	<servlet-name>dashboardpdf</servlet-name>
+    	<servlet-class>com.sample.DashBoardPDF</servlet-class>
+    </servlet>	
+    <servlet>
+    	<servlet-name>CreateContract</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.contract.Contractservlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>ContractTemplate</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.contracttemplate.ContractTemplateServlet</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>RateCode</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pconfiguration.TDSPChargesServlet</servlet-class>
+    </servlet>
+  	
+  	<servlet>
+    	<servlet-name>GetParentUser</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.security.GetParentUserServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>MrktCmmntryServlet</servlet-name>
+    	<servlet-class>com.savant.pricing.presentation.pconfiguration.MrktCmmntryServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <display-name>DWR Servlet</display-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+         <init-param>
+             <param-name>debug</param-name>
+             <param-value>true</param-value>
+        </init-param>
+   </servlet>
+    
+    
+    <servlet-mapping>
+      <servlet-name>dwr-invoker</servlet-name>
+      <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+    
+  	
+  	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DashBoardContent</servlet-name>
+		<url-pattern>/servlet/dashBoardContent</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Epp</servlet-name>
+		<url-pattern>/servlet/EppContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DashBoardComboContent</servlet-name>
+		<url-pattern>/servlet/dashBoardComboContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>picContent</servlet-name>
+		<url-pattern>/servlet/picContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>inputEnergyBlock</servlet-name>
+		<url-pattern>/servlet/inputEnergy</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>updateAutoRun</servlet-name>
+		<url-pattern>/servlet/updateAutoRunServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>inputEnergyProfile</servlet-name>
+		<url-pattern>/servlet/inputEnergyProfile</url-pattern>
+	</servlet-mapping>
+	 
+	<servlet-mapping>
+		<servlet-name>DashBoardComboESIID</servlet-name>
+		<url-pattern>/servlet/dashBoardComboESIID</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DealLeverAnalyst</servlet-name>
+		<url-pattern>/servlet/dealLeverAnalyst</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ContractExpServlet</servlet-name>
+		<url-pattern>/servlet/contractExpServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet-mapping>
+		<servlet-name>CreateContract</servlet-name>
+		<url-pattern>/servlet/createContact</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ContractTemplate</servlet-name>
+		<url-pattern>/servlet/contractTemplate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RateCode</servlet-name>
+		<url-pattern>/servlet/rateCode</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GetParentUser</servlet-name>
+		<url-pattern>/servlet/getParentUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>MrktCmmntryServlet</servlet-name>
+		<url-pattern>/servlet/MrktCmmntryServlet</url-pattern>
+	</servlet-mapping>
+	
+	 <servlet-mapping>
+        <servlet-name>DisplayChart</servlet-name>
+        <url-pattern>/servlet/DisplayChart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+		<servlet-name>pdfConverter</servlet-name>
+		<url-pattern>/servlet/pdfConverter</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>dashboardpdf</servlet-name>
+		<url-pattern>/servlet/dashboardpdf</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	       <servlet-name>updateOverride</servlet-name>
+	       <url-pattern>/servlet/updateOverride</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callCPEPDFServlet</servlet-name>
+	       <url-pattern>/servlet/CPEPDFServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callAggExcelServlet</servlet-name>
+	       <url-pattern>/servlet/AggExcelServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callCustomerExportExcelServlet</servlet-name>
+	       <url-pattern>/servlet/CustomerExcelServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>ScheduleExcelServlet</servlet-name>
+	       <url-pattern>/servlet/scheduleExcelServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callContractBlankPDFServlet</servlet-name>
+	       <url-pattern>/servlet/ContractBlankPDFServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>ProspectiveCustomerFileServlet</servlet-name>
+	       <url-pattern>/servlet/ProspectiveCustomerFileServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callCommentsServlet</servlet-name>
+	       <url-pattern>/servlet/getComments</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callContractPDFServlet</servlet-name>
+	       <url-pattern>/servlet/ContractPDFServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>MMPDFServlet</servlet-name>
+	       <url-pattern>/servlet/MMPDFServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>XpressPricingPdf</servlet-name>
+	       <url-pattern>/servlet/XpressPricingPdf</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>PriceMatrixPdf</servlet-name>
+	       <url-pattern>/servlet/priceMatrixPdf</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+	       <servlet-name>callIDRView</servlet-name>
+	       <url-pattern>/servlet/callIDRView</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+	       <servlet-name>callNIDRView</servlet-name>
+	       <url-pattern>/servlet/callNIDRView</url-pattern>
+   </servlet-mapping>
+   
+   <session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>/jsp/index.jsp</welcome-file>
+	</welcome-file-list>
+<!--
+	 <error-page>
+		<error-code>404</error-code>
+		<location>/jsp/sessionout.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+	</error-page> 
+-->
+	<taglib>
+		<taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
+		<taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+		<taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+	</taglib>
+
+	<taglib>
+		<taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+		<taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+	</taglib>
+	
+	
+</web-app>

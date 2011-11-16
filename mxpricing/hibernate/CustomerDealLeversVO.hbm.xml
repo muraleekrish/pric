@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.CustomerDealLeversVO"
+        table="PRC_Cust_Deal_Levers">
+
+		<composite-id> 
+ 		 <key-many-to-one name="prospectiveCustomer" class="com.savant.pricing.valueobjects.ProspectiveCustomerVO" column="Prospective_Cust_ID"/>    
+ 		 <key-many-to-one name="dealLever" class="com.savant.pricing.calculation.valueobjects.DealLeversVO" column="Deal_Lever_ID" lazy="false"/>    
+   		 <key-property name="term" type="int" column="term"/>
+   		</composite-id>	
+		<property
+            name="value"
+            type="float"
+            update="true"
+            insert="true"
+            column="Value"
+        />
+        <property
+            name="modifiedDate"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="Modified_Date"
+        />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.ForwardCurveBlockVO"
+        table="PRC_Fwd_Curve_Blck">
+
+		<composite-id> 
+   		 <key-property name="marketDate" type="timestamp" column="mrkt_date"/>
+ 		 <key-many-to-one name="priceBlock" class="com.savant.pricing.calculation.valueobjects.PriceBlockHeaderVO" column="Price_Blck_ID" lazy="false"/>    
+   		 <key-property name="monthYear" type="date" column="mnth_yr"/>
+  		 <key-many-to-one name="congestionZone" class="com.savant.pricing.valueobjects.CongestionZonesVO" column="Congestion_Zone_ID" lazy="false"/>    
+  		 <key-many-to-one name="dataSource" class="com.savant.pricing.calculation.valueobjects.ForwardCurvesSourceVO" column="data_src_id" lazy="false"/>    
+   		</composite-id>			
+		<property
+            name="price"
+            type="float"
+            update="true"
+            insert="true"
+            column="price"
+        />
+    </class>
+
+</hibernate-mapping>

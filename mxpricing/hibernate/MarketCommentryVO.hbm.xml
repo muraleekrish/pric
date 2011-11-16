@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class
+        name="com.savant.pricing.calculation.valueobjects.MarketCommentryVO"
+        table="PRC_Daily_Market_Commentry">
+
+		   <id
+            name="commentryId"
+            column="Comment_Id"
+            type="int">
+            
+            <generator class="identity">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ContextType.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		<property
+            name="marketDate"
+            type="date"
+            update="true"
+            insert="true"
+            unique="true"
+            column="Market_Date"
+        />
+	
+		 <property
+            name="marketComments"
+            type="string"
+            update="true"
+            insert="true"
+            column="Market_Comments"
+        />
+        
+		 <property
+            name="createdDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Created_Date"
+        />
+        
+		 <property
+            name="createdBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Created_By"
+        />
+		 <property
+            name="modifiedDate"
+            type="date"
+            update="true"
+            insert="true"
+            column="Modified_Date"
+        />
+		 <property
+            name="modifiedBy"
+            type="string"
+            update="true"
+            insert="true"
+            column="Modified_By"
+        />
+		
+		
+    </class>
+
+</hibernate-mapping>

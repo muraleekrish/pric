@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Database connection settings -->
+			
+		<!--		
+		
+		
+		<property name="show_sql">true</property> 
+		
+		
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">jdbc:sqlserver://win2001:1433;databaseName=mxep;</property>
+		<property name="connection.username">eepm</property>
+		<property name="connection.password">savant@321</property>
+		
+		-->
+		
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">jdbc:sqlserver://DB1:1433;databaseName=MXEP;</property>
+		<property name="connection.username">eepm</property>
+		<property name="connection.password">savant@321</property>
+		
+		
+		<!-- Connection pool setting -->
+		<property name="hibernate.c3p0.max_size">25</property> 
+		<property name="hibernate.c3p0.min_size">3</property> 
+		<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<property name="hibernate.c3p0.timeout">5000</property> <!-- seconds --> 
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<property name="hibernate.c3p0.acquire_increment">3</property>
+		<property name="hibernate.c3p0.validate">true</property>
+			
+
+		<!-- Connection pool setting -->
+		<mapping resource="CongestionZonesVO.hbm.xml"/>
+		<mapping resource="WeatherZonesVO.hbm.xml"/>
+		<mapping resource="ZipCodeVO.hbm.xml"/>
+		<mapping resource="UserTypesVO.hbm.xml"/>
+		<mapping resource="UsersVO.hbm.xml"/>
+		<mapping resource="CustomerStatusVO.hbm.xml"/>
+		<mapping resource="CDRStatusVO.hbm.xml"/>
+		<mapping resource="ProspectiveCustomerVO.hbm.xml"/>
+		<mapping resource="CustomerFileTypesVO.hbm.xml"/>
+		<mapping resource="CustomerFilesVO.hbm.xml"/>		
+		<mapping resource="TDSPVO.hbm.xml"/>
+		<mapping resource="MMPricingPDFVO.hbm.xml"/>
+		<mapping resource="MeterCategoryVO.hbm.xml"/>
+		<mapping resource="ServiceVoltageVO.hbm.xml"/>
+		<mapping resource="RateCodesVO.hbm.xml"/>
+		<mapping resource="TDSPRateCodesVO.hbm.xml"/>
+		<mapping resource="LoadProfileTypesVO.hbm.xml"/>
+		<mapping resource="DayTypesVO.hbm.xml"/>
+		<mapping resource="CalendarVO.hbm.xml"/>
+		<mapping resource="TaxTypesVO.hbm.xml"/>
+		<mapping resource="MeterReadCyclesVO.hbm.xml"/>
+		<mapping resource="PICVO.hbm.xml"/>
+		<mapping resource="UOMVO.hbm.xml"/>
+		<mapping resource="PICUsageVO.hbm.xml"/>
+		<mapping resource="NIDRVO.hbm.xml"/>
+		<mapping resource="PriceRunHeaderVO.hbm.xml"/>
+		<mapping resource="PriceRunCustomerVO.hbm.xml"/>
+		<mapping resource="PricingUsageHeaderVO.hbm.xml"/>
+		<mapping resource="CustomerPreferencesVO.hbm.xml"/>
+		<mapping resource="UsageVO.hbm.xml"/>
+		<mapping resource="PriceBlockHeaderVO.hbm.xml"/>
+		<mapping resource="PriceBlockVO.hbm.xml"/>
+		<mapping resource="PremiumVO.hbm.xml"/>
+		<mapping resource="ChargeTypesVO.hbm.xml"/>
+		<mapping resource="EnergyChargeNamesVO.hbm.xml"/>
+		<mapping resource="EnergyChargeRatesVO.hbm.xml"/>
+		<mapping resource="TDSPChargeNamesVO.hbm.xml"/>
+		<mapping resource="TDSPChargeRatesVO.hbm.xml"/>
+		<mapping resource="ForwardCurvesSourceVO.hbm.xml"/>
+		<mapping resource="ForwardCurveBlockVO.hbm.xml"/>
+		<mapping resource="PricingCostVO.hbm.xml"/>
+		<mapping resource="ForwardCurveProfileVO.hbm.xml"/>
+		<mapping resource="PricingScalarsVO.hbm.xml"/>
+		<mapping resource="ShapingPremiumRatiosVO.hbm.xml"/>
+		<mapping resource="ShappingPremiumVO.hbm.xml"/>
+		<mapping resource="ApparentPowerVO.hbm.xml"/>
+		<mapping resource="EnergyDemandVO.hbm.xml"/>
+		<mapping resource="PowerFactorRatchetVO.hbm.xml"/>
+		<mapping resource="RolesVO.hbm.xml"/>
+		<mapping resource="MenuItemsVO.hbm.xml"/>
+		<mapping resource="GasPriceVO.hbm.xml"/>
+		<mapping resource="HenryHubPriceVO.hbm.xml"/>
+		<mapping resource="CustomerPreferencesTermsVO.hbm.xml"/>
+		<mapping resource="DealLeversVO.hbm.xml"/>
+		<mapping resource="CustomerDealLeversVO.hbm.xml"/>
+		<mapping resource="RoleMenuItemVO.hbm.xml"/>
+		<mapping resource="TaxRatesVO.hbm.xml"/>
+		<mapping resource="ProductsVO.hbm.xml"/>
+		<mapping resource="ContractsVO.hbm.xml"/>
+		<mapping resource="SeasonsVO.hbm.xml"/>
+		<mapping resource="MMPriceRunHeaderVO.hbm.xml"/>
+		<mapping resource="MatrixRunResultVO.hbm.xml"/>
+		<mapping resource="MatrixMonthlyWeightsVO.hbm.xml"/>
+		<mapping resource="SeasonMonthVO.hbm.xml"/>
+		<mapping resource="TLFVO.hbm.xml"/>
+		<mapping resource="ESIIDDetailsVO.hbm.xml"/>
+		<mapping resource="LossFactorLookupVO.hbm.xml"/>
+		<mapping resource="DLFCodeVO.hbm.xml"/>
+		<mapping resource="DLFVO.hbm.xml"/>
+		<mapping resource="MarketPriceVO.hbm.xml"/>
+		<mapping resource="ReportsTemplateHeaderVO.hbm.xml"/>
+        <mapping resource="ReportsParamVO.hbm.xml"/>
+		<mapping resource="ReportsParamValuesVO.hbm.xml"/>
+		<mapping resource="HolidayVO.hbm.xml"/>
+		<mapping resource="CustomerPreferencesProductsVO.hbm.xml"/>
+		<mapping resource="ContractsTrackingVO.hbm.xml"/>
+		<mapping resource="IDRVO.hbm.xml"/>
+		<mapping resource="AggregatorLoadProfiles.hbm.xml"/>
+		<mapping resource="PriceRunCustomerProductsVO.hbm.xml"/>
+		<mapping resource="PriceRunCustomerTermsVO.hbm.xml"/>
+		<mapping resource="BOSSUsersVO.hbm.xml"/>
+	    <mapping resource="CustomerCommentsVO.hbm.xml"/>
+		<mapping resource="NGFutureTerminateVO.hbm.xml"/>
+		<mapping resource="UserGroupVO.hbm.xml"/>
+		<mapping resource="PricingCostArchiveVO.hbm.xml"/>
+		<mapping resource="UsageArchiveVO.hbm.xml"/>
+		<mapping resource="CustEnergyComponentVO.hbm.xml"/>
+		<mapping resource="EnergyComponentVO.hbm.xml"/>
+		<mapping resource="CostOfCapitalVO.hbm.xml"/>
+		<mapping resource="PriceRunCostCapital.hbm.xml"/>
+
+	</session-factory>
+</hibernate-configuration>
+
